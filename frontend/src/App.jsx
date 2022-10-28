@@ -1,10 +1,11 @@
 import "./App.css";
+import Layout from "./components/Layout";
 
 function App() {
   return (
-    <div className="App">
-      <p className="text-3xl bg-lime-700">coucou</p>
-    </div>
+    <Layout>
+      {/* Set the page with {currentPage === "HOME" && <Home className="mb-auto" />} */}
+    </Layout>
   );
 }
 
