@@ -1,4 +1,4 @@
-import { bgGradLightRed } from "../utils/contants";
+import { bgGradLightRed } from "../../tools/constants";
 
 export default function Footer() {
   return (

@@ -1,12 +1,11 @@
-import Footer from "@components/Footer";
+import Layout from "./components/Layout";
 import "./App.css";
 
 function App() {
   return (
-    <div className="">
-      {/* TO DO : when component "main" done, put className="mb-auto" on main to put the footer at the bottom */}
-      <Footer />
-    </div>
+    <Layout>
+      {/* Set the page with {currentPage === "HOME" && <Home className="mb-auto" />} */}
+    </Layout>
   );
 }
 
