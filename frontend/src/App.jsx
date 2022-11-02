@@ -1,10 +1,11 @@
 import "./App.css";
 import Layout from "./components/Layout";
+import CombatSelection from "./pages/Combat_selection";
 
 function App() {
   return (
     <Layout>
-      {/* Set the page with {currentPage === "HOME" && <Home className="mb-auto" />} */}
+      <CombatSelection />
     </Layout>
   );
 }
