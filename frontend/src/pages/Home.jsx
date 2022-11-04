@@ -1,36 +1,21 @@
-import Counter from "@components/Counter";
-import logo from "@assets/logo.svg";
+import React from "react";
+import { bgGradLightGrey } from "../tools/constants";
+import About from "../components/Home-comp/About";
+import Flames from "../components/Home-comp/Flames";
+import HomeButtons from "../components/Home-comp/HomeButtons";
+import TitleImg from "../components/Home-comp/TitleImg";
+import Wilder from "../components/Home-comp/Wilder";
 
 export default function Home() {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
-
-      <Counter />
-
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+    <div className={`${bgGradLightGrey} w-full h-full z-0`}>
+      <div>
+        <TitleImg />
+        <HomeButtons />
+        <About />
+        <Wilder />
+        <Flames />
+      </div>
+    </div>
   );
 }
