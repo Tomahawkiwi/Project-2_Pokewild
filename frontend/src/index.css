@@ -1,4 +1,9 @@
 @tailwind base;
+@layer base {
+  html {
+    @apply font-Rajdhani  text-customDarkGrey;
+  }
+}
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.google.com/specimen/Rajdhani?category=Sans+Serif");
