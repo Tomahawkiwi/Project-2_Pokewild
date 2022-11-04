@@ -23,7 +23,7 @@ function Pokedex({ url }) {
 
   return (
     <div
-      className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 md:w-full lg:w-4/5`}
+      className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 sm:mx-5 sm:my-5`}
     >
       <div className="flex justify-between">
         <div className="font-Silkscreen text-sm">{pokemon.name}</div>

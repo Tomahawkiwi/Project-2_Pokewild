@@ -1,13 +1,11 @@
 import "./App.css";
 import Layout from "./components/Layout";
-import Pokedex from "./pages/Pokedex/Pokedex";
-import PokedexList from "./pages/Pokedex/PokedexList";
+import PokedexPage from "./pages/Pokedex";
 
 function App() {
   return (
     <Layout>
-      <PokedexList />
-      <Pokedex />
+      <PokedexPage />
     </Layout>
   );
 }
