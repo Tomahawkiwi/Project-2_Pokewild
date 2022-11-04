@@ -9,9 +9,12 @@ function FocusGamer({ allStats }) {
 
   return (
     <div className="w-10/12 my-7 mx-auto flex justify-between">
-      <div className="flex flex-col justify-center items-center ml-5">
+      <div className="flex flex-col justify-center items-center mx-3">
         <img
-          src={allStats[1].sprites.front_default}
+          src={
+            allStats[1].sprites.versions["generation-v"]["black-white"].animated
+              .front_default
+          }
           alt={allStats[1].name}
           className="w-32"
         />

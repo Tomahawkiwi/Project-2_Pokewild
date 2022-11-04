@@ -6,7 +6,7 @@ function Switch() {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="relative flex flex-col items-center justify-center ">
+    <div className="relative flex flex-col items-center justify-center z-50">
       <div className="flex">
         <label className="inline-flex  relative items-center mr-5 cursor-pointer">
           <input
