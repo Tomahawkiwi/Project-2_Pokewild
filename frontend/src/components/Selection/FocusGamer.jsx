@@ -12,7 +12,7 @@ function FocusGamer({ allStats }) {
       <div className="flex flex-col justify-center items-center ml-5">
         <img
           src={allStats[1].sprites.front_default}
-          alt={`Picture of ${allStats[1].name}`}
+          alt={allStats[1].name}
           className="w-32"
         />
         <p className="font-Silkscreen">{allStats[1].name}</p>

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Footer from "./Footer";
 
 // ajout {children} en props
@@ -11,3 +12,7 @@ export default function Layout({ children }) {
     </div>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.element.isRequired,
+};
