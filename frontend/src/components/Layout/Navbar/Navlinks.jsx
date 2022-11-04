@@ -19,10 +19,7 @@ function Switch() {
           <div
             className={`w-20 test  h-6 bg-customLightRed-endGrad rounded-full peer ${
               checked ? "after:bg-fantominus" : "after:bg-dark"
-            } after:bg-cover  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:-top-2 after:left-[2px] after:bg-gray-300 after:border-full after:rounded-full after:h-10 after:w-10 after:transition-all peer-checked:bg-customLightRed-endGrad after:border-spacing-1`}
-          >
-            {/* <img src="src/assets/navbar/logoDarkMode.png" alt="logo" /> */}
-          </div>
+            } after:bg-cover  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:-top-2 after:left-[2px] after:bg-gray-300 after:border-full after:rounded-full after:h-10 after:w-10 after:transition-all peer-checked:bg-customLightRed-endGrad after:border-spacing-1`} />
         </label>
       </div>
     </div>
