@@ -1,7 +1,14 @@
 import React from "react";
+import Pokedex from "../components/Pokedex/Pokedex";
+import PokedexList from "../components/Pokedex/PokedexList";
 
-function Pokedex() {
-  return <div>Pokedex</div>;
+function PokedexPage() {
+  return (
+    <div>
+      <PokedexList />
+      <Pokedex />
+    </div>
+  );
 }
 
-export default Pokedex;
+export default PokedexPage;
