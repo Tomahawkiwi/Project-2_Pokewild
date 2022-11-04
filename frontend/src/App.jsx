@@ -1,17 +1,17 @@
 import { useState } from "react";
 import "./App.css";
 import Layout from "./components/Layout";
-import Combat from "./pages/Combat";
 import Home from "./pages/Home";
-import Pokedex from "./pages/Pokedex";
+import PokedexPage from "./pages/Pokedex";
+import CombatSelection from "./pages/Combat_selection";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("HOME");
+  const [currentPage, setCurrentPage] = useState("COMBAT");
   return (
     <Layout setCurrentPage={setCurrentPage}>
       {currentPage === "HOME" && <Home />}
-      {currentPage === "POKEDEX" && <Pokedex />}
-      {currentPage === "COMBAT" && <Combat />}
+      {currentPage === "POKEDEX" && <PokedexPage />}
+      {currentPage === "COMBAT" && <CombatSelection />}
     </Layout>
   );
 }

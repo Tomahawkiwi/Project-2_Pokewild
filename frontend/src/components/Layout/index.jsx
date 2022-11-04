@@ -1,22 +1,17 @@
-// import { useState } from "react";
+import PropTypes from "prop-types";
 import Footer from "./Footer";
 import Navbar from "./Navbar/Navbar";
-// import PropTypes from "prop-types";
 
-// ajout {children} en props
-
-export default function Layout() {
-  // const [isMenu, setIsMenu] = useState(false);
+export default function Layout({ children }) {
   return (
     <div className="w-screen relative flex flex-col justify-between items-center align-middle min-h-screen">
       <Navbar />
-      {/* ajout {children} quand navbar ok */}
+      {children}
       <Footer />
     </div>
   );
 }
 
-// index.jsx.PropTypes = {
-//   isMenu: PropTypes.bool.isRequired,
-//   setIsMenu: PropTypes.bool.isRequired,
-// };
+Layout.propTypes = {
+  children: PropTypes.element.isRequired,
+};

@@ -1,5 +1,14 @@
 import React from "react";
+import Pokedex from "../components/Pokedex/Pokedex";
+import PokedexList from "../components/Pokedex/PokedexList";
 
-export default function Pokedex() {
-  return <div className="w-full">Pokedex</div>;
+function PokedexPage() {
+  return (
+    <div>
+      <PokedexList />
+      <Pokedex />
+    </div>
+  );
 }
+
+export default PokedexPage;
