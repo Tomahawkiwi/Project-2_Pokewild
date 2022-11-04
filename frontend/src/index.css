@@ -3,7 +3,7 @@
 @tailwind base;
 @layer base {
   html {
-    @apply font-Rajdhani;
+    @apply font-Rajdhani  text-customDarkGrey;
   }
 }
 @tailwind components;
