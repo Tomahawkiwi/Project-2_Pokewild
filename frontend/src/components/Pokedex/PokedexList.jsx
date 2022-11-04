@@ -21,7 +21,7 @@ function PokedexList() {
     <div className="w-full bg-[#F0F0F0]">
       <Picture />
       <div>
-        <div className="grid grid-cols-2 gap-5 justify-items-center mx-3 my-5 md:grid-cols-4 md:gap-6 lg:w-3/4 lg:gap-y-10">
+        <div className="flex flex-row flex-wrap justify-center">
           {pokemon.map((item) => (
             <Pokedex key={item.name} name={item.name} url={item.url} />
           ))}
