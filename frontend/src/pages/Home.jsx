@@ -1,7 +1,21 @@
 import React from "react";
+import { bgGradLightGrey } from "../tools/constants";
+import About from "../components/Home-comp/About";
+import Flames from "../components/Home-comp/Flames";
+import HomeButtons from "../components/Home-comp/HomeButtons";
+import TitleImg from "../components/Home-comp/TitleImg";
+import Wilder from "../components/Home-comp/Wilder";
 
-function Home() {
-  return <div className="h-56 bg-slate-500">Home</div>;
+export default function Home() {
+  return (
+    <div className={`${bgGradLightGrey} w-full h-full`}>
+      <div>
+        <TitleImg />
+        <HomeButtons />
+        <About />
+        <Wilder />
+        <Flames />
+      </div>
+    </div>
+  );
 }
-
-export default Home;
