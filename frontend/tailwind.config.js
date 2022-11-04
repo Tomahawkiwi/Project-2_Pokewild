@@ -23,6 +23,11 @@ module.exports = {
           lighter: "#666666",
         },
       },
+      backgroundImage: {
+        dark: "url('src/assets/navbar/logoDarkMode.png')",
+        fantominus: "url('src/assets/navbar/phantominus.png')",
+      },
+
       fontFamily: {
         Rajdhani: ["Rajdhani", "sans-serif"],
         Silkscreen: ["Silkscreen", "sans-serif"],
