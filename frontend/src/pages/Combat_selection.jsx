@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import DialBox from "../components/Selection/DialBox";
 import FocusGamer from "../components/Selection/FocusGamer";
 import SelectPokémon from "../components/Selection/SelectPokémons";
-import SelectArena from "../components/Selection/SelectArena";
-import FocusOpponent from "../components/Selection/FocusOpponent";
 
 function CombatSelection() {
   const [allData, setAllData] = useState([]);
@@ -45,12 +42,9 @@ function CombatSelection() {
   if (isLoading) return <div>Loading ...</div>;
 
   return (
-    <div className="bg-customLightGrey w-full">
-      <DialBox />
+    <div className="bg-customLightGrey w-full min-h-screen">
       {!isLoading && <FocusGamer allStats={allData} />}
       {!isLoading && <SelectPokémon allData={allData} />}
-      {!isLoading && <FocusOpponent />}
-      <SelectArena />
     </div>
   );
 }

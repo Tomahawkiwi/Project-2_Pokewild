@@ -8,7 +8,7 @@ function Picture() {
         src="src/assets/pokedex/pokedex-header.png"
         alt="trees"
       />
-      <h1 className="absolute text-4xl text-[#FFFFFF] font-Silkscreen md:text-7xl lg:text-8xl">
+      <h1 className="absolute text-4xl text-white font-Silkscreen md:text-7xl lg:text-8xl">
         Pokédex
       </h1>
     </div>
