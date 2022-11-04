@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 export default function Layout({ children }) {
   return (
-    <div className="w-screen relative flex flex-col justify-start items-center align-middle h-screen">
+    <div className="w-screen relative flex flex-col items-center justify-between align-middle h-screen">
       {/* // ajout navbar quand ok */}
       {/* ajout {children} quand navbar ok */}
       {children}
