@@ -6,7 +6,7 @@ import PokedexPage from "./pages/Pokedex";
 import CombatSelection from "./pages/Combat_selection";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("COMBAT");
+  const [currentPage, setCurrentPage] = useState("HOME");
   return (
     <Layout setCurrentPage={setCurrentPage}>
       {currentPage === "HOME" && <Home />}

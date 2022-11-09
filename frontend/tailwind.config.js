@@ -26,6 +26,9 @@ module.exports = {
       backgroundImage: {
         dark: "url('src/assets/navbar/logoDarkMode.png')",
         fantominus: "url('src/assets/navbar/phantominus.png')",
+        home: "url('src/assets/img-home/bg-img-home.png')",
+        deskflames: "url('src/assets/img-home/flames-bg.png')",
+        mobileflames: "url('src/assets/img-home/bg-flames.png')",
       },
 
       fontFamily: {
