@@ -1,18 +1,22 @@
-import { useState } from "react";
 import "./App.css";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import PokedexPage from "./pages/Pokedex";
+
 import CombatSelection from "./pages/Combat_selection";
+import Pokedex from "./components/Pokedex/Pokedex";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("COMBAT");
   return (
-    <Layout setCurrentPage={setCurrentPage}>
-      {currentPage === "HOME" && <Home />}
-      {currentPage === "POKEDEX" && <PokedexPage />}
-      {currentPage === "COMBAT" && <CombatSelection />}
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pokedex" element={<Pokedex />} />
+          <Route path="/combat" element={<CombatSelection />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
