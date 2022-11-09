@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -6,7 +7,7 @@ function Switch() {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="relative flex flex-col items-center justify-center z-50">
+    <div className="h-full relative flex flex-col items-center justify-center z-50">
       <div className="flex">
         <label className="inline-flex  relative items-center mr-5 cursor-pointer">
           <input
@@ -36,6 +37,8 @@ const navLinks = [
     color: "#878787",
     width: "90%",
     fontFamily: "Silkscreen",
+    alignItems: "center",
+    fontSize: "24px",
   },
   {
     linkName: "Combat",
@@ -44,6 +47,8 @@ const navLinks = [
     color: "#AFAFAF",
     width: "80%",
     fontFamily: "Silkscreen",
+    alignItems: "center",
+    fontSize: "24px",
   },
   {
     linkName: "Unleash dark mode",
@@ -51,6 +56,9 @@ const navLinks = [
     color: "white",
     width: "70%",
     fontFamily: "Rajdhani",
+    fontSize: "16px",
+    alignItems: "center",
+    flexDirection: "column-reverse",
     switch: Switch,
   },
 ];
@@ -58,7 +66,7 @@ const navLinks = [
 export default function NavLinks(props) {
   const { isOpen } = props;
   return (
-    <div>
+    <>
       {isOpen && (
         <ul className="w-full top-16 absolute bg-opacity-70 bg-black h-screen flex-col flex items-end">
           {navLinks.map((item) => (
@@ -67,17 +75,29 @@ export default function NavLinks(props) {
                 backgroundColor: item.color,
                 width: item.width,
                 fontFamily: item.fontFamily,
+                alignItems: item.alignItems,
+                fontSize: item.fontSize,
+                flexDirection: item.flexDirection,
               }}
               className="rounded-bl-2xl p-2 h-24 flex"
             >
-              {item.image && <img src={item.image} alt="logo" />}
-              <Link to={item.path}>{item.linkName}</Link>
+              {item.image && (
+                <img src={item.image} className="w-14 ml-3" alt="logo" />
+              )}
+              <Link to={item.path}>
+                <p
+                  style={{ marginTop: item.marginTop }}
+                  className="h-full mx-4"
+                >
+                  {item.linkName}
+                </p>
+              </Link>
               {item.switch && item.switch()}
             </div>
           ))}
         </ul>
       )}
-    </div>
+    </>
   );
 }
 
