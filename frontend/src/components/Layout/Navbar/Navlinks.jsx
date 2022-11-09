@@ -1,12 +1,13 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-/* eslint-disable react/jsx-no-useless-fragment */
 function Switch() {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="relative flex flex-col items-center justify-center z-50">
+    <div className="h-full relative flex flex-col items-center justify-center z-50">
       <div className="flex">
         <label className="inline-flex  relative items-center mr-5 cursor-pointer">
           <input
@@ -19,7 +20,7 @@ function Switch() {
           <div
             className={`w-20 test  h-6 bg-customLightRed-endGrad rounded-full peer ${
               checked ? "after:bg-fantominus" : "after:bg-dark"
-            } after:bg-cover peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:-top-2 after:left-[2px]
+            } after:bg-cover peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:-top-2 after:left-[2px]
              after:bg-gray-300 after:border-full after:rounded-full after:h-10 after:w-10 after:transition-all peer-checked:bg-customLightRed-endGrad after:border-spacing-1`}
           />
         </label>
@@ -35,6 +36,9 @@ const navLinks = [
     image: "src/assets/navbar/logoPokedex.png",
     color: "#878787",
     width: "90%",
+    fontFamily: "Silkscreen",
+    alignItems: "center",
+    fontSize: "24px",
   },
   {
     linkName: "Combat",
@@ -42,12 +46,19 @@ const navLinks = [
     image: "src/assets/navbar/logoFight.png",
     color: "#AFAFAF",
     width: "80%",
+    fontFamily: "Silkscreen",
+    alignItems: "center",
+    fontSize: "24px",
   },
   {
     linkName: "Unleash dark mode",
-    path: "/darkMode",
+    path: "/darkmode",
     color: "white",
     width: "70%",
+    fontFamily: "Rajdhani",
+    fontSize: "16px",
+    alignItems: "center",
+    flexDirection: "column-reverse",
     switch: Switch,
   },
 ];
@@ -60,11 +71,27 @@ export default function NavLinks(props) {
         <ul className="w-full top-16 absolute bg-opacity-70 bg-black h-screen flex-col flex items-end">
           {navLinks.map((item) => (
             <div
-              style={{ backgroundColor: item.color, width: item.width }}
+              style={{
+                backgroundColor: item.color,
+                width: item.width,
+                fontFamily: item.fontFamily,
+                alignItems: item.alignItems,
+                fontSize: item.fontSize,
+                flexDirection: item.flexDirection,
+              }}
               className="rounded-bl-2xl p-2 h-24 flex"
             >
-              {item.image && <img src={item.image} alt="logo" />}
-              {item.linkName}
+              {item.image && (
+                <img src={item.image} className="w-14 ml-3" alt="logo" />
+              )}
+              <Link to={item.path}>
+                <p
+                  style={{ marginTop: item.marginTop }}
+                  className="h-full mx-4"
+                >
+                  {item.linkName}
+                </p>
+              </Link>
               {item.switch && item.switch()}
             </div>
           ))}
