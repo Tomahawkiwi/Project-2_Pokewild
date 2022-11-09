@@ -30,4 +30,3 @@ Select1Pokemon.propTypes = {
 };
 
 export default Select1Pokemon;
-// setClickedPokemon(allData1Pokemon);
