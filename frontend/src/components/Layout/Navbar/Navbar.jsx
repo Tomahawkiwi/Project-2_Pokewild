@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`${bgGradLightRed} w-full h-16 px-5 relative flex flex-col items-center align-middle justify-center z-10`}
+      className={`${bgGradLightRed} w-full h-16 px-5 relative flex flex-col items-center align-middle justify-center`}
     >
       <div className="w-full flex items-center align-middle justify-between p-30">
         <PokeButton isOpen={isOpen} handleBurger={handleBurger} />
