@@ -23,13 +23,11 @@ function SelectPokémon({ allData }) {
           />
           {allData.map((pokemon) => (
             <Select1Pokemon
-              key={pokemon.name}
               allData1Pokemon={pokemon}
               imagePokemon={pokemon.sprites.front_default}
               namePokemon={pokemon.name}
               width="w-14"
               setClickedPokemon={setClickedPokemon}
-              clickedPokemon={clickedPokemon}
             />
           ))}
         </div>

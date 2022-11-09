@@ -66,7 +66,7 @@ const navLinks = [
 export default function NavLinks(props) {
   const { isOpen } = props;
   return (
-    <>
+    <div>
       {isOpen && (
         <ul className="w-full top-16 absolute bg-opacity-70 bg-black h-screen flex-col flex items-end">
           {navLinks.map((item) => (
@@ -97,7 +97,7 @@ export default function NavLinks(props) {
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 }
 
