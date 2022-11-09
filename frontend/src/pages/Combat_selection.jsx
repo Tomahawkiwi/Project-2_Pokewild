@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import FocusGamer from "../components/Selection/FocusGamer";
 import SelectPokémon from "../components/Selection/SelectPokémons";
 
 function CombatSelection() {
@@ -27,6 +26,7 @@ function CombatSelection() {
     await getPokemon(146, controller);
     await getPokemon(149, controller);
     await getPokemon(150, controller);
+    await getPokemon(151, controller);
     setIsLoading(false);
   };
 
@@ -39,11 +39,15 @@ function CombatSelection() {
     };
   }, []);
 
-  if (isLoading) return <div>Loading ...</div>;
+  if (isLoading)
+    return (
+      <div className="min-h-screen flex flex-col justify-center">
+        <div>Loading ...</div>
+      </div>
+    );
 
   return (
     <div className="bg-customLightGrey w-full min-h-screen">
-      {!isLoading && <FocusGamer allStats={allData} />}
       {!isLoading && <SelectPokémon allData={allData} />}
     </div>
   );
