@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 import setBackgroundType from "../../tools/setBackgroundType";
 import setFirstLogo from "../../tools/setFirstLogo";
 import setSecondLogo from "../../tools/setSecondLogo";
 import setNumber from "../../tools/setNumber";
 import { bgGradLightGrey } from "../../tools/constants";
 
-function Pokedex({ url }) {
-  const [pokemon, setPokemon] = useState();
-
-  useEffect(() => {
-    axios
-      .get(url)
-      .then((res) => res.data)
-      .then((data) => {
-        setPokemon(data);
-      });
-  }, []);
-
-  if (!pokemon) return <div className="hidden">Loading ...</div>;
-
+function Pokedex({ pokemon }) {
   return (
     <div
       className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 sm:mx-5 sm:my-5`}
@@ -47,7 +33,7 @@ function Pokedex({ url }) {
 }
 
 Pokedex.propTypes = {
-  url: PropTypes.string.isRequired,
+  pokemon: PropTypes.string.isRequired,
 };
 
 export default Pokedex;
