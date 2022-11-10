@@ -18,17 +18,11 @@ function Flames() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden">
-      <img
-        className="absolute w-full object-cover"
-        src="src/assets/img-home/flames-bg.png"
-        alt="flames"
-      />
-
+    <div>
       <div className="flex w-full justify-around">
         {pokegif.map((item) => (
           <img
-            className="sm: w-20 lg:w-28"
+            className="py-5 sm: w-20 lg:w-28"
             src={
               item.data.sprites.versions["generation-v"]["black-white"].animated
                 .front_default
@@ -36,6 +30,9 @@ function Flames() {
             alt="poke gif"
           />
         ))}
+      </div>
+      <div className="w-full">
+        <img src="/src/assets/img-home/fire.png" alt="background flames" />
       </div>
     </div>
   );
