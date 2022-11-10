@@ -2,7 +2,7 @@ import React from "react";
 
 function Picture() {
   return (
-    <div className="w-full p-20 flex flex-col justify-end items-center relative h-[400px]">
+    <div className="w-full p-20 flex flex-col justify-end items-center relative h-[200px]">
       <img
         className="w-full h-full top-0 left-0 object-cover absolute"
         src="src/assets/pokedex/pokedex-header.png"
