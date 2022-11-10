@@ -26,6 +26,6 @@ function Filter({ handleCheckbox, filter }) {
 export default Filter;
 
 Filter.propTypes = {
-  handleCheckbox: PropTypes.string.isRequired,
-  filter: PropTypes.string.isRequired,
+  handleCheckbox: PropTypes.func.isRequired,
+  filter: PropTypes.arrayOf(PropTypes.any).isRequired,
 };

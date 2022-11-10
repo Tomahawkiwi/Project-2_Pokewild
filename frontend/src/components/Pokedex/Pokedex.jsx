@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from "react";
 import PropTypes from "prop-types";
 import setBackgroundType from "../../tools/setBackgroundType";
@@ -39,7 +40,7 @@ function Pokedex({ pokemon }) {
 }
 
 Pokedex.propTypes = {
-  pokemon: PropTypes.string.isRequired,
+  pokemon: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default Pokedex;
