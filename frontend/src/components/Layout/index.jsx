@@ -5,7 +5,7 @@ import Navbar from "./Navbar/Navbar";
 
 export default function Layout({ children }) {
   return (
-    <div className="w-screen relative flex flex-col justify-between items-center align-middle min-h-screen">
+    <div className="w-screen relative flex flex-col justify-between items-center align-middle min-h-screen text-customDarkGrey">
       <Navbar />
       {children}
       <Footer />

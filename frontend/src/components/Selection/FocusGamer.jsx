@@ -83,7 +83,7 @@ function FocusGamer({ clickedPokemon }) {
 }
 
 FocusGamer.propTypes = {
-  clickedPokemon: PropTypes.objectOf.isRequired,
+  clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default FocusGamer;

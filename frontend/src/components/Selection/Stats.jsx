@@ -32,10 +32,10 @@ function Stats({ statValue, colorBg, typeStatMax, textStat, clickedPokemon }) {
 
 Stats.propTypes = {
   statValue: PropTypes.number.isRequired,
-  colorBg: PropTypes.number.isRequired,
-  typeStatMax: PropTypes.string.isRequired,
+  colorBg: PropTypes.string.isRequired,
+  typeStatMax: PropTypes.number.isRequired,
   textStat: PropTypes.string.isRequired,
-  clickedPokemon: PropTypes.objectOf.isRequired,
+  clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default Stats;
