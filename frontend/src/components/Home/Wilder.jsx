@@ -8,7 +8,7 @@ function Wilder() {
         <h3>Want to go wilder ?</h3>
       </div>
       <div
-        className={`${bgGradLightRed} flex justify-center rounded-2xl shadow-custom py-3 w-40 h-16 font-Silkscreen text-white`}
+        className={`${bgGradLightRed} flex justify-center rounded-2xl shadow-custom mt-7 py-3 w-40 h-16 font-Silkscreen text-white`}
       >
         <button type="button">Fight mode</button>
       </div>

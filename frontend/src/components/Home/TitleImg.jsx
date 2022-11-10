@@ -4,7 +4,7 @@ function TitleImg() {
   return (
     <div className="bg-home bg-cover py-10 lg:h-96">
       <div className="flex flex-col items-center font-Silkscreen text-white">
-        <h1 className="w-80 text-3xl">It's time to start your adventure !</h1>{" "}
+        <h1 className="w-80 text-3xl">It's time to start your adventure !</h1>
         <br />
         <h2 className="text-5xl my-8">Welcome</h2>
         <div className="w-80 my-5 shadow-custom lg:w-3/5">
