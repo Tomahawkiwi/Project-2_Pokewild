@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import useState from "react";
+import { useState } from "react";
 import { bgGradLightGrey } from "../../tools/constants";
 import FocusGamer from "./FocusGamer";
 import Select1Pokemon from "./Select1Pokemon";
@@ -13,7 +13,7 @@ function SelectPokémon({ allData }) {
         <FocusGamer allStats={allData} clickedPokemon={clickedPokemon} />
       )}
       <div
-        className={`w-10/12 ${bgGradLightGrey} rounded-xl bg-custi shadow-custom mx-auto`}
+        className={`w-10/12 ${bgGradLightGrey} rounded-xl shadow-custom mx-auto`}
       >
         <div className="w-fit grid gap-3 grid-cols-4 px-4 py-4 mx-auto ">
           <Select1Pokemon
@@ -37,7 +37,7 @@ function SelectPokémon({ allData }) {
 }
 
 SelectPokémon.propTypes = {
-  allData: PropTypes.arrayOf.isRequired,
+  allData: PropTypes.objectOf.isRequired,
 };
 
 export default SelectPokémon;
