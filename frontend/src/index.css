@@ -1,5 +1,6 @@
 @import url("https://fonts.google.com/specimen/Rajdhani?category=Sans+Serif");
 @import url("https://fonts.google.com/specimen/Silkscreen?category=Display");
+@tailwind base;
 @layer base {
   html {
     @apply font-Rajdhani;
