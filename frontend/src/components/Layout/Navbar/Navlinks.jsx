@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import { useState } from "react";
+import { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import useOnClickOutside from "@jidayyy/useonclickoutside";
 
 function Switch() {
   const [checked, setChecked] = useState(false);
@@ -50,57 +51,53 @@ const navLinks = [
     alignItems: "center",
     fontSize: "24px",
   },
-  {
-    linkName: "Unleash dark mode",
-    path: "/darkmode",
-    color: "white",
-    width: "70%",
-    fontFamily: "Rajdhani",
-    fontSize: "16px",
-    alignItems: "center",
-    flexDirection: "column-reverse",
-    switch: Switch,
-  },
 ];
 
 export default function NavLinks(props) {
-  const { isOpen } = props;
+  const { setIsOpen } = props;
+
+  const ref = useRef();
+
+  useOnClickOutside(ref, () => setIsOpen(false));
+
   return (
-    <>
-      {isOpen && (
-        <ul className="w-full top-16 absolute bg-opacity-70 bg-black h-screen flex-col flex items-end">
-          {navLinks.map((item) => (
-            <div
-              style={{
-                backgroundColor: item.color,
-                width: item.width,
-                fontFamily: item.fontFamily,
-                alignItems: item.alignItems,
-                fontSize: item.fontSize,
-                flexDirection: item.flexDirection,
-              }}
-              className="rounded-bl-2xl p-2 h-24 flex"
+    <ul className="w-full top-16 absolute bg-opacity-70 bg-black h-screen flex-col flex items-end">
+      <div ref={ref} className="w-full flex justify-end flex-col items-end">
+        {navLinks.map((item) => (
+          <Link
+            key={item.linkName}
+            className="rounded-bl-2xl p-2 h-24 flex"
+            style={{
+              backgroundColor: item.color,
+              width: item.width,
+              fontFamily: item.fontFamily,
+              alignItems: item.alignItems,
+              fontSize: item.fontSize,
+              flexDirection: item.flexDirection,
+            }}
+            onClick={() => setIsOpen(false)}
+            to={item.path}
+          >
+            {item.image && (
+              <img src={item.image} className="w-16 ml-3" alt="logo" />
+            )}
+            <p
+              style={{ marginTop: item.marginTop }}
+              className="mx-4 align-middle pt-"
             >
-              {item.image && (
-                <img src={item.image} className="w-14 ml-3" alt="logo" />
-              )}
-              <Link to={item.path}>
-                <p
-                  style={{ marginTop: item.marginTop }}
-                  className="h-full mx-4"
-                >
-                  {item.linkName}
-                </p>
-              </Link>
-              {item.switch && item.switch()}
-            </div>
-          ))}
-        </ul>
-      )}
-    </>
+              {item.linkName}
+            </p>
+          </Link>
+        ))}
+        <div className="rounded-bl-2xl p-2 h-24 items-center align-middle justify-center font-Rajdhani bg-white flex w-[60%] flex-col">
+          <Switch />
+          <p>Unleash the darkmode</p>
+        </div>
+      </div>
+    </ul>
   );
 }
 
 NavLinks.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
 };
