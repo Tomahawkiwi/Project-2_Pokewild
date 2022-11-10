@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import setBackgroundType from "../../tools/setBackgroundType";
-import setBackgroundName from "../../tools/setBackgroundName";
 import setFirstLogo from "../../tools/setFirstLogo";
 import setSecondLogo from "../../tools/setSecondLogo";
 import setNumber from "../../tools/setNumber";
