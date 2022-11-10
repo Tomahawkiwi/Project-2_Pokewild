@@ -65,6 +65,7 @@ export default function NavLinks(props) {
       <div ref={ref} className="w-full flex justify-end flex-col items-end">
         {navLinks.map((item) => (
           <Link
+            key={item.linkName}
             className="rounded-bl-2xl p-2 h-24 flex"
             style={{
               backgroundColor: item.color,
