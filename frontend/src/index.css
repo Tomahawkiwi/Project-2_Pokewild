@@ -6,5 +6,6 @@
     @apply font-Rajdhani;
   }
 }
+@tailwind base;
 @tailwind components;
 @tailwind utilities;

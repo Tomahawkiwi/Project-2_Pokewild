@@ -1,10 +1,10 @@
 import React from "react";
 import { bgGradLightGrey } from "../tools/constants";
-import About from "../components/Home-comp/About";
-import Flames from "../components/Home-comp/Flames";
-import HomeButtons from "../components/Home-comp/HomeButtons";
-import TitleImg from "../components/Home-comp/TitleImg";
-import Wilder from "../components/Home-comp/Wilder";
+import About from "../components/Home/About";
+import Flames from "../components/Home/Flames";
+import HomeButtons from "../components/Home/HomeButtons";
+import TitleImg from "../components/Home/TitleImg";
+import Wilder from "../components/Home/Wilder";
 
 export default function Home() {
   return (
