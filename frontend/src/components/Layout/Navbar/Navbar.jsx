@@ -19,7 +19,7 @@ export default function Navbar() {
           alt="Pokewild logo"
         />
       </div>
-      <NavLinks isOpen={isOpen} />
+      {isOpen && <NavLinks setIsOpen={setIsOpen} />}
     </div>
   );
 }
