@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 
 const getAllPokemonData = async () => {
   const result = await Promise.all([
-    axios.get("https://pokeapi.co/api/v2/pokemon/blastoise"),
-    axios.get("https://pokeapi.co/api/v2/pokemon/pikachu"),
     axios.get("https://pokeapi.co/api/v2/pokemon/charizard"),
+    axios.get("https://pokeapi.co/api/v2/pokemon/pikachu"),
+    axios.get("https://pokeapi.co/api/v2/pokemon/blastoise"),
   ]);
   return result;
 };
@@ -20,7 +20,7 @@ function Flames() {
   return (
     <div className="relative overflow-hidden">
       <img
-        className="w-full absolute object-cover "
+        className="absolute w-full object-cover"
         src="src/assets/img-home/flames-bg.png"
         alt="flames"
       />

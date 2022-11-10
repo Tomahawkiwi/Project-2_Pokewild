@@ -3,6 +3,10 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      cursor: {
+        default: "url(/assets/Cursors/pokemon-cursor.png), default",
+        pointer: "url(/assets/Cursors/pokemon-pointer.png), pointer",
+      },
       colors: {
         customLightRed: {
           DEFAULT: "#E70100",
@@ -28,7 +32,6 @@ module.exports = {
         fantominus: "url('src/assets/navbar/phantominus.png')",
         home: "url('src/assets/img-home/bg-img-home.png')",
         deskflames: "url('src/assets/img-home/flames-bg.png')",
-        mobileflames: "url('src/assets/img-home/bg-flames.png')",
       },
 
       fontFamily: {
