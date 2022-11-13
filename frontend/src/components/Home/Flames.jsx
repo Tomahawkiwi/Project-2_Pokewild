@@ -22,6 +22,7 @@ function Flames() {
       <div className="flex w-full justify-around">
         {pokegif.map((item) => (
           <img
+            key={item.data.id}
             className="py-5 sm: w-20 lg:w-28"
             src={
               item.data.sprites.versions["generation-v"]["black-white"].animated
