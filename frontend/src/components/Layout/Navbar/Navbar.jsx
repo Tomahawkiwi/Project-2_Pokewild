@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import NavLinks from "./Navlinks";
 import { bgGradLightRed } from "../../../tools/constants";
 import PokeButton from "./PokeButton";
@@ -13,13 +14,15 @@ export default function Navbar() {
     >
       <div className="w-full flex items-center align-middle justify-between p-30">
         <PokeButton isOpen={isOpen} handleBurger={handleBurger} />
-        <img
-          className="w-28 h-9"
-          src="src/assets/navbar/pokewild-logo.png"
-          alt="Pokewild logo"
-        />
+        <Link className="" onClick={() => setIsOpen(false)} to="/">
+          <img
+            className="w-50 h-8"
+            src="src/assets/navbar/pokewild-logo.png"
+            alt="Pokewild logo"
+          />
+        </Link>
       </div>
-      <NavLinks isOpen={isOpen} />
+      {isOpen && <NavLinks setIsOpen={setIsOpen} />}
     </div>
   );
 }
