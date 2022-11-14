@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SelectPokémon from "../components/Selection/SelectPokémons";
+import { choiceByDefault } from "../tools/constants";
 
 function CombatSelection() {
   const [allData, setAllData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [clickedPokemon, setClickedPokemon] = useState(choiceByDefault);
 
   const getPokemon = async (index, controller) => {
     await axios
@@ -48,7 +50,13 @@ function CombatSelection() {
 
   return (
     <div className="bg-customLightGrey w-full min-h-screen">
-      {!isLoading && <SelectPokémon allData={allData} />}
+      {!isLoading && (
+        <SelectPokémon
+          allData={allData}
+          clickedPokemon={clickedPokemon}
+          setClickedPokemon={setClickedPokemon}
+        />
+      )}
     </div>
   );
 }

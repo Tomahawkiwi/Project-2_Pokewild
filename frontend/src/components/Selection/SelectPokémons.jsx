@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
-import { bgGradLightGrey, choiceByDefault } from "../../tools/constants";
+import bgGradLightGrey from "../../tools/constants";
 import FocusGamer from "./FocusGamer";
 import Select1Pokemon from "./Select1Pokemon";
 import SelectRandomPokemon from "./SelectRandomPokemon";
 
-function SelectPokémon({ allData }) {
-  const [clickedPokemon, setClickedPokemon] = useState(choiceByDefault);
-
+function SelectPokémon({ allData, clickedPokemon, setClickedPokemon }) {
   return (
     <div className="flex flex-col justify-center">
       {clickedPokemon != null && (
@@ -42,6 +39,8 @@ function SelectPokémon({ allData }) {
 
 SelectPokémon.propTypes = {
   allData: PropTypes.arrayOf(PropTypes.any).isRequired,
+  clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
+  setClickedPokemon: PropTypes.func.isRequired,
 };
 
 export default SelectPokémon;
