@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import FiltersList from "./FiltersList";
+import SortingList from "./SortingList";
 
-function Filter({ handleCheckbox, filter }) {
+function Sorting({ handleSortingName }) {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenFilters = () => {
     setIsOpen(!isOpen);
   };
-
   return (
     <div className="w-1/2">
       <button
@@ -15,18 +14,15 @@ function Filter({ handleCheckbox, filter }) {
         type="button"
         onClick={handleOpenFilters}
       >
-        FILTER
+        SORTING
       </button>
-      {isOpen && (
-        <FiltersList handleCheckbox={handleCheckbox} filter={filter} />
-      )}
+      {isOpen && <SortingList handleSortingName={handleSortingName} />}
     </div>
   );
 }
 
-export default Filter;
+export default Sorting;
 
-Filter.propTypes = {
-  handleCheckbox: PropTypes.func.isRequired,
-  filter: PropTypes.arrayOf(PropTypes.any).isRequired,
+Sorting.propTypes = {
+  handleSortingName: PropTypes.func.isRequired,
 };

@@ -4,6 +4,8 @@ import axios from "axios";
 import Pokedex from "./Pokedex";
 import Picture from "./Picture";
 import Filters from "./Filters/Filter";
+import Sorting from "./Sorting/Sorting";
+import { bgGradLightRed } from "../../tools/constants";
 
 const getAllPokemonData = async () => {
   const { data } = await axios.get(
@@ -20,6 +22,7 @@ const getAllPokemonData = async () => {
 function PokedexList() {
   const [pokemon, setPokemon] = useState();
   const [filter, setFilter] = useState([]);
+  const [sortByName, setSortByName] = useState(false);
 
   useEffect(() => {
     getAllPokemonData().then((res) => setPokemon(res));
@@ -35,6 +38,10 @@ function PokedexList() {
     }
   };
 
+  const handleSortingName = (e) => {
+    setSortByName(e.target.checked);
+  };
+
   const pokemonList = useCallback(
     (item) => {
       if (filter.length) {
@@ -48,17 +55,30 @@ function PokedexList() {
     [filter]
   );
 
+  const sortingNameHandler = (a, b) => {
+    if (sortByName) {
+      return a.name.localeCompare(b.name);
+    }
+    return -1;
+  };
+
   if (!pokemon) return <div>Loading pokemon ...</div>;
 
   return (
     <div className="w-full bg-[#F0F0F0]">
       <Picture />
-      <Filters handleCheckbox={handleCheckbox} filter={filter} />
+      <div className={`${bgGradLightRed} flex justify-between`}>
+        <Filters handleCheckbox={handleCheckbox} filter={filter} />
+        <Sorting handleSortingName={handleSortingName} />
+      </div>
       <div>
         <div className="flex flex-row flex-wrap justify-center">
-          {pokemon.filter(pokemonList).map((item) => (
-            <Pokedex key={item.name} pokemon={item} />
-          ))}
+          {pokemon
+            .filter(pokemonList)
+            .sort(sortingNameHandler)
+            .map((item) => (
+              <Pokedex key={item.name} pokemon={item} />
+            ))}
         </div>
       </div>
     </div>
