@@ -6,7 +6,7 @@ function SortingList({ handleSortingName, sortByName }) {
   return (
     <div>
       <div className={`${bgGradLightGrey} h-[20vh] w-1/2 absolute`}>
-        <div className="m-2 flex flex-col items-center">
+        <div className="m-2 flex flex-row items-center justify-evenly font-Rajdhani">
           <input
             type="checkbox"
             onChange={handleSortingName}

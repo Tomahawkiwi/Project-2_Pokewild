@@ -69,7 +69,10 @@ function PokedexList() {
       <Picture />
       <div className={`${bgGradLightRed} flex justify-between`}>
         <Filters handleCheckbox={handleCheckbox} filter={filter} />
-        <Sorting handleSortingName={handleSortingName} />
+        <Sorting
+          handleSortingName={handleSortingName}
+          sortByName={sortByName}
+        />
       </div>
       <div>
         <div className="flex flex-row flex-wrap justify-center">

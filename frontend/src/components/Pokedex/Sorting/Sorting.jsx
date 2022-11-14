@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import SortingList from "./SortingList";
 
-function Sorting({ handleSortingName }) {
+function Sorting({ handleSortingName, sortByName }) {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenFilters = () => {
     setIsOpen(!isOpen);
@@ -16,7 +16,12 @@ function Sorting({ handleSortingName }) {
       >
         SORTING
       </button>
-      {isOpen && <SortingList handleSortingName={handleSortingName} />}
+      {isOpen && (
+        <SortingList
+          handleSortingName={handleSortingName}
+          sortByName={sortByName}
+        />
+      )}
     </div>
   );
 }
@@ -25,4 +30,5 @@ export default Sorting;
 
 Sorting.propTypes = {
   handleSortingName: PropTypes.func.isRequired,
+  sortByName: PropTypes.bool.isRequired,
 };
