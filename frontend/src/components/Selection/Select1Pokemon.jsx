@@ -5,7 +5,6 @@ function Select1Pokemon({
   allData1Pokemon,
   imagePokemon,
   namePokemon,
-  width,
   setClickedPokemon,
   clickedPokemon,
 }) {
@@ -19,7 +18,7 @@ function Select1Pokemon({
           : "bg-customLightGrey-lighter"
       } flex justify-center items-center w-[60px] h-[60px] rounded-[10px] shadow-custom hover:scale-110`}
     >
-      <img src={imagePokemon} alt={namePokemon} className={`${width} h-fit`} />
+      <img src={imagePokemon} alt={namePokemon} className="w-14 h-fit" />
     </button>
   );
 }
@@ -28,7 +27,6 @@ Select1Pokemon.propTypes = {
   allData1Pokemon: PropTypes.objectOf(PropTypes.any).isRequired,
   imagePokemon: PropTypes.string.isRequired,
   namePokemon: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
   setClickedPokemon: PropTypes.func.isRequired,
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
 };

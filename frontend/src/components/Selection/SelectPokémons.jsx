@@ -25,7 +25,6 @@ function SelectPokémon({ allData, clickedPokemon, setClickedPokemon }) {
               allData1Pokemon={pokemon}
               imagePokemon={pokemon.sprites.front_default}
               namePokemon={pokemon.name}
-              width="w-14"
               setClickedPokemon={setClickedPokemon}
               clickedPokemon={clickedPokemon}
               allPokemons={allData}
