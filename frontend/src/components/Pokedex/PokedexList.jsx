@@ -6,6 +6,7 @@ import Picture from "./Picture";
 import Filters from "./Filters/Filter";
 import Sorting from "./Sorting/Sorting";
 import { bgGradLightRed } from "../../tools/constants";
+import setAvailableToFight from "../../tools/setAvailableToFight";
 
 const getAllPokemonData = async () => {
   const { data } = await axios.get(
@@ -22,6 +23,7 @@ const getAllPokemonData = async () => {
 function PokedexList() {
   const [pokemon, setPokemon] = useState();
   const [filter, setFilter] = useState([]);
+  const [fighterAvailable, setFighterAvailable] = useState(false);
   const [sortByName, setSortByName] = useState(false);
 
   useEffect(() => {
@@ -42,6 +44,10 @@ function PokedexList() {
     setSortByName(e.target.checked);
   };
 
+  const handleCheckboxFight = (e) => {
+    setFighterAvailable(e.target.checked);
+  };
+
   const pokemonList = useCallback(
     (item) => {
       if (filter.length) {
@@ -54,6 +60,13 @@ function PokedexList() {
     },
     [filter]
   );
+
+  const fightingList = (item) => {
+    if (fighterAvailable) {
+      return setAvailableToFight(item);
+    }
+    return true;
+  };
 
   const sortingNameHandler = (a, b) => {
     if (sortByName) {
@@ -68,7 +81,12 @@ function PokedexList() {
     <div className="w-full bg-[#F0F0F0]">
       <Picture />
       <div className={`${bgGradLightRed} flex justify-between`}>
-        <Filters handleCheckbox={handleCheckbox} filter={filter} />
+        <Filters
+          handleCheckbox={handleCheckbox}
+          filter={filter}
+          handleCheckboxFight={handleCheckboxFight}
+          fighterAvailable={fighterAvailable}
+        />
         <Sorting
           handleSortingName={handleSortingName}
           sortByName={sortByName}
@@ -78,6 +96,7 @@ function PokedexList() {
         <div className="flex flex-row flex-wrap justify-center">
           {pokemon
             .filter(pokemonList)
+            .filter(fightingList)
             .sort(sortingNameHandler)
             .map((item) => (
               <Pokedex key={item.name} pokemon={item} />
