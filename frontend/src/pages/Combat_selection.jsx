@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import SelectPokémon from "../components/Selection/SelectPokémons";
-import { choiceByDefault } from "../tools/constants";
+import SelectPokemons from "../components/Selection/SelectPokemons";
+import { choiceByDefault, opponentByDefault } from "../tools/constants";
+import SelectionArena from "../components/Selection/SelectionArena";
+import FocusOpponent from "../components/Selection/FocusOpponent";
 
 function CombatSelection() {
   const [allData, setAllData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [clickedPokemon, setClickedPokemon] = useState(choiceByDefault);
+  const [isChoiceValidated, setIsChoiceValidated] = useState(false);
+  const [clickedOpponent, setClickedOpponent] = useState(opponentByDefault);
 
   const getPokemon = async (index, controller) => {
     await axios
@@ -51,11 +55,22 @@ function CombatSelection() {
   return (
     <div className="bg-customLightGrey w-full min-h-screen">
       {!isLoading && (
-        <SelectPokémon
-          allData={allData}
-          clickedPokemon={clickedPokemon}
-          setClickedPokemon={setClickedPokemon}
-        />
+        <div className="w-10/12 mx-auto">
+          <SelectPokemons
+            allData={allData}
+            clickedPokemon={clickedPokemon}
+            setClickedPokemon={setClickedPokemon}
+            setIsChoiceValidated={setIsChoiceValidated}
+            isChoiceValidated={isChoiceValidated}
+          />
+          <SelectionArena />
+          <FocusOpponent
+            allData={allData}
+            isChoiceValidated={isChoiceValidated}
+            clickedOpponent={clickedOpponent}
+            setClickedOpponent={setClickedOpponent}
+          />
+        </div>
       )}
     </div>
   );

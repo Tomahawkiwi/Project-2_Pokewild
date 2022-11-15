@@ -1,19 +1,27 @@
 import PropTypes from "prop-types";
-import bgGradLightGrey from "../../tools/constants";
+import { bgGradLightGrey } from "../../tools/constants";
 import FocusGamer from "./FocusGamer";
 import Select1Pokemon from "./Select1Pokemon";
 import SelectRandomPokemon from "./SelectRandomPokemon";
 
-function SelectPokémon({ allData, clickedPokemon, setClickedPokemon }) {
+function SelectPokemons({
+  allData,
+  clickedPokemon,
+  setClickedPokemon,
+  setIsChoiceValidated,
+  isChoiceValidated,
+}) {
   return (
     <div className="flex flex-col justify-center">
-      {clickedPokemon != null && (
-        <FocusGamer allStats={allData} clickedPokemon={clickedPokemon} />
-      )}
+      <FocusGamer
+        clickedPokemon={clickedPokemon}
+        setIsChoiceValidated={setIsChoiceValidated}
+        isChoiceValidated={isChoiceValidated}
+      />
       <div
-        className={`w-10/12 ${bgGradLightGrey} rounded-xl shadow-custom mx-auto`}
+        className={`w-full ${bgGradLightGrey} rounded-xl shadow-custom mx-auto`}
       >
-        <div className="w-fit grid gap-3 grid-cols-4 px-4 py-4 mx-auto ">
+        <div className="w-fit grid gap-3 grid-cols-4 px-4 py-4 mx-auto">
           <SelectRandomPokemon
             width="w-5"
             setClickedPokemon={setClickedPokemon}
@@ -27,7 +35,6 @@ function SelectPokémon({ allData, clickedPokemon, setClickedPokemon }) {
               namePokemon={pokemon.name}
               setClickedPokemon={setClickedPokemon}
               clickedPokemon={clickedPokemon}
-              allPokemons={allData}
             />
           ))}
         </div>
@@ -36,10 +43,16 @@ function SelectPokémon({ allData, clickedPokemon, setClickedPokemon }) {
   );
 }
 
-SelectPokémon.propTypes = {
+SelectPokemons.propTypes = {
   allData: PropTypes.arrayOf(PropTypes.any).isRequired,
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
   setClickedPokemon: PropTypes.func.isRequired,
+  isChoiceValidated: PropTypes.bool.isRequired,
+  setIsChoiceValidated: PropTypes.func.isRequired,
 };
 
-export default SelectPokémon;
+export default SelectPokemons;
+
+// {clickedPokemon != null && (
+//   <FocusGamer allStats={allData} clickedPokemon={clickedPokemon} />
+// )}
