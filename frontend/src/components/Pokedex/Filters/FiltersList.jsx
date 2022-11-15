@@ -47,7 +47,7 @@ function FiltersList({
               alt="chevron-down"
             />
           </button>
-          <div className="flex flex-row flex-wrap justify-between m-5">
+          <div className="flex flex-row flex-wrap justify-evenly m-5">
             {typeIsOpen &&
               type.map((item) => (
                 <Types

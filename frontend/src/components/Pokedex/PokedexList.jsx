@@ -108,7 +108,7 @@ function PokedexList() {
     if (sortByInvertNumber) {
       return b.id - a.id;
     }
-    return -1;
+    return true;
   };
 
   if (!pokemon) return <div>Loading pokemon ...</div>;
@@ -135,7 +135,7 @@ function PokedexList() {
         />
       </div>
       <div>
-        <div className="flex flex-row flex-wrap justify-center min-h-screen">
+        <div className="flex flex-row flex-wrap justify-center min-h-screen content-start">
           {pokemon
             .filter(pokemonList)
             .filter(fightingList)
