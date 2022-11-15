@@ -35,8 +35,17 @@ function FiltersList({
     <div>
       <div className={`${bgGradLightGrey} h-[80vh] w-1/2 absolute`}>
         <div className="flex flex-col">
-          <button className="m-2" type="button" onClick={handleOpenTypes}>
+          <button
+            className="m-2 flex items-center justify-evenly border-solid"
+            type="button"
+            onClick={handleOpenTypes}
+          >
             Type
+            <img
+              className="h-2 w-4"
+              src="src/assets/icons/chevron-down.png"
+              alt="chevron-down"
+            />
           </button>
           <div className="flex flex-row flex-wrap justify-between m-5">
             {typeIsOpen &&
@@ -49,8 +58,17 @@ function FiltersList({
                 />
               ))}
           </div>
-          <button className="m-2" type="button" onClick={handleOpenFight}>
+          <button
+            className="m-2 flex items-center justify-evenly"
+            type="button"
+            onClick={handleOpenFight}
+          >
             Available to fight
+            <img
+              className="h-2 w-4"
+              src="src/assets/icons/chevron-down.png"
+              alt="chevron-down"
+            />
           </button>
           {fightIsOpen && (
             <Fight

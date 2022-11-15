@@ -16,7 +16,7 @@ function Filter({
   return (
     <div className="w-1/2">
       <button
-        className="w-full h-12 text-white text-sm font-Rajdhani"
+        className="w-full h-12 text-white text-base font-Rajdhani border-r-2"
         type="button"
         onClick={handleOpenFilters}
       >

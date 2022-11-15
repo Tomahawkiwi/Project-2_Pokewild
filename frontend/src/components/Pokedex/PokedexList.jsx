@@ -25,6 +25,9 @@ function PokedexList() {
   const [filter, setFilter] = useState([]);
   const [fighterAvailable, setFighterAvailable] = useState(false);
   const [sortByName, setSortByName] = useState(false);
+  const [sortByInvertName, setSortInvertByName] = useState(false);
+  const [sortByNumber, setSortByNumber] = useState(false);
+  const [sortByInvertNumber, setSortByInvertNumber] = useState(false);
 
   useEffect(() => {
     getAllPokemonData().then((res) => setPokemon(res));
@@ -42,6 +45,30 @@ function PokedexList() {
 
   const handleSortingName = (e) => {
     setSortByName(e.target.checked);
+    setSortInvertByName(false);
+    setSortByNumber(false);
+    setSortByInvertNumber(false);
+  };
+
+  const handleSortingInvertName = (e) => {
+    setSortInvertByName(e.target.checked);
+    setSortByName(false);
+    setSortByNumber(false);
+    setSortByInvertNumber(false);
+  };
+
+  const handleSortingNumber = (e) => {
+    setSortByNumber(e.target.checked);
+    setSortByInvertNumber(false);
+    setSortByName(false);
+    setSortInvertByName(false);
+  };
+
+  const handleSortingInvertNumber = (e) => {
+    setSortByInvertNumber(e.target.checked);
+    setSortByNumber(false);
+    setSortByName(false);
+    setSortInvertByName(false);
   };
 
   const handleCheckboxFight = (e) => {
@@ -68,9 +95,18 @@ function PokedexList() {
     return true;
   };
 
-  const sortingNameHandler = (a, b) => {
+  const sortingHandler = (a, b) => {
     if (sortByName) {
       return a.name.localeCompare(b.name);
+    }
+    if (sortByInvertName) {
+      return b.name.localeCompare(a.name);
+    }
+    if (sortByNumber) {
+      return a.id - b.id;
+    }
+    if (sortByInvertNumber) {
+      return b.id - a.id;
     }
     return -1;
   };
@@ -90,14 +126,20 @@ function PokedexList() {
         <Sorting
           handleSortingName={handleSortingName}
           sortByName={sortByName}
+          handleSortingInvertName={handleSortingInvertName}
+          sortByInvertName={sortByInvertName}
+          handleSortingNumber={handleSortingNumber}
+          sortByNumber={sortByNumber}
+          handleSortingInvertNumber={handleSortingInvertNumber}
+          sortByInvertNumber={sortByInvertNumber}
         />
       </div>
       <div>
-        <div className="flex flex-row flex-wrap justify-center">
+        <div className="flex flex-row flex-wrap justify-center min-h-screen">
           {pokemon
             .filter(pokemonList)
             .filter(fightingList)
-            .sort(sortingNameHandler)
+            .sort(sortingHandler)
             .map((item) => (
               <Pokedex key={item.name} pokemon={item} />
             ))}

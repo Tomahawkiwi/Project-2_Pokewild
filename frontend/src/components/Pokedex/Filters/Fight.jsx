@@ -11,7 +11,7 @@ function Fight({ handleCheckboxFight, fighterAvailable }) {
           checked={fighterAvailable}
         />
         <img
-          className="h-6"
+          className="h-7 w-7"
           src="src/assets/fight_mode/picto_fight.png"
           alt="fightmode"
         />
