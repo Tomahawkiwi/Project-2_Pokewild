@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       cursor: {
-        default: "url(/assets/Cursors/pokemon-cursor.png), default",
-        pointer: "url(/assets/Cursors/pokemon-pointer.png), pointer",
+        default: "url(src/assets/Cursors/pokemon-cursor.png), default",
+        pointer: "url(src/assets/Cursors/pokemon-pointer.png), pointer",
       },
       colors: {
         customLightRed: {

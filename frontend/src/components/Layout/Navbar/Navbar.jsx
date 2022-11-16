@@ -18,7 +18,7 @@ export default function Navbar() {
         <NavItems />
         <Link className="" onClick={() => setIsOpen(false)} to="/">
           <img
-            className="w-50 h-8"
+            className="w-50 h-8 cursor-pointer"
             src="src/assets/navbar/pokewild-logo.png"
             alt="Pokewild logo"
           />
