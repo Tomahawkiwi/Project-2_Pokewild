@@ -5,7 +5,12 @@ import { bgGradLightGrey } from "../../../tools/constants";
 import Fight from "./Fight";
 import Types from "./Types";
 
-function FiltersList({ handleCheckbox, filter }) {
+function FiltersList({
+  handleCheckbox,
+  filter,
+  handleCheckboxFight,
+  fighterAvailable,
+}) {
   const [typeIsOpen, setTypeIsOpen] = useState(false);
   const handleOpenTypes = () => {
     setTypeIsOpen(!typeIsOpen);
@@ -47,7 +52,12 @@ function FiltersList({ handleCheckbox, filter }) {
           <button className="m-2" type="button" onClick={handleOpenFight}>
             Available to fight
           </button>
-          {fightIsOpen && <Fight />}
+          {fightIsOpen && (
+            <Fight
+              handleCheckboxFight={handleCheckboxFight}
+              fighterAvailable={fighterAvailable}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -59,4 +69,6 @@ export default FiltersList;
 FiltersList.propTypes = {
   handleCheckbox: PropTypes.func.isRequired,
   filter: PropTypes.arrayOf(PropTypes.any).isRequired,
+  handleCheckboxFight: PropTypes.func.isRequired,
+  fighterAvailable: PropTypes.bool.isRequired,
 };

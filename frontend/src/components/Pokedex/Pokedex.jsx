@@ -9,6 +9,7 @@ import setAvailableToFight from "../../tools/setAvailableToFight";
 import { bgGradLightGrey } from "../../tools/constants";
 
 function Pokedex({ pokemon }) {
+  const isAvailableToFight = setAvailableToFight(pokemon);
   return (
     <div
       className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 sm:mx-5 sm:my-5`}
@@ -30,7 +31,15 @@ function Pokedex({ pokemon }) {
         />
       </div>
       <div className="flex justify-between pl-2">
-        <div className="h-5 w-5">{setAvailableToFight(pokemon)}</div>
+        <div className="h-5 w-5">
+          {isAvailableToFight && (
+            <img
+              className=""
+              src="src/assets/fight_mode/picto_fight.png"
+              alt="available to fight"
+            />
+          )}
+        </div>
         <div className="flex justify-end font-Rajdhani text-sm mr-2 mb-1">
           {setNumber(pokemon)}
         </div>
