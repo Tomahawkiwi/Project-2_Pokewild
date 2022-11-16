@@ -114,28 +114,30 @@ function PokedexList() {
   if (!pokemon) return <div>Loading pokemon ...</div>;
 
   return (
-    <div className="w-full bg-[#F0F0F0]">
+    <div className="w-full bg-[#F0F0F0] md:bg-customLightRed-endGrad">
       <Picture />
-      <div className={`${bgGradLightRed} flex justify-between`}>
-        <Filters
-          handleCheckbox={handleCheckbox}
-          filter={filter}
-          handleCheckboxFight={handleCheckboxFight}
-          fighterAvailable={fighterAvailable}
-        />
-        <Sorting
-          handleSortingName={handleSortingName}
-          sortByName={sortByName}
-          handleSortingInvertName={handleSortingInvertName}
-          sortByInvertName={sortByInvertName}
-          handleSortingNumber={handleSortingNumber}
-          sortByNumber={sortByNumber}
-          handleSortingInvertNumber={handleSortingInvertNumber}
-          sortByInvertNumber={sortByInvertNumber}
-        />
-      </div>
-      <div>
-        <div className="flex flex-row flex-wrap justify-center min-h-screen content-start">
+      <div className="md:flex">
+        <div
+          className={`${bgGradLightRed} flex justify-between md:flex-col md:w-1/5 md:items-center md:justify-start`}
+        >
+          <Filters
+            handleCheckbox={handleCheckbox}
+            filter={filter}
+            handleCheckboxFight={handleCheckboxFight}
+            fighterAvailable={fighterAvailable}
+          />
+          <Sorting
+            handleSortingName={handleSortingName}
+            sortByName={sortByName}
+            handleSortingInvertName={handleSortingInvertName}
+            sortByInvertName={sortByInvertName}
+            handleSortingNumber={handleSortingNumber}
+            sortByNumber={sortByNumber}
+            handleSortingInvertNumber={handleSortingInvertNumber}
+            sortByInvertNumber={sortByInvertNumber}
+          />
+        </div>
+        <div className="flex flex-row flex-wrap justify-center min-h-screen content-start md:w-4/5">
           {pokemon
             .filter(pokemonList)
             .filter(fightingList)

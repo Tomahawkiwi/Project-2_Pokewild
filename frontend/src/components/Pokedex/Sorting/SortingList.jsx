@@ -13,44 +13,42 @@ function SortingList({
   sortByInvertNumber,
 }) {
   return (
-    <div>
-      <div
-        className={`${bgGradLightGrey} h-[20vh] w-1/2 absolute flex flex-col font-Rajdhani justify-center`}
-      >
-        <label className="ml-2 mb-1">
-          <input
-            type="checkbox"
-            onChange={handleSortingName}
-            checked={sortByName}
-          />{" "}
-          Name (a-z)
-        </label>
+    <div
+      className={`${bgGradLightGrey} h-[20vh] w-1/2 absolute flex flex-col font-Rajdhani justify-center md:w-full md:h-full md:relative`}
+    >
+      <label className="ml-2 mb-1">
+        <input
+          type="checkbox"
+          onChange={handleSortingName}
+          checked={sortByName}
+        />{" "}
+        Name (a-z)
+      </label>
 
-        <label className="ml-2 mb-1">
-          <input
-            type="checkbox"
-            onChange={handleSortingInvertName}
-            checked={sortByInvertName}
-          />{" "}
-          Name (z-a)
-        </label>
-        <label className="ml-2 mb-1">
-          <input
-            type="checkbox"
-            onChange={handleSortingNumber}
-            checked={sortByNumber}
-          />{" "}
-          Number (asc)
-        </label>
-        <label className="ml-2 mb-1">
-          <input
-            type="checkbox"
-            onChange={handleSortingInvertNumber}
-            checked={sortByInvertNumber}
-          />{" "}
-          Number (des)
-        </label>
-      </div>
+      <label className="ml-2 mb-1">
+        <input
+          type="checkbox"
+          onChange={handleSortingInvertName}
+          checked={sortByInvertName}
+        />{" "}
+        Name (z-a)
+      </label>
+      <label className="ml-2 mb-1">
+        <input
+          type="checkbox"
+          onChange={handleSortingNumber}
+          checked={sortByNumber}
+        />{" "}
+        Number (asc)
+      </label>
+      <label className="ml-2 mb-1">
+        <input
+          type="checkbox"
+          onChange={handleSortingInvertNumber}
+          checked={sortByInvertNumber}
+        />{" "}
+        Number (des)
+      </label>
     </div>
   );
 }

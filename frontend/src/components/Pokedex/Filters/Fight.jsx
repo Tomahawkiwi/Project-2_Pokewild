@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Fight({ handleCheckboxFight, fighterAvailable }) {
   return (
     <div>
-      <label className="flex justify-evenly">
+      <label className="flex justify-evenly m-5">
         <input
           type="checkbox"
           onChange={handleCheckboxFight}

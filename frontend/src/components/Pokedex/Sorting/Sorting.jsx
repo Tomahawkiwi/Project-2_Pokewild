@@ -17,14 +17,13 @@ function Sorting({
     setIsOpen(!isOpen);
   };
   return (
-    <div className="w-1/2">
-      <button
-        className="w-full h-12 text-white text-base font-Rajdhani"
-        type="button"
-        onClick={handleOpenFilters}
-      >
-        SORTING
-      </button>
+    <div className="w-1/2 md:w-full">
+      <div className="flex h-12 text-white text-base font-Rajdhani items-center">
+        <button className="w-full" type="button" onClick={handleOpenFilters}>
+          SORTING
+        </button>
+        <div>{isOpen ? "-" : "+"}</div>
+      </div>
       {isOpen && (
         <SortingList
           handleSortingName={handleSortingName}
