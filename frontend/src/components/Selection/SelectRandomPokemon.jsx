@@ -6,6 +6,7 @@ function SelectRandomPokemon({
   setClickedPokemon,
   allData,
   setIsChoiceValidated,
+  setButtonReady,
 }) {
   const getRandomFighter = () => {
     for (let i = 0; i < 18; i += 1) {
@@ -20,6 +21,7 @@ function SelectRandomPokemon({
       type="button"
       onClick={() => {
         getRandomFighter();
+        setButtonReady(false);
         setIsChoiceValidated(false);
       }}
       className="flex justify-center items-center w-[60px] h-[60px] bg-customLightGrey-lighter rounded-[10px] shadow-custom hover:scale-110"
@@ -38,6 +40,7 @@ SelectRandomPokemon.propTypes = {
   setClickedPokemon: PropTypes.func.isRequired,
   allData: PropTypes.arrayOf(PropTypes.any).isRequired,
   setIsChoiceValidated: PropTypes.func.isRequired,
+  setButtonReady: PropTypes.func.isRequired,
 };
 
 export default SelectRandomPokemon;

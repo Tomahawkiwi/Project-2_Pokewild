@@ -7,10 +7,11 @@ import Stats from "./Stats";
 function FocusGamer({
   clickedPokemon,
   setIsChoiceValidated,
-  isChoiceValidated,
   clickedArena,
   getRandomOpponent,
   setDialbox,
+  buttonReady,
+  setButtonReady,
 }) {
   const statPokemon = clickedPokemon.stats;
 
@@ -97,7 +98,7 @@ function FocusGamer({
             clickedPokemon={clickedPokemon}
           />
         </div>
-        {isChoiceValidated && clickedPokemon.name !== choiceByDefault.name ? (
+        {buttonReady ? (
           <div
             className={`${bgGradLightGrey} h-10 w-10 rounded-full shadow-custom mx-auto flex justify-center items-center text-center text-green-600 text-2xl`}
           >
@@ -107,6 +108,7 @@ function FocusGamer({
           <button
             type="button"
             onClick={() => {
+              setButtonReady(true);
               handleReady();
             }}
             className={`${
@@ -126,11 +128,12 @@ function FocusGamer({
 
 FocusGamer.propTypes = {
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
-  isChoiceValidated: PropTypes.bool.isRequired,
   setIsChoiceValidated: PropTypes.func.isRequired,
   clickedArena: PropTypes.string.isRequired,
   getRandomOpponent: PropTypes.func.isRequired,
   setDialbox: PropTypes.func.isRequired,
+  buttonReady: PropTypes.string.isRequired,
+  setButtonReady: PropTypes.func.isRequired,
 };
 
 export default FocusGamer;

@@ -9,12 +9,14 @@ function Select1Pokemon({
   clickedPokemon,
   clickedOpponent,
   setIsChoiceValidated,
+  setButtonReady,
 }) {
   return (
     <button
       type="button"
       onClick={() => {
         setClickedPokemon(allData1Pokemon);
+        setButtonReady(false);
         setIsChoiceValidated(false);
       }}
       className={`${
@@ -51,6 +53,7 @@ Select1Pokemon.propTypes = {
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
   clickedOpponent: PropTypes.objectOf(PropTypes.any).isRequired,
   setIsChoiceValidated: PropTypes.func.isRequired,
+  setButtonReady: PropTypes.func.isRequired,
 };
 
 export default Select1Pokemon;
