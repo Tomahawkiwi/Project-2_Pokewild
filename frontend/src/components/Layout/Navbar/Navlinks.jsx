@@ -66,7 +66,7 @@ export default function NavLinks(props) {
         {navLinks.map((item) => (
           <Link
             key={item.linkName}
-            className="rounded-bl-2xl p-2 h-24 flex"
+            className="rounded-bl-2xl p-2 h-24 flex cursor-pointer"
             style={{
               backgroundColor: item.color,
               width: item.width,
@@ -79,11 +79,15 @@ export default function NavLinks(props) {
             to={item.path}
           >
             {item.image && (
-              <img src={item.image} className="w-16 ml-3" alt="logo" />
+              <img
+                src={item.image}
+                className="w-16 ml-3 cursor-pointer"
+                alt="logo"
+              />
             )}
             <p
               style={{ marginTop: item.marginTop }}
-              className="mx-4 align-middle pt-"
+              className="mx-4 align-middle cursor-pointer"
             >
               {item.linkName}
             </p>
