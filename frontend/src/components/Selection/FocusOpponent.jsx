@@ -1,30 +1,11 @@
 import PropTypes from "prop-types";
-import React, { useEffect } from "react";
+import React from "react";
 import { bgGradLightGrey } from "../../tools/constants";
 import statMax from "../../tools/stats";
 import Stats from "./Stats";
 
-function FocusOpponent({
-  allData,
-  isChoiceValidated,
-  clickedOpponent,
-  setClickedOpponent,
-}) {
+function FocusOpponent({ clickedOpponent }) {
   const statPokemon = clickedOpponent.stats;
-
-  const getRandomOpponent = () => {
-    for (let i = 0; i < 18; i += 1) {
-      setTimeout(() => {
-        setClickedOpponent(allData[Math.floor(Math.random() * allData.length)]);
-      }, 100 * i);
-    }
-  };
-
-  useEffect(() => {
-    if (isChoiceValidated) {
-      getRandomOpponent();
-    }
-  }, [isChoiceValidated]);
 
   return (
     <div className="my-7 mx-0 flex justify-between items-center">
@@ -97,10 +78,26 @@ function FocusOpponent({
 }
 
 FocusOpponent.propTypes = {
-  allData: PropTypes.arrayOf(PropTypes.any).isRequired,
-  isChoiceValidated: PropTypes.bool.isRequired,
   clickedOpponent: PropTypes.objectOf(PropTypes.any).isRequired,
-  setClickedOpponent: PropTypes.func.isRequired,
 };
 
 export default FocusOpponent;
+
+// useEffect(() => {
+//   if (
+//     isChoiceValidated &&
+//     clickedArena !== "" &&
+//     clickedPokemon.name !== choiceByDefault.name
+//   ) {
+//     return getRandomOpponent();
+//   }
+//   if (
+//     (isChoiceValidated && clickedPokemon.name === choiceByDefault.name) ||
+//     (isChoiceValidated && clickedArena === "")
+//   ) {
+//     return alert("Please choose a pokemon and an arena before");
+//   }
+//   // if (isChoiceValidated && clickedArena !== "") {
+//   //   alert("Please choose an arena before");
+//   // }
+// }, [isChoiceValidated]);

@@ -4,6 +4,8 @@ import SelectPokemons from "../components/Selection/SelectPokemons";
 import { choiceByDefault, opponentByDefault } from "../tools/constants";
 import SelectionArena from "../components/Selection/SelectionArena";
 import FocusOpponent from "../components/Selection/FocusOpponent";
+import HeaderDial from "../components/Selection/HeaderDial";
+import CombatScreen from "../components/Combat/CombatScreen";
 
 function CombatSelection() {
   const [allData, setAllData] = useState([]);
@@ -11,6 +13,9 @@ function CombatSelection() {
   const [clickedPokemon, setClickedPokemon] = useState(choiceByDefault);
   const [isChoiceValidated, setIsChoiceValidated] = useState(false);
   const [clickedOpponent, setClickedOpponent] = useState(opponentByDefault);
+  const [clickedArena, setClickedArena] = useState("");
+  const [dialbox, setDialbox] = useState("CHOOSE YOUR POKEMON");
+  const [fightBegin, setFightBegin] = useState(false);
 
   const getPokemon = async (index, controller) => {
     await axios
@@ -53,25 +58,36 @@ function CombatSelection() {
     );
 
   return (
-    <div className="bg-customLightGrey w-full min-h-screen">
-      {!isLoading && (
-        <div className="w-10/12 mx-auto">
-          <SelectPokemons
-            allData={allData}
-            clickedPokemon={clickedPokemon}
-            setClickedPokemon={setClickedPokemon}
-            setIsChoiceValidated={setIsChoiceValidated}
-            isChoiceValidated={isChoiceValidated}
-          />
-          <SelectionArena />
-          <FocusOpponent
-            allData={allData}
-            isChoiceValidated={isChoiceValidated}
-            clickedOpponent={clickedOpponent}
-            setClickedOpponent={setClickedOpponent}
-          />
-        </div>
-      )}
+    <div className="bg-customLightGrey w-full min-h-screen pb-10">
+      <HeaderDial
+        dialbox={dialbox}
+        setDialbox={setDialbox}
+        isChoiceValidated={isChoiceValidated}
+        setFightBegin={setFightBegin}
+      />
+      {!isLoading &&
+        (!fightBegin ? (
+          <div className="w-10/12 mx-auto">
+            <SelectPokemons
+              allData={allData}
+              clickedPokemon={clickedPokemon}
+              setClickedPokemon={setClickedPokemon}
+              setIsChoiceValidated={setIsChoiceValidated}
+              isChoiceValidated={isChoiceValidated}
+              clickedOpponent={clickedOpponent}
+              setClickedOpponent={setClickedOpponent}
+              clickedArena={clickedArena}
+              setDialbox={setDialbox}
+            />
+            <SelectionArena
+              clickedArena={clickedArena}
+              setClickedArena={setClickedArena}
+            />
+            <FocusOpponent clickedOpponent={clickedOpponent} />
+          </div>
+        ) : (
+          <CombatScreen />
+        ))}
     </div>
   );
 }

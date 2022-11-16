@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { arenas, bgGradLightGrey } from "../../tools/constants";
 import Arena from "./Arena";
 
-function SelectionArena() {
+function SelectionArena({ clickedArena, setClickedArena }) {
   return (
     <div className="h-fit mx-auto mt-4 flex justify-between">
       <div
@@ -18,12 +19,23 @@ function SelectionArena() {
       >
         <div className="w-fit grid gap-3 grid-cols-2 p-4 m-auto">
           {arenas.map((arena) => (
-            <Arena key={arena.path} path={arena.path} alt={arena.alt} />
+            <Arena
+              key={arena.path}
+              path={arena.path}
+              alt={arena.alt}
+              clickedArena={clickedArena}
+              setClickedArena={setClickedArena}
+            />
           ))}
         </div>
       </div>
     </div>
   );
 }
+
+SelectionArena.propTypes = {
+  clickedArena: PropTypes.string.isRequired,
+  setClickedArena: PropTypes.func.isRequired,
+};
 
 export default SelectionArena;

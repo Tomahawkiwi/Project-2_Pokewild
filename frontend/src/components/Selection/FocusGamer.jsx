@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { bgGradLightGrey } from "../../tools/constants";
+import { bgGradLightGrey, choiceByDefault } from "../../tools/constants";
 import statMax from "../../tools/stats";
 import Stats from "./Stats";
 
@@ -8,8 +8,30 @@ function FocusGamer({
   clickedPokemon,
   setIsChoiceValidated,
   isChoiceValidated,
+  clickedArena,
+  getRandomOpponent,
+  setDialbox,
 }) {
   const statPokemon = clickedPokemon.stats;
+
+  const handleReady = () => {
+    if (clickedPokemon.name !== choiceByDefault.name && clickedArena !== "") {
+      setDialbox(`Nice, you chose ${clickedPokemon.name} !`);
+      getRandomOpponent((opponent) => {
+        setDialbox(`... and you'll face ${opponent.name} !`, 3500);
+        setIsChoiceValidated(true);
+      });
+    }
+    if (clickedPokemon.name === choiceByDefault.name && clickedArena === "") {
+      setDialbox("You must choose a pokemon and an arena");
+    }
+    if (clickedPokemon.name === choiceByDefault.name && clickedArena !== "") {
+      setDialbox("You forgot to choose your pokemon...");
+    }
+    if (clickedPokemon.name !== choiceByDefault.name && clickedArena === "") {
+      setDialbox("You forgot to choose an arena...");
+    }
+  };
 
   return (
     <div className="my-7 mx-0 flex justify-between">
@@ -75,13 +97,28 @@ function FocusGamer({
             clickedPokemon={clickedPokemon}
           />
         </div>
-        <button
-          type="button"
-          onClick={() => setIsChoiceValidated(!isChoiceValidated)}
-          className="bg-customLightRed text-white w-full h-10 mt-2 rounded-2xl shadow-custom font-Silkscreen text-base hover:scale-110"
-        >
-          Choose
-        </button>
+        {isChoiceValidated && clickedPokemon.name !== choiceByDefault.name ? (
+          <div
+            className={`${bgGradLightGrey} h-10 w-10 rounded-full shadow-custom mx-auto flex justify-center items-center text-center text-green-600 text-2xl`}
+          >
+            ✓
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              handleReady();
+            }}
+            className={`${
+              clickedPokemon.name !== choiceByDefault.name &&
+              clickedArena !== ""
+                ? "bg-customLightRed hover:scale-110 cursor-pointer"
+                : "bg-customDarkGrey-lighter cursor-no-drop"
+            } text-white w-full h-10 mt-2 rounded-2xl shadow-custom font-Silkscreen text-base`}
+          >
+            Ready
+          </button>
+        )}
       </div>
     </div>
   );
@@ -91,6 +128,9 @@ FocusGamer.propTypes = {
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
   isChoiceValidated: PropTypes.bool.isRequired,
   setIsChoiceValidated: PropTypes.func.isRequired,
+  clickedArena: PropTypes.string.isRequired,
+  getRandomOpponent: PropTypes.func.isRequired,
+  setDialbox: PropTypes.func.isRequired,
 };
 
 export default FocusGamer;
