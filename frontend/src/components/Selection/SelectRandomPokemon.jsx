@@ -1,7 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-function SelectRandomPokemon({ width, setClickedPokemon, allData }) {
+function SelectRandomPokemon({
+  width,
+  setClickedPokemon,
+  allData,
+  setIsChoiceValidated,
+}) {
   const getRandomFighter = () => {
     for (let i = 0; i < 18; i += 1) {
       setTimeout(() => {
@@ -13,7 +18,10 @@ function SelectRandomPokemon({ width, setClickedPokemon, allData }) {
   return (
     <button
       type="button"
-      onClick={() => getRandomFighter()}
+      onClick={() => {
+        getRandomFighter();
+        setIsChoiceValidated(false);
+      }}
       className="flex justify-center items-center w-[60px] h-[60px] bg-customLightGrey-lighter rounded-[10px] shadow-custom hover:scale-110"
     >
       <img
@@ -29,6 +37,7 @@ SelectRandomPokemon.propTypes = {
   width: PropTypes.string.isRequired,
   setClickedPokemon: PropTypes.func.isRequired,
   allData: PropTypes.arrayOf(PropTypes.any).isRequired,
+  setIsChoiceValidated: PropTypes.func.isRequired,
 };
 
 export default SelectRandomPokemon;

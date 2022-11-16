@@ -1,5 +1,3 @@
-import React from "react";
-
 function setAvailableToFight(pokemon) {
   if (
     pokemon.name === "charizard" ||
@@ -14,15 +12,9 @@ function setAvailableToFight(pokemon) {
     pokemon.name === "dragonite" ||
     pokemon.name === "gyarados"
   ) {
-    return (
-      <img
-        className=""
-        src="src/assets/fight_mode/picto_fight.png"
-        alt="available to fight"
-      />
-    );
+    return true;
   }
-  return "";
+  return false;
 }
 
 export default setAvailableToFight;
