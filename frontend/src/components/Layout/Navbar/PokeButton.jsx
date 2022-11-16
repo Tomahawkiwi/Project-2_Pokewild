@@ -13,7 +13,7 @@ export default function PokeButton(props) {
           : "src/assets/navbar/poke-close-x2.png"
       }
       alt="burger"
-      className="w-10 h-10"
+      className="w-10 md:hidden h-10"
     />
   );
 }
