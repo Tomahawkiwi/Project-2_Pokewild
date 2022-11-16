@@ -13,13 +13,14 @@ export const bgGradDarkGrey =
 
 // COMBAT SELECTION
 export const choiceByDefault = {
-  name: "Choice is yours",
+  name: "Your choice",
   sprites: {
     versions: {
       "generation-v": {
         "black-white": {
           animated: {
-            front_default: "/src/assets/img-combat/Unknown_pokemon_big.png",
+            front_default:
+              "/src/assets/combat-selection/Unknown_pokemon_big.png",
           },
         },
       },
@@ -34,3 +35,46 @@ export const choiceByDefault = {
     { base_stat: 5 },
   ],
 };
+
+export const opponentByDefault = {
+  name: "Mystery...",
+  sprites: {
+    versions: {
+      "generation-v": {
+        "black-white": {
+          animated: {
+            front_default:
+              "/src/assets/combat-selection/Unknown_pokemon_big.png",
+          },
+        },
+      },
+    },
+  },
+  stats: [
+    { base_stat: 5 },
+    { base_stat: 5 },
+    { base_stat: 5 },
+    { base_stat: 5 },
+    { base_stat: 5 },
+    { base_stat: 5 },
+  ],
+};
+
+export const arenas = [
+  {
+    path: "/src/assets/combat-selection/GrassyField.webp",
+    alt: "Arena of grass",
+  },
+  {
+    path: "/src/assets/combat-selection/Watersurface.webp",
+    alt: "Arena of water",
+  },
+  {
+    path: "/src/assets/combat-selection/BurningField.webp",
+    alt: "Arena of fire",
+  },
+  {
+    path: "/src/assets/combat-selection/Cavefield.webp",
+    alt: "Arena of cave",
+  },
+];
