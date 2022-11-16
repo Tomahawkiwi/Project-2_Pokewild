@@ -1,4 +1,7 @@
 import { bgGradLightRed } from "../../tools/constants";
+import YTB from "../../assets/footer/youtube_logo.png";
+import INST from "../../assets/footer/instagram_logo.png";
+import TWT from "../../assets/footer/twitter_logo.png";
 
 export default function Footer() {
   return (
@@ -9,25 +12,13 @@ export default function Footer() {
         <h3 className="font-Silkscreen text-xl my-6 lg:my-0">FOLLOW US!</h3>
         <div className="flex items-center justify-center space-x-3.5">
           <a href="https://youtube.com/">
-            <img
-              className="w-7"
-              src="src/assets/footer/youtube_logo.png"
-              alt="Youtube logo"
-            />
+            <img className="w-7" src={YTB} alt="Youtube logo" />
           </a>
           <a href="https://www.instagram.com/">
-            <img
-              className="w-7"
-              src="src/assets/footer/instagram_logo.png"
-              alt="Instagram logo"
-            />
+            <img className="w-7" src={INST} alt="Instagram logo" />
           </a>
           <a href="https://www.twitter.com/">
-            <img
-              className="w-7"
-              src="src/assets/footer/twitter_logo.png"
-              alt="Twitter logo"
-            />
+            <img className="w-7" src={TWT} alt="Twitter logo" />
           </a>
         </div>
       </div>

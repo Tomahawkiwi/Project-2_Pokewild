@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import CombatSelection from "./pages/Combat_selection";
 import PokedexList from "./components/Pokedex/PokedexList";
-import PokemonPage from "./components/Pokedex/Details/PokemonPage";
+import PokedexDetails from "./pages/PokedexDetails";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/pokedex" element={<PokedexList />} />
-          <Route path="/pokedex/:id" element={<PokemonPage />} />
+          <Route path="/pokedex/:id" element={<PokedexDetails />} />
           <Route path="/combat" element={<CombatSelection />} />
         </Route>
       </Routes>

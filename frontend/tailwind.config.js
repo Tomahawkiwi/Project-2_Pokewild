@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       cursor: {
-        default: "url(/assets/Cursors/pokemon-cursor.png), default",
-        pointer: "url(/assets/Cursors/pokemon-pointer.png), pointer",
+        default: "url(src/assets/Cursors/pokemon-cursor.png), default",
+        pointer: "url(src/assets/Cursors/pokemon-pointer.png), pointer",
       },
       colors: {
         customLightRed: {
@@ -28,10 +28,10 @@ module.exports = {
         },
       },
       backgroundImage: {
-        dark: "url('src/assets/navbar/logoDarkMode.png')",
-        fantominus: "url('src/assets/navbar/phantominus.png')",
-        home: "url('src/assets/img-home/bg-img-home.png')",
-        deskflames: "url('src/assets/img-home/flames-bg.png')",
+        solaroc: "url('src/assets/navbar/solaroc.png')",
+        fantominus: "url('./src/assets/navbar/fantominus.png')",
+        home: "url('./src/assets/img-home/bg-img-home.png')",
+        deskflames: "url('./src/assets/img-home/flames-bg.png')",
       },
 
       fontFamily: {
