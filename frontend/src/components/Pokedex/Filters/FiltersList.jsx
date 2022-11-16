@@ -32,33 +32,47 @@ function FiltersList({
   }, []);
 
   return (
-    <div>
-      <div className={`${bgGradLightGrey} h-[80vh] w-1/2 absolute`}>
-        <div className="flex flex-col">
-          <button className="m-2" type="button" onClick={handleOpenTypes}>
+    <div
+      className={`${bgGradLightGrey} h-[80vh] w-1/2 absolute md:w-full md:relative md:h-max`}
+    >
+      <div className="flex flex-col w-full">
+        <div className="flex items-center">
+          <button
+            className="m-2 flex items-center justify-evenly border-solid w-full"
+            type="button"
+            onClick={handleOpenTypes}
+          >
             Type
           </button>
-          <div className="flex flex-row flex-wrap justify-between m-5">
-            {typeIsOpen &&
-              type.map((item) => (
-                <Types
-                  key={item.name}
-                  type={item.name}
-                  handleCheckbox={handleCheckbox}
-                  filter={filter}
-                />
-              ))}
-          </div>
-          <button className="m-2" type="button" onClick={handleOpenFight}>
+          <div className="w-full">{typeIsOpen ? "-" : "+"}</div>
+        </div>
+        <div className="flex flex-row flex-wrap justify-evenly m-5 md:max-w-fit">
+          {typeIsOpen &&
+            type.map((item) => (
+              <Types
+                key={item.name}
+                type={item.name}
+                handleCheckbox={handleCheckbox}
+                filter={filter}
+              />
+            ))}
+        </div>
+        <div className="flex items-center">
+          <button
+            className="m-2 flex items-center justify-evenly w-full"
+            type="button"
+            onClick={handleOpenFight}
+          >
             Available to fight
           </button>
-          {fightIsOpen && (
-            <Fight
-              handleCheckboxFight={handleCheckboxFight}
-              fighterAvailable={fighterAvailable}
-            />
-          )}
+          <div className="w-full">{fightIsOpen ? "-" : "+"}</div>
         </div>
+        {fightIsOpen && (
+          <Fight
+            handleCheckboxFight={handleCheckboxFight}
+            fighterAvailable={fighterAvailable}
+          />
+        )}
       </div>
     </div>
   );

@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 function Fight({ handleCheckboxFight, fighterAvailable }) {
   return (
     <div>
-      <label className="flex justify-evenly">
+      <label className="flex justify-evenly m-5">
         <input
           type="checkbox"
           onChange={handleCheckboxFight}
           checked={fighterAvailable}
         />
         <img
-          className="h-6"
+          className="h-7 w-7"
           src="src/assets/fight_mode/picto_fight.png"
           alt="fightmode"
         />

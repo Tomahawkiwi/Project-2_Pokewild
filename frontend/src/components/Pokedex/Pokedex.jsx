@@ -10,17 +10,18 @@ import { bgGradLightGrey } from "../../tools/constants";
 
 function Pokedex({ pokemon }) {
   const isAvailableToFight = setAvailableToFight(pokemon);
+
   return (
     <div
-      className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 sm:mx-5 sm:my-5`}
+      className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 hover:scale-110 cursor-pointer sm:mx-5 sm:my-5`}
     >
       <div className="flex justify-between">
         <div className="w-full rounded-tr-lg">
           <div className="font-Silkscreen text-sm pl-1">{pokemon.name}</div>
         </div>
         <div className={`flex rounded-tr-lg ${setBackgroundType(pokemon)}`}>
-          <div className="">{setFirstLogo(pokemon)}</div>
-          <div className="">{setSecondLogo(pokemon)}</div>
+          <div>{setFirstLogo(pokemon)}</div>
+          <div>{setSecondLogo(pokemon)}</div>
         </div>
       </div>
       <div className="flex justify-center">

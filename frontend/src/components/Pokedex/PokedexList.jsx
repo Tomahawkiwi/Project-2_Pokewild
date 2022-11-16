@@ -25,6 +25,9 @@ function PokedexList() {
   const [filter, setFilter] = useState([]);
   const [fighterAvailable, setFighterAvailable] = useState(false);
   const [sortByName, setSortByName] = useState(false);
+  const [sortByInvertName, setSortInvertByName] = useState(false);
+  const [sortByNumber, setSortByNumber] = useState(false);
+  const [sortByInvertNumber, setSortByInvertNumber] = useState(false);
 
   useEffect(() => {
     getAllPokemonData().then((res) => setPokemon(res));
@@ -42,6 +45,30 @@ function PokedexList() {
 
   const handleSortingName = (e) => {
     setSortByName(e.target.checked);
+    setSortInvertByName(false);
+    setSortByNumber(false);
+    setSortByInvertNumber(false);
+  };
+
+  const handleSortingInvertName = (e) => {
+    setSortInvertByName(e.target.checked);
+    setSortByName(false);
+    setSortByNumber(false);
+    setSortByInvertNumber(false);
+  };
+
+  const handleSortingNumber = (e) => {
+    setSortByNumber(e.target.checked);
+    setSortByInvertNumber(false);
+    setSortByName(false);
+    setSortInvertByName(false);
+  };
+
+  const handleSortingInvertNumber = (e) => {
+    setSortByInvertNumber(e.target.checked);
+    setSortByNumber(false);
+    setSortByName(false);
+    setSortInvertByName(false);
   };
 
   const handleCheckboxFight = (e) => {
@@ -68,36 +95,53 @@ function PokedexList() {
     return true;
   };
 
-  const sortingNameHandler = (a, b) => {
+  const sortingHandler = (a, b) => {
     if (sortByName) {
       return a.name.localeCompare(b.name);
     }
-    return -1;
+    if (sortByInvertName) {
+      return b.name.localeCompare(a.name);
+    }
+    if (sortByNumber) {
+      return a.id - b.id;
+    }
+    if (sortByInvertNumber) {
+      return b.id - a.id;
+    }
+    return true;
   };
 
   if (!pokemon) return <div>Loading pokemon ...</div>;
 
   return (
-    <div className="w-full bg-[#F0F0F0]">
+    <div className="w-full bg-[#F0F0F0] md:bg-customLightRed-endGrad">
       <Picture />
-      <div className={`${bgGradLightRed} flex justify-between`}>
-        <Filters
-          handleCheckbox={handleCheckbox}
-          filter={filter}
-          handleCheckboxFight={handleCheckboxFight}
-          fighterAvailable={fighterAvailable}
-        />
-        <Sorting
-          handleSortingName={handleSortingName}
-          sortByName={sortByName}
-        />
-      </div>
-      <div>
-        <div className="flex flex-row flex-wrap justify-center">
+      <div className="md:flex">
+        <div
+          className={`${bgGradLightRed} flex justify-between md:flex-col md:w-1/5 md:items-center md:justify-start`}
+        >
+          <Filters
+            handleCheckbox={handleCheckbox}
+            filter={filter}
+            handleCheckboxFight={handleCheckboxFight}
+            fighterAvailable={fighterAvailable}
+          />
+          <Sorting
+            handleSortingName={handleSortingName}
+            sortByName={sortByName}
+            handleSortingInvertName={handleSortingInvertName}
+            sortByInvertName={sortByInvertName}
+            handleSortingNumber={handleSortingNumber}
+            sortByNumber={sortByNumber}
+            handleSortingInvertNumber={handleSortingInvertNumber}
+            sortByInvertNumber={sortByInvertNumber}
+          />
+        </div>
+        <div className="flex flex-row flex-wrap justify-center min-h-screen content-start md:w-4/5">
           {pokemon
             .filter(pokemonList)
             .filter(fightingList)
-            .sort(sortingNameHandler)
+            .sort(sortingHandler)
             .map((item) => (
               <Pokedex key={item.name} pokemon={item} />
             ))}

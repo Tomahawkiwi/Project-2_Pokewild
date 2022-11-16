@@ -14,14 +14,13 @@ function Filter({
   };
 
   return (
-    <div className="w-1/2">
-      <button
-        className="w-full h-12 text-white text-sm font-Rajdhani"
-        type="button"
-        onClick={handleOpenFilters}
-      >
-        FILTER
-      </button>
+    <div className="w-1/2 md:w-full">
+      <div className="flex h-12 text-white text-base font-Rajdhani items-center border-r-2 md:border-r-0">
+        <button className="w-full" type="button" onClick={handleOpenFilters}>
+          FILTER
+        </button>
+        <div>{isOpen ? "-" : "+"}</div>
+      </div>
       {isOpen && (
         <FiltersList
           handleCheckbox={handleCheckbox}
