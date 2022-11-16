@@ -132,7 +132,7 @@ FocusGamer.propTypes = {
   clickedArena: PropTypes.string.isRequired,
   getRandomOpponent: PropTypes.func.isRequired,
   setDialbox: PropTypes.func.isRequired,
-  buttonReady: PropTypes.string.isRequired,
+  buttonReady: PropTypes.bool.isRequired,
   setButtonReady: PropTypes.func.isRequired,
 };
 
