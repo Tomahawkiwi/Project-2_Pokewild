@@ -3,7 +3,7 @@ import React from "react";
 function About() {
   return (
     <div className="bg-white">
-      <div className="flex m-5 space-x-7 text-center items-center text-red-700 font-Rajdhani lg:mx-80">
+      <div className="flex m-5 space-x-7 text-center items-center text-red-700 font-Rajdhani">
         <h2 className="text-xl rounded-md">About Pokewild</h2>
         <p className="sm:text-md lg:text-xl">
           Welcome to the Pokewild game site! Based on the 1st generation of

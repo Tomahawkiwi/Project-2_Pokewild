@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NavLinks from "./Navlinks";
 import { bgGradLightRed } from "../../../tools/constants";
 import PokeButton from "./PokeButton";
+import Logo from "../../../assets/navbar/pokewild-logo.png";
 import NavItems from "./NavItems";
 
 export default function Navbar() {
@@ -17,11 +18,7 @@ export default function Navbar() {
         <PokeButton isOpen={isOpen} handleBurger={handleBurger} />
         <NavItems />
         <Link className="" onClick={() => setIsOpen(false)} to="/">
-          <img
-            className="w-50 h-8 cursor-pointer"
-            src="src/assets/navbar/pokewild-logo.png"
-            alt="Pokewild logo"
-          />
+          <img className="w-50 h-8" src={Logo} alt="Pokewild logo" />
         </Link>
       </div>
       {isOpen && <NavLinks setIsOpen={setIsOpen} />}
