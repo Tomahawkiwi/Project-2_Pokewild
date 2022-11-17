@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import PvBar from "./PvBar";
 import ArrowUnderPv from "./ArrowUnderPv";
 
-function LiveScreen({ clickedPokemon, clickedOpponent, clickedArena }) {
+function LiveScreen({
+  clickedPokemon,
+  lifePokemon,
+  setLifePokemon,
+  clickedOpponent,
+  lifeOpponent,
+  setLifeOpponent,
+  clickedArena,
+}) {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden z-1">
       <img
         src={clickedArena.path}
         alt={clickedArena.alt}
@@ -54,17 +62,25 @@ function LiveScreen({ clickedPokemon, clickedOpponent, clickedArena }) {
           } z-3 bottom-[40%] left-[60%]`}
         />
       </div>
-      <div className="absolute bottom-[10%] right-[11%] z-3 scale-x-[-1.1] scale-y-[1.1]">
+      <div className="absolute bottom-[13%] right-[11%] z-3 scale-x-[-1.1] scale-y-[1.1]">
         <ArrowUnderPv />
       </div>
-      <div className="absolute bottom-[5%] right-[5%] z-4">
-        <PvBar pokemon={clickedPokemon} />
+      <div className="absolute bottom-[8%] right-[5%] z-4">
+        <PvBar
+          pokemon={clickedPokemon}
+          life={lifePokemon}
+          setLife={setLifePokemon}
+        />
       </div>
-      <div className="absolute top-[33%] left-[11%] z-3 scale-110">
+      <div className="absolute top-[22%] left-[11%] z-3 scale-110">
         <ArrowUnderPv />
       </div>
-      <div className="absolute top-[5%] left-[5%] z-4">
-        <PvBar pokemon={clickedOpponent} />
+      <div className="absolute top-[8%] left-[5%] z-4">
+        <PvBar
+          pokemon={clickedOpponent}
+          life={lifeOpponent}
+          setLife={setLifeOpponent}
+        />
       </div>
     </div>
   );
@@ -72,7 +88,11 @@ function LiveScreen({ clickedPokemon, clickedOpponent, clickedArena }) {
 
 LiveScreen.propTypes = {
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
+  lifePokemon: PropTypes.number.isRequired,
+  setLifePokemon: PropTypes.func.isRequired,
   clickedOpponent: PropTypes.objectOf(PropTypes.any).isRequired,
+  lifeOpponent: PropTypes.number.isRequired,
+  setLifeOpponent: PropTypes.func.isRequired,
   clickedArena: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 

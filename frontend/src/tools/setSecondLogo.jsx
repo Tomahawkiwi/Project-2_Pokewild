@@ -7,7 +7,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#91C12F] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#91C12F] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Bug.png"
+          src="src/assets/pokemon_types/bug.png"
           alt="type bug"
         />
       </div>
@@ -18,7 +18,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#5A5465] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#5A5465] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Dark.png"
+          src="src/assets/pokemon_types/dark.png"
           alt="type dark"
         />
       </div>
@@ -29,7 +29,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#0B6DC3] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#0B6DC3] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Dragon.png"
+          src="src/assets/pokemon_types/dragon.png"
           alt="type dragon"
         />
       </div>
@@ -40,7 +40,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#F4D23C] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#F4D23C] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Electric.png"
+          src="src/assets/pokemon_types/electric.png"
           alt="type electric"
         />
       </div>
@@ -51,7 +51,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#EC8FE6] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#EC8FE6] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Fairy.png"
+          src="src/assets/pokemon_types/fairy.png"
           alt="type fairy"
         />
       </div>
@@ -62,7 +62,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#CE416B] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#CE416B] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Fighting.png"
+          src="src/assets/pokemon_types/fighting.png"
           alt="type fighting"
         />
       </div>
@@ -73,7 +73,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#FF9D55] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#FF9D55] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Fire.png"
+          src="src/assets/pokemon_types/fire.png"
           alt="type fire"
         />
       </div>
@@ -84,7 +84,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#8FA9DE] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#8FA9DE] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Flying.png"
+          src="src/assets/pokemon_types/flying.png"
           alt="type flying"
         />
       </div>
@@ -95,7 +95,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#5269AD] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#5269AD] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Ghost.png"
+          src="src/assets/pokemon_types/ghost.png"
           alt="type ghost"
         />
       </div>
@@ -106,7 +106,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#63BC5A] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="h-5 w-5"
-          src="src/assets/pokemon_types/Grass.png"
+          src="src/assets/pokemon_types/grass.png"
           alt="type grass"
         />
       </div>
@@ -117,7 +117,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#D97845] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#D97845] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Ground.png"
+          src="src/assets/pokemon_types/ground.png"
           alt="type ground"
         />
       </div>
@@ -128,7 +128,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#73CEC0] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#73CEC0] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Ice.png"
+          src="src/assets/pokemon_types/ice.png"
           alt="type ice"
         />
       </div>
@@ -139,7 +139,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#919AA2] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#919AA2] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Normal.png"
+          src="src/assets/pokemon_types/normal.png"
           alt="type normal"
         />
       </div>
@@ -150,7 +150,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#AA6BC8] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#AA6BC8] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Poison.png"
+          src="src/assets/pokemon_types/poison.png"
           alt="type poison"
         />
       </div>
@@ -161,7 +161,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#FA7179] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#FA7179] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Psychic.png"
+          src="src/assets/pokemon_types/psychic.png"
           alt="type psychic"
         />
       </div>
@@ -172,7 +172,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#C5B78C] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#C5B78C] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Rock.png"
+          src="src/assets/pokemon_types/rock.png"
           alt="type rock"
         />
       </div>
@@ -183,7 +183,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#5A8EA2] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#5A8EA2] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Steel.png"
+          src="src/assets/pokemon_types/steel.png"
           alt="type steel"
         />
       </div>
@@ -194,7 +194,7 @@ const setSecondLogo = (pokemon) => {
       <div className="bg-[#5090D6] h-7 w-7 rounded-tr-lg flex justify-center items-center">
         <img
           className="bg-[#5090D6] h-5 w-5 rounded-tr-lg"
-          src="src/assets/pokemon_types/Water.png"
+          src="src/assets/pokemon_types/water.png"
           alt="type water"
         />
       </div>
