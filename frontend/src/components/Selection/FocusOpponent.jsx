@@ -66,7 +66,12 @@ function FocusOpponent({ clickedOpponent }) {
                 .animated.front_default
             }
             alt={clickedOpponent.name}
-            className="w-32 h-fit"
+            className={`${clickedOpponent.name === "moltres" && "scale-150"} ${
+              clickedOpponent.name === "pikachu" ||
+              clickedOpponent.name === "articuno"
+                ? "w-24"
+                : "w-32"
+            }  h-fit`}
           />
         </div>
         <p className="w-full font-Silkscreen mt-2 text-xl text-center">
@@ -82,22 +87,3 @@ FocusOpponent.propTypes = {
 };
 
 export default FocusOpponent;
-
-// useEffect(() => {
-//   if (
-//     isChoiceValidated &&
-//     clickedArena !== "" &&
-//     clickedPokemon.name !== choiceByDefault.name
-//   ) {
-//     return getRandomOpponent();
-//   }
-//   if (
-//     (isChoiceValidated && clickedPokemon.name === choiceByDefault.name) ||
-//     (isChoiceValidated && clickedArena === "")
-//   ) {
-//     return alert("Please choose a pokemon and an arena before");
-//   }
-//   // if (isChoiceValidated && clickedArena !== "") {
-//   //   alert("Please choose an arena before");
-//   // }
-// }, [isChoiceValidated]);

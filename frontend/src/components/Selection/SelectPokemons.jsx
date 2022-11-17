@@ -24,7 +24,7 @@ function SelectPokemons({
         const randomPkmn = allData[Math.floor(Math.random() * allData.length)];
         setClickedOpponent(randomPkmn);
         if (i === 29) {
-          setTimeout(() => callback(randomPkmn), 500);
+          setTimeout(() => callback(randomPkmn), 1000);
         }
       }, 100 * i);
     }
@@ -80,7 +80,7 @@ SelectPokemons.propTypes = {
   setIsChoiceValidated: PropTypes.func.isRequired,
   clickedOpponent: PropTypes.objectOf(PropTypes.any).isRequired,
   setClickedOpponent: PropTypes.func.isRequired,
-  clickedArena: PropTypes.string.isRequired,
+  clickedArena: PropTypes.objectOf(PropTypes.any).isRequired,
   setDialbox: PropTypes.func.isRequired,
 };
 

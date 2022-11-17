@@ -5,7 +5,7 @@ import { choiceByDefault, opponentByDefault } from "../tools/constants";
 import SelectionArena from "../components/Selection/SelectionArena";
 import FocusOpponent from "../components/Selection/FocusOpponent";
 import HeaderDial from "../components/Selection/HeaderDial";
-import CombatScreen from "../components/Combat/CombatScreen";
+import Combat from "../components/Combat/Combat";
 
 function CombatSelection() {
   const [allData, setAllData] = useState([]);
@@ -13,9 +13,10 @@ function CombatSelection() {
   const [clickedPokemon, setClickedPokemon] = useState(choiceByDefault);
   const [isChoiceValidated, setIsChoiceValidated] = useState(false);
   const [clickedOpponent, setClickedOpponent] = useState(opponentByDefault);
-  const [clickedArena, setClickedArena] = useState("");
+  const [clickedArena, setClickedArena] = useState({});
   const [dialbox, setDialbox] = useState("CHOOSE YOUR POKEMON");
-  const [fightBegin, setFightBegin] = useState(false);
+  const [isFightBegin, setIsFightBegin] = useState(false);
+  // don't forget to put back initial isFightBegin on "false" when combat part ok !
 
   const getPokemon = async (index, controller) => {
     await axios
@@ -63,10 +64,11 @@ function CombatSelection() {
         dialbox={dialbox}
         setDialbox={setDialbox}
         isChoiceValidated={isChoiceValidated}
-        setFightBegin={setFightBegin}
+        setIsFightBegin={setIsFightBegin}
+        isFightBegin={isFightBegin}
       />
       {!isLoading &&
-        (!fightBegin ? (
+        (!isFightBegin ? (
           <div className="w-10/12 mx-auto">
             <SelectPokemons
               allData={allData}
@@ -86,7 +88,11 @@ function CombatSelection() {
             <FocusOpponent clickedOpponent={clickedOpponent} />
           </div>
         ) : (
-          <CombatScreen />
+          <Combat
+            clickedPokemon={clickedPokemon}
+            clickedOpponent={clickedOpponent}
+            clickedArena={clickedArena}
+          />
         ))}
     </div>
   );
