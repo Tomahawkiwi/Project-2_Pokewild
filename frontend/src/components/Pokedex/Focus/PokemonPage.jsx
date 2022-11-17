@@ -16,8 +16,6 @@ function PokemonPage() {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState();
 
-  console.log(pokemon);
-
   const getPokemonById = (pokemonid) => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokemonid}`)
