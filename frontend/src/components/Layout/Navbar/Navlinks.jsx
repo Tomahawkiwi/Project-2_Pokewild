@@ -34,7 +34,7 @@ function Switch() {
 
 const navLinks = [
   {
-    linkName: "Pokédex",
+    linkName: "Pokedex",
     path: "/pokedex",
     image: Pokedex,
     color: "#878787",

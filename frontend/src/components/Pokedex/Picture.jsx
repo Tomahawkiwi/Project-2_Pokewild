@@ -10,7 +10,7 @@ function Picture() {
         alt="trees"
       />
       <h1 className="absolute text-4xl text-white font-Silkscreen md:text-7xl lg:text-8xl">
-        Pokédex
+        Pokedex
       </h1>
     </div>
   );

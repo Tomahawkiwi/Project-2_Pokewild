@@ -9,7 +9,7 @@ function FocusStats({
   textStat,
   clickedPokemon,
 }) {
-  const heightStatFull = 150;
+  const heightStatFull = 200;
 
   const getHeight = (statFull, statChosen) =>
     (statChosen * heightStatFull) / statFull;
@@ -17,7 +17,7 @@ function FocusStats({
   const heightPvChosen = getHeight(typeStatMax, statValue);
 
   return (
-    <div className="my-2 mx-2 flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <div
         style={{ height: `${heightStatFull}px` }}
         className="w-10 rounded-full bg-customLightGrey-lighter relative z-0 overflow-hidden"
@@ -33,7 +33,7 @@ function FocusStats({
           <div className="text-center">{statValue}</div>
         </motion.div>
       </div>
-      <p className="w-4 mt-1 text-center text-[10px] leading-3">{textStat}</p>
+      <p className="w-4 mt-8 text-center text-[14px] leading-3">{textStat}</p>
     </div>
   );
 }

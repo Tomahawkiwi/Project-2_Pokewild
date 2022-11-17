@@ -14,7 +14,7 @@ function Pokedex({ pokemon }) {
     <div
       className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 sm:mx-5 sm:my-5`}
     >
-      <Link to={`/pokedex/${pokemon.name}`}>
+      <Link to={`/pokedex/${pokemon.id}`}>
         <div className="flex justify-between">
           <div className="w-full rounded-tr-lg">
             <div className="font-Silkscreen text-sm pl-1">{pokemon.name}</div>
