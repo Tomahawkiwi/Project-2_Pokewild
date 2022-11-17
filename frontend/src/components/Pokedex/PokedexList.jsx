@@ -4,6 +4,9 @@ import axios from "axios";
 import Pokedex from "./Pokedex";
 import Picture from "./Picture";
 import Filters from "./Filters/Filter";
+import Sorting from "./Sorting/Sorting";
+import { bgGradLightRed } from "../../tools/constants";
+import setAvailableToFight from "../../tools/setAvailableToFight";
 
 const getAllPokemonData = async () => {
   const { data } = await axios.get(
@@ -20,6 +23,11 @@ const getAllPokemonData = async () => {
 function PokedexList() {
   const [pokemon, setPokemon] = useState();
   const [filter, setFilter] = useState([]);
+  const [fighterAvailable, setFighterAvailable] = useState(false);
+  const [sortByName, setSortByName] = useState(false);
+  const [sortByInvertName, setSortInvertByName] = useState(false);
+  const [sortByNumber, setSortByNumber] = useState(false);
+  const [sortByInvertNumber, setSortByInvertNumber] = useState(false);
 
   useEffect(() => {
     getAllPokemonData().then((res) => setPokemon(res));
@@ -35,6 +43,38 @@ function PokedexList() {
     }
   };
 
+  const handleSortingName = (e) => {
+    setSortByName(e.target.checked);
+    setSortInvertByName(false);
+    setSortByNumber(false);
+    setSortByInvertNumber(false);
+  };
+
+  const handleSortingInvertName = (e) => {
+    setSortInvertByName(e.target.checked);
+    setSortByName(false);
+    setSortByNumber(false);
+    setSortByInvertNumber(false);
+  };
+
+  const handleSortingNumber = (e) => {
+    setSortByNumber(e.target.checked);
+    setSortByInvertNumber(false);
+    setSortByName(false);
+    setSortInvertByName(false);
+  };
+
+  const handleSortingInvertNumber = (e) => {
+    setSortByInvertNumber(e.target.checked);
+    setSortByNumber(false);
+    setSortByName(false);
+    setSortInvertByName(false);
+  };
+
+  const handleCheckboxFight = (e) => {
+    setFighterAvailable(e.target.checked);
+  };
+
   const pokemonList = useCallback(
     (item) => {
       if (filter.length) {
@@ -48,17 +88,63 @@ function PokedexList() {
     [filter]
   );
 
+  const fightingList = (item) => {
+    if (fighterAvailable) {
+      return setAvailableToFight(item);
+    }
+    return true;
+  };
+
+  const sortingHandler = (a, b) => {
+    if (sortByName) {
+      return a.name.localeCompare(b.name);
+    }
+    if (sortByInvertName) {
+      return b.name.localeCompare(a.name);
+    }
+    if (sortByNumber) {
+      return a.id - b.id;
+    }
+    if (sortByInvertNumber) {
+      return b.id - a.id;
+    }
+    return true;
+  };
+
   if (!pokemon) return <div>Loading pokemon ...</div>;
 
   return (
-    <div className="w-full bg-[#F0F0F0]">
+    <div className="w-full bg-[#F0F0F0] md:bg-customLightRed-endGrad">
       <Picture />
-      <Filters handleCheckbox={handleCheckbox} filter={filter} />
-      <div>
-        <div className="flex flex-row flex-wrap justify-center">
-          {pokemon.filter(pokemonList).map((item) => (
-            <Pokedex key={item.name} pokemon={item} />
-          ))}
+      <div className="md:flex">
+        <div
+          className={`${bgGradLightRed} flex justify-between md:flex-col md:w-1/5 md:items-center md:justify-start`}
+        >
+          <Filters
+            handleCheckbox={handleCheckbox}
+            filter={filter}
+            handleCheckboxFight={handleCheckboxFight}
+            fighterAvailable={fighterAvailable}
+          />
+          <Sorting
+            handleSortingName={handleSortingName}
+            sortByName={sortByName}
+            handleSortingInvertName={handleSortingInvertName}
+            sortByInvertName={sortByInvertName}
+            handleSortingNumber={handleSortingNumber}
+            sortByNumber={sortByNumber}
+            handleSortingInvertNumber={handleSortingInvertNumber}
+            sortByInvertNumber={sortByInvertNumber}
+          />
+        </div>
+        <div className="flex flex-row flex-wrap justify-center min-h-screen content-start md:w-4/5">
+          {pokemon
+            .filter(pokemonList)
+            .filter(fightingList)
+            .sort(sortingHandler)
+            .map((item) => (
+              <Pokedex key={item.name} pokemon={item} />
+            ))}
         </div>
       </div>
     </div>

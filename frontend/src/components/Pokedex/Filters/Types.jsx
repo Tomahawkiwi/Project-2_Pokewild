@@ -3,18 +3,20 @@ import PropTypes from "prop-types";
 import setLogo from "../../../tools/setLogo";
 
 function Types({ type, handleCheckbox, filter }) {
-  if (type === "unknown" || type === "shadow")
+  if (type === "unknown" || type === "shadow" || type === "dark")
     return <div className="hidden" />;
 
   return (
-    <div className="flex m-1">
-      <input
-        className="m-2"
-        type="checkbox"
-        onChange={() => handleCheckbox(type)}
-        checked={filter.indexOf(type) > -1}
-      />
-      {setLogo(type)}
+    <div>
+      <label className="flex m-1">
+        <input
+          className="m-2"
+          type="checkbox"
+          onChange={() => handleCheckbox(type)}
+          checked={filter.indexOf(type) > -1}
+        />
+        {setLogo(type)}
+      </label>
     </div>
   );
 }

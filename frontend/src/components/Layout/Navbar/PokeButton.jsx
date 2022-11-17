@@ -11,7 +11,7 @@ export default function PokeButton(props) {
       onClick={handleBurger}
       src={isOpen ? PokeOpen : PokeClose}
       alt="burger"
-      className="w-10 h-10"
+      className="w-10 md:hidden h-10 cursor-pointer"
     />
   );
 }

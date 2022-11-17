@@ -12,7 +12,7 @@ import { bgGradLightGrey } from "../../tools/constants";
 function Pokedex({ pokemon }) {
   return (
     <div
-      className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 sm:mx-5 sm:my-5`}
+      className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 hover:scale-110 cursor-pointer sm:mx-5 sm:my-5`}
     >
       <Link to={`/pokedex/${pokemon.id}`}>
         <div className="flex justify-between">
