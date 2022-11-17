@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { motion } from "framer-motion";
 import PvBar from "./PvBar";
+import ArrowUnderPv from "./ArrowUnderPv";
 
 function LiveScreen({ clickedPokemon, clickedOpponent, clickedArena }) {
   return (
@@ -53,8 +54,17 @@ function LiveScreen({ clickedPokemon, clickedOpponent, clickedArena }) {
           } z-3 bottom-[40%] left-[60%]`}
         />
       </div>
+      <div className="absolute bottom-[10%] right-[11%] z-3 scale-x-[-1.1] scale-y-[1.1]">
+        <ArrowUnderPv />
+      </div>
+      <div className="absolute bottom-[5%] right-[5%] z-4">
+        <PvBar pokemon={clickedPokemon} />
+      </div>
+      <div className="absolute top-[33%] left-[11%] z-3 scale-110">
+        <ArrowUnderPv />
+      </div>
       <div className="absolute top-[5%] left-[5%] z-4">
-        <PvBar pokemon={clickedPokemon} directionFromPV="left" />
+        <PvBar pokemon={clickedOpponent} />
       </div>
     </div>
   );

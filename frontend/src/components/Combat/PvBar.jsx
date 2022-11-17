@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { bgGradLightGrey } from "../../tools/constants";
 
-function PvBar({ pokemon, directionFromPV }) {
+function PvBar({ pokemon }) {
   const { name, stats } = pokemon;
   const [life, setLife] = useState(stats[0].base_stat);
 
@@ -19,11 +19,11 @@ function PvBar({ pokemon, directionFromPV }) {
       <p className="w-full text-center">{name}</p>
       <div
         style={{ width: `${widthStatFull}px` }}
-        className="h-3 rounded-full bg-customLightGrey-lighter border-[1px] border-white relative z-5 overflow-hidden"
+        className="h-2 rounded-full bg-customLightGrey-lighter border-[1px] border-white relative z-5 overflow-hidden"
       >
         <div
           style={{ width: `${widthPvState}px` }}
-          className={`h-3 bg-[#18D84D] absolute z-6 ${directionFromPV}-0`}
+          className="h-2 bg-[#18D84D] absolute z-6 left-0"
         />
       </div>
       <button
@@ -39,7 +39,6 @@ function PvBar({ pokemon, directionFromPV }) {
 
 PvBar.propTypes = {
   pokemon: PropTypes.objectOf(PropTypes.any).isRequired,
-  directionFromPV: PropTypes.string.isRequired,
 };
 
 export default PvBar;
