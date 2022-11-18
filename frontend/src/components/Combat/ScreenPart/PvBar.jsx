@@ -11,6 +11,16 @@ function PvBar({ pokemon, life }) {
 
   const widthPvLeft = getWidth(stats[0].base_stat, life);
 
+  const getBgLife = () => {
+    if (widthPvLeft >= widthStatFull / 2) {
+      return "bg-[#18D84D]";
+    }
+    if (widthPvLeft >= widthStatFull / 5) {
+      return "bg-orange-400";
+    }
+    return "bg-customLightRed-endGrad";
+  };
+
   return (
     <div
       className={`h-fit w-fit ${bgGradLightGrey} rounded-lg px-3 py-1 flex flex-col justify-center`}
@@ -21,8 +31,11 @@ function PvBar({ pokemon, life }) {
         className="h-2 rounded-full bg-customLightGrey-lighter border-[1px] border-white relative z-5 overflow-hidden"
       >
         <div
-          style={{ width: `${widthPvLeft}px` }}
-          className="h-2 bg-[#18D84D] absolute z-6 left-0"
+          style={{
+            width: `${widthPvLeft}px`,
+            transition: "all 1s 1.5s ease-in-out",
+          }}
+          className={`h-2 ${getBgLife()} absolute z-6 left-0`}
         />
       </div>
     </div>
