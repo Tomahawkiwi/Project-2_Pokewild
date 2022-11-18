@@ -19,7 +19,6 @@ function Filter({
         <button className="w-full" type="button" onClick={handleOpenFilters}>
           FILTER
         </button>
-        <div>{isOpen ? "-" : "+"}</div>
       </div>
       {isOpen && (
         <FiltersList
