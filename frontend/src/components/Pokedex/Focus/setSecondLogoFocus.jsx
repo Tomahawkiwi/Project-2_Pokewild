@@ -23,9 +23,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "bug") {
     return (
-      <div className="bg-[#91C12F] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#91C12F] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#91C12F] h-15 w-15 rounded-full"
+          className="bg-[#91C12F] h-7 w-7 rounded-full"
           src={Bug}
           alt="type bug"
         />
@@ -34,9 +34,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "dark") {
     return (
-      <div className="bg-[#5A5465] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#5A5465] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#5A5465] h-15 w-15 rounded-full"
+          className="bg-[#5A5465] h-7 w-7 rounded-full"
           src={Dark}
           alt="type dark"
         />
@@ -45,9 +45,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "dragon") {
     return (
-      <div className="bg-[#0B6DC3] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#0B6DC3] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#0B6DC3] h-15 w-15 rounded-full"
+          className="bg-[#0B6DC3] h-7 w-7 rounded-full"
           src={Dragon}
           alt="type dragon"
         />
@@ -56,9 +56,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "electric") {
     return (
-      <div className="bg-[#F4D23C] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#F4D23C] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#F4D23C] h-15 w-15 rounded-full"
+          className="bg-[#F4D23C] h-7 w-7 rounded-full"
           src={Electric}
           alt="type electric"
         />
@@ -67,9 +67,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "fairy") {
     return (
-      <div className="bg-[#EC8FE6] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#EC8FE6] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#EC8FE6] h-15 w-15 rounded-full"
+          className="bg-[#EC8FE6] h-7 w-7 rounded-full"
           src={Fairy}
           alt="type fairy"
         />
@@ -78,9 +78,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "fighting") {
     return (
-      <div className="bg-[#CE416B] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#CE416B] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#CE416B] h-15 w-15 rounded-full"
+          className="bg-[#CE416B] h-7 w-7 rounded-full"
           src={Fighting}
           alt="type fighting"
         />
@@ -89,9 +89,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "fire") {
     return (
-      <div className="bg-[#FF9D55] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#FF9D55] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#FF9D55] h-15 w-15 rounded-full"
+          className="bg-[#FF9D55] h-7 w-7 rounded-full"
           src={Fire}
           alt="type fire"
         />
@@ -100,9 +100,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "flying") {
     return (
-      <div className="bg-[#8FA9DE] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#8FA9DE] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#8FA9DE] h-15 w-15 rounded-full"
+          className="bg-[#8FA9DE] h-7 w-7 rounded-full"
           src={Flying}
           alt="type flying"
         />
@@ -111,9 +111,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "ghost") {
     return (
-      <div className="bg-[#5269AD] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#5269AD] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#5269AD] h-15 w-15 rounded-full"
+          className="bg-[#5269AD] h-7 w-7 rounded-full"
           src={Ghost}
           alt="type ghost"
         />
@@ -122,16 +122,16 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "grass") {
     return (
-      <div className="bg-[#63BC5A] h-20 w-20 rounded-full flex justify-center items-center">
-        <img className="h-15 w-15 rounded-full" src={Grass} alt="type grass" />
+      <div className="bg-[#63BC5A] h-10 w-10 rounded-full flex justify-center items-center">
+        <img className="h-7 w-7 rounded-full" src={Grass} alt="type grass" />
       </div>
     );
   }
   if (pokemon.types["1"].type.name === "ground") {
     return (
-      <div className="bg-[#D97845] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#D97845] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#D97845] h-15 w-15 rounded-full"
+          className="bg-[#D97845] h-7 w-7 rounded-full"
           src={Ground}
           alt="type ground"
         />
@@ -140,9 +140,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "ice") {
     return (
-      <div className="bg-[#73CEC0] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#73CEC0] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#73CEC0] h-15 w-15 rounded-full"
+          className="bg-[#73CEC0] h-7 w-7 rounded-full"
           src={Ice}
           alt="type ice"
         />
@@ -151,9 +151,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "normal") {
     return (
-      <div className="bg-[#919AA2] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#919AA2] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#919AA2] h-15 w-15 rounded-full"
+          className="bg-[#919AA2] h-7 w-7 rounded-full"
           src={Normal}
           alt="type normal"
         />
@@ -162,9 +162,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "poison") {
     return (
-      <div className="bg-[#AA6BC8] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#AA6BC8] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#AA6BC8] h-15 w-15 rounded-full"
+          className="bg-[#AA6BC8] h-7 w-7 rounded-full"
           src={Poison}
           alt="type poison"
         />
@@ -173,9 +173,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "psychic") {
     return (
-      <div className="bg-[#FA7179] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#FA7179] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#FA7179] h-15 w-15 rounded-full"
+          className="bg-[#FA7179] h-7 w-7 rounded-full"
           src={Psychic}
           alt="type psychic"
         />
@@ -184,9 +184,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "rock") {
     return (
-      <div className="bg-[#C5B78C] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#C5B78C] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#C5B78C] h-15 w-15 rounded-full"
+          className="bg-[#C5B78C] h-7 w-7 rounded-full"
           src={Rock}
           alt="type rock"
         />
@@ -195,9 +195,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "steel") {
     return (
-      <div className="bg-[#5A8EA2] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#5A8EA2] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#5A8EA2] h-15 w-15 rounded-full"
+          className="bg-[#5A8EA2] h-7 w-7 rounded-full"
           src={Steel}
           alt="type steel"
         />
@@ -206,9 +206,9 @@ const setSecondLogoFocus = (pokemon) => {
   }
   if (pokemon.types["1"].type.name === "water") {
     return (
-      <div className="bg-[#5090D6] h-20 w-20 rounded-full flex justify-center items-center">
+      <div className="bg-[#5090D6] h-10 w-10 rounded-full flex justify-center items-center">
         <img
-          className="bg-[#5090D6] h-15 w-15 rounded-full"
+          className="bg-[#5090D6] h-7 w-7 rounded-full"
           src={Water}
           alt="type water"
         />

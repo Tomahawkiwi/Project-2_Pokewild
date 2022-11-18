@@ -22,7 +22,6 @@ function Sorting({
         <button className="w-full" type="button" onClick={handleOpenFilters}>
           SORTING
         </button>
-        <div>{isOpen ? "-" : "+"}</div>
       </div>
       {isOpen && (
         <SortingList
