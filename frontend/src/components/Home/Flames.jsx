@@ -23,7 +23,7 @@ function Flames() {
         {pokegif.map((item) => (
           <img
             key={item.data.id}
-            className="py-5 sm: w-20 lg:w-28"
+            className="py-5 sm: w-20 lg:w-36"
             src={
               item.data.sprites.versions["generation-v"]["black-white"].animated
                 .front_default
@@ -32,8 +32,12 @@ function Flames() {
           />
         ))}
       </div>
-      <div className="w-full">
-        <img src="/src/assets/img-home/fire.png" alt="background flames" />
+      <div>
+        <img
+          className="w-full"
+          src="/src/assets/img-home/fire.png"
+          alt="background flames"
+        />
       </div>
     </div>
   );
