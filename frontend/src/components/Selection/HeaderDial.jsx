@@ -2,7 +2,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import Dialbox from "./Dialbox";
 
-function HeaderDial({ dialbox, setDialbox, isChoiceValidated, setFightBegin }) {
+function HeaderDial({
+  dialbox,
+  setDialbox,
+  isChoiceValidated,
+  setIsFightBegin,
+  isFightBegin,
+}) {
   return (
     <div className="h-fit mt-14">
       <div className="relative object-cover">
@@ -19,7 +25,8 @@ function HeaderDial({ dialbox, setDialbox, isChoiceValidated, setFightBegin }) {
         dialbox={dialbox}
         setDialbox={setDialbox}
         isChoiceValidated={isChoiceValidated}
-        setFightBegin={setFightBegin}
+        setIsFightBegin={setIsFightBegin}
+        isFightBegin={isFightBegin}
       />
     </div>
   );
@@ -29,7 +36,8 @@ HeaderDial.propTypes = {
   dialbox: PropTypes.string.isRequired,
   setDialbox: PropTypes.func.isRequired,
   isChoiceValidated: PropTypes.bool.isRequired,
-  setFightBegin: PropTypes.func.isRequired,
+  setIsFightBegin: PropTypes.func.isRequired,
+  isFightBegin: PropTypes.bool.isRequired,
 };
 
 export default HeaderDial;
