@@ -57,7 +57,7 @@ function Dialbox({
           onClick={() => handleBegin()}
           className={`${
             isChoiceValidated
-              ? "bg-customLightRed hover:scale-110"
+              ? "bg-customLightRed hover:scale-110 transition-colors duration-300 ease-in-out"
               : "bg-customDarkGrey-lighter cursor-no-drop "
           } text-white w-36 ml-5 p-3 h-fit rounded-2xl shadow-custom font-Silkscreen text-lg`}
         >

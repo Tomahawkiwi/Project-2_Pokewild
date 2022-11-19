@@ -92,6 +92,7 @@ function CombatSelection() {
             clickedPokemon={clickedPokemon}
             clickedOpponent={clickedOpponent}
             clickedArena={clickedArena}
+            dialbox={dialbox}
           />
         ))}
     </div>

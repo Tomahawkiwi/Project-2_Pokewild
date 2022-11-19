@@ -129,7 +129,7 @@ function FocusGamer({
             className={`${
               clickedPokemon.name !== choiceByDefault.name &&
               Object.keys(clickedArena).length === 2
-                ? "bg-customLightRed hover:scale-110 cursor-pointer"
+                ? "bg-customLightRed hover:scale-110 cursor-pointer transition-colors duration-300 ease-in-out"
                 : "bg-customDarkGrey-lighter cursor-no-drop"
             } text-white w-full h-10 mt-2 rounded-2xl shadow-custom font-Silkscreen text-base`}
           >
