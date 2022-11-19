@@ -28,10 +28,10 @@ module.exports = {
         },
       },
       backgroundImage: {
-        dark: "url('src/assets/navbar/logoDarkMode.png')",
-        fantominus: "url('src/assets/navbar/phantominus.png')",
-        home: "url('src/assets/img-home/bg-img-home.png')",
-        deskflames: "url('src/assets/img-home/flames-bg.png')",
+        solaroc: "url('src/assets/navbar/solaroc.png')",
+        fantominus: "url('./src/assets/navbar/fantominus.png')",
+        home: "url('./src/assets/img-home/bg-img-home.jpg')",
+        deskflames: "url('./src/assets/img-home/flames-bg.png')",
       },
 
       fontFamily: {
