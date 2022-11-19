@@ -7,28 +7,42 @@ import Stats from "./Stats";
 function FocusGamer({
   clickedPokemon,
   setIsChoiceValidated,
-  isChoiceValidated,
   clickedArena,
   getRandomOpponent,
   setDialbox,
+  buttonReady,
+  setButtonReady,
 }) {
   const statPokemon = clickedPokemon.stats;
 
   const handleReady = () => {
-    if (clickedPokemon.name !== choiceByDefault.name && clickedArena !== "") {
+    if (
+      clickedPokemon.name !== choiceByDefault.name &&
+      Object.keys(clickedArena).length === 2
+    ) {
+      setButtonReady(true);
       setDialbox(`Nice, you chose ${clickedPokemon.name} !`);
       getRandomOpponent((opponent) => {
         setDialbox(`... and you'll face ${opponent.name} !`, 3500);
         setIsChoiceValidated(true);
       });
     }
-    if (clickedPokemon.name === choiceByDefault.name && clickedArena === "") {
+    if (
+      clickedPokemon.name === choiceByDefault.name &&
+      Object.keys(clickedArena).length !== 2
+    ) {
       setDialbox("You must choose a pokemon and an arena");
     }
-    if (clickedPokemon.name === choiceByDefault.name && clickedArena !== "") {
+    if (
+      clickedPokemon.name === choiceByDefault.name &&
+      Object.keys(clickedArena).length === 2
+    ) {
       setDialbox("You forgot to choose your pokemon...");
     }
-    if (clickedPokemon.name !== choiceByDefault.name && clickedArena === "") {
+    if (
+      clickedPokemon.name !== choiceByDefault.name &&
+      Object.keys(clickedArena).length !== 2
+    ) {
       setDialbox("You forgot to choose an arena...");
     }
   };
@@ -43,7 +57,12 @@ function FocusGamer({
                 .animated.front_default
             }
             alt={clickedPokemon.name}
-            className="w-32 h-fit"
+            className={`${clickedPokemon.name === "moltres" && "scale-150"} ${
+              clickedPokemon.name === "pikachu" ||
+              clickedPokemon.name === "articuno"
+                ? "w-24"
+                : "w-32"
+            }  h-fit`}
           />
         </div>
         <p className="w-full font-Silkscreen mt-2 text-xl text-center">
@@ -97,7 +116,7 @@ function FocusGamer({
             clickedPokemon={clickedPokemon}
           />
         </div>
-        {isChoiceValidated && clickedPokemon.name !== choiceByDefault.name ? (
+        {buttonReady ? (
           <div
             className={`${bgGradLightGrey} h-10 w-10 rounded-full shadow-custom mx-auto flex justify-center items-center text-center text-green-600 text-2xl`}
           >
@@ -106,12 +125,10 @@ function FocusGamer({
         ) : (
           <button
             type="button"
-            onClick={() => {
-              handleReady();
-            }}
+            onClick={() => handleReady()}
             className={`${
               clickedPokemon.name !== choiceByDefault.name &&
-              clickedArena !== ""
+              Object.keys(clickedArena).length === 2
                 ? "bg-customLightRed hover:scale-110 cursor-pointer"
                 : "bg-customDarkGrey-lighter cursor-no-drop"
             } text-white w-full h-10 mt-2 rounded-2xl shadow-custom font-Silkscreen text-base`}
@@ -126,11 +143,12 @@ function FocusGamer({
 
 FocusGamer.propTypes = {
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
-  isChoiceValidated: PropTypes.bool.isRequired,
   setIsChoiceValidated: PropTypes.func.isRequired,
-  clickedArena: PropTypes.string.isRequired,
+  clickedArena: PropTypes.objectOf(PropTypes.any).isRequired,
   getRandomOpponent: PropTypes.func.isRequired,
   setDialbox: PropTypes.func.isRequired,
+  buttonReady: PropTypes.bool.isRequired,
+  setButtonReady: PropTypes.func.isRequired,
 };
 
 export default FocusGamer;

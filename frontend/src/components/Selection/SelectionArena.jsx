@@ -18,11 +18,10 @@ function SelectionArena({ clickedArena, setClickedArena }) {
         className={`grow h-full ${bgGradLightGrey} rounded-xl shadow-custom`}
       >
         <div className="w-fit grid gap-3 grid-cols-2 p-4 m-auto">
-          {arenas.map((arena) => (
+          {arenas.map((each) => (
             <Arena
-              key={arena.path}
-              path={arena.path}
-              alt={arena.alt}
+              key={each.alt}
+              arena={each}
               clickedArena={clickedArena}
               setClickedArena={setClickedArena}
             />
@@ -34,7 +33,7 @@ function SelectionArena({ clickedArena, setClickedArena }) {
 }
 
 SelectionArena.propTypes = {
-  clickedArena: PropTypes.string.isRequired,
+  clickedArena: PropTypes.objectOf(PropTypes.any).isRequired,
   setClickedArena: PropTypes.func.isRequired,
 };
 

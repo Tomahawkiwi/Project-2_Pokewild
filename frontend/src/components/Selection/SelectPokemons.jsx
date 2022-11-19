@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import { bgGradLightGrey } from "../../tools/constants";
 import FocusGamer from "./FocusGamer";
 import Select1Pokemon from "./Select1Pokemon";
@@ -15,13 +16,15 @@ function SelectPokemons({
   clickedArena,
   setDialbox,
 }) {
+  const [buttonReady, setButtonReady] = useState(false);
+
   const getRandomOpponent = (callback) => {
     for (let i = 0; i < 30; i += 1) {
       setTimeout(() => {
         const randomPkmn = allData[Math.floor(Math.random() * allData.length)];
         setClickedOpponent(randomPkmn);
         if (i === 29) {
-          setTimeout(() => callback(randomPkmn), 500);
+          setTimeout(() => callback(randomPkmn), 1000);
         }
       }, 100 * i);
     }
@@ -36,6 +39,8 @@ function SelectPokemons({
         clickedArena={clickedArena}
         getRandomOpponent={getRandomOpponent}
         setDialbox={setDialbox}
+        buttonReady={buttonReady}
+        setButtonReady={setButtonReady}
       />
       <div
         className={`w-full ${bgGradLightGrey} rounded-xl shadow-custom mx-auto`}
@@ -51,6 +56,7 @@ function SelectPokemons({
               clickedPokemon={clickedPokemon}
               clickedOpponent={clickedOpponent}
               setIsChoiceValidated={setIsChoiceValidated}
+              setButtonReady={setButtonReady}
             />
           ))}
           <SelectRandomPokemon
@@ -58,6 +64,7 @@ function SelectPokemons({
             setClickedPokemon={setClickedPokemon}
             allData={allData}
             setIsChoiceValidated={setIsChoiceValidated}
+            setButtonReady={setButtonReady}
           />
         </div>
       </div>
@@ -73,7 +80,7 @@ SelectPokemons.propTypes = {
   setIsChoiceValidated: PropTypes.func.isRequired,
   clickedOpponent: PropTypes.objectOf(PropTypes.any).isRequired,
   setClickedOpponent: PropTypes.func.isRequired,
-  clickedArena: PropTypes.string.isRequired,
+  clickedArena: PropTypes.objectOf(PropTypes.any).isRequired,
   setDialbox: PropTypes.func.isRequired,
 };
 

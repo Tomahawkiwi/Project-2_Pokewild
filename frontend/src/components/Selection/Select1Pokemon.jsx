@@ -9,12 +9,14 @@ function Select1Pokemon({
   clickedPokemon,
   clickedOpponent,
   setIsChoiceValidated,
+  setButtonReady,
 }) {
   return (
     <button
       type="button"
       onClick={() => {
         setClickedPokemon(allData1Pokemon);
+        setButtonReady(false);
         setIsChoiceValidated(false);
       }}
       className={`${
@@ -34,9 +36,7 @@ function Select1Pokemon({
         allData1Pokemon.name !== clickedPokemon.name &&
         allData1Pokemon.name !== clickedOpponent.name &&
         "bg-customLightGrey-lighter"
-      }
-          if (allData1Pokemon.name === clickedOpponent.name) {"bg-customLightGrey-lighter"}
-       flex justify-center items-center w-[60px] h-[60px] rounded-[10px] shadow-custom hover:scale-110`}
+      } flex justify-center items-center w-[60px] h-[60px] rounded-[10px] shadow-custom hover:scale-110`}
     >
       <img src={imagePokemon} alt={namePokemon} className="w-14 h-fit" />
     </button>
@@ -51,6 +51,7 @@ Select1Pokemon.propTypes = {
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
   clickedOpponent: PropTypes.objectOf(PropTypes.any).isRequired,
   setIsChoiceValidated: PropTypes.func.isRequired,
+  setButtonReady: PropTypes.func.isRequired,
 };
 
 export default Select1Pokemon;
