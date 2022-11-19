@@ -11,13 +11,14 @@ import { bgGradLightGrey } from "../../tools/constants";
 
 function Pokedex({ pokemon }) {
   return (
-    <div
-      className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 hover:scale-110 cursor-pointer sm:mx-5 sm:my-5`}
+    <button
+      className={`${bgGradLightGrey} rounded-xl shadow-md w-40 h-44 mx-2 my-3 hover:scale-110 sm:mx-5 sm:my-5`}
+      type="button"
     >
       <Link to={`/pokedex/${pokemon.id}`}>
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center text-start">
           <div className="w-full rounded-tr-lg">
-            <div className="font-Silkscreen text-sm pl-1">{pokemon.name}</div>
+            <div className="font-Silkscreen text-sm pl-2">{pokemon.name}</div>
           </div>
           <div className={`flex rounded-tr-lg ${setBackgroundType(pokemon)}`}>
             <div className="">{setFirstLogo(pokemon)}</div>
@@ -26,19 +27,26 @@ function Pokedex({ pokemon }) {
         </div>
         <div className="flex justify-center">
           <img
-            className="h-32"
+            className="h-32 hover:cursor-pointer"
             src={pokemon.sprites.other["official-artwork"].front_default}
             alt="Pokemon"
           />
         </div>
         <div className="flex justify-between pl-2">
-          <div className="h-5 w-5">{setAvailableToFight(pokemon)}</div>
-          <div className="flex justify-end font-Rajdhani text-sm mr-2 mb-1">
+          <div className="w-4">
+            {setAvailableToFight(pokemon) && (
+              <img
+                src="src/assets/fight_mode/picto_fight.png"
+                alt="fightmode"
+              />
+            )}
+          </div>
+          <div className="font-Rajdhani text-sm mr-2 mb-1">
             {setNumber(pokemon)}
           </div>
         </div>
       </Link>
-    </div>
+    </button>
   );
 }
 
