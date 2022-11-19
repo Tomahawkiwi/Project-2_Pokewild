@@ -38,7 +38,11 @@ function Select1Pokemon({
         "bg-customLightGrey-lighter"
       } flex justify-center items-center w-[60px] h-[60px] rounded-[10px] shadow-custom hover:scale-110`}
     >
-      <img src={imagePokemon} alt={namePokemon} className="w-14 h-fit" />
+      <img
+        src={imagePokemon}
+        alt={namePokemon}
+        className="w-14 h-fit hover:cursor-pointer"
+      />
     </button>
   );
 }

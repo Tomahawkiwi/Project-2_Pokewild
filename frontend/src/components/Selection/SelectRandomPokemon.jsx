@@ -29,7 +29,7 @@ function SelectRandomPokemon({
       <img
         src="src/assets/combat-selection/unknown_pokemon.png"
         alt="Random pokemon"
-        className={`${width} h-fit`}
+        className={`${width} h-fit hover:cursor-pointer`}
       />
     </button>
   );

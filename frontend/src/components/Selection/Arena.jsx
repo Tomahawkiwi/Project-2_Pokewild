@@ -15,7 +15,7 @@ function Arena({ arena, clickedArena, setClickedArena }) {
         className={`${
           clickedArena.alt === arena.alt &&
           "scale-110 border-customLightRed border-4"
-        } rounded-[10px] shadow-custom hover:scale-110`}
+        } rounded-[10px] shadow-custom hover:scale-110 hover:cursor-pointer`}
       />
       {clickedArena.alt === arena.alt && (
         <div
