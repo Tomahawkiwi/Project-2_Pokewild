@@ -18,7 +18,11 @@ export default function Navbar() {
         <PokeButton isOpen={isOpen} handleBurger={handleBurger} />
         <NavItems />
         <Link className="" onClick={() => setIsOpen(false)} to="/">
-          <img className="w-50 h-8" src={Logo} alt="Pokewild logo" />
+          <img
+            className="w-50 h-8 hover:cursor-pointer"
+            src={Logo}
+            alt="Pokewild logo"
+          />
         </Link>
       </div>
       {isOpen && <NavLinks setIsOpen={setIsOpen} />}

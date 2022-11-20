@@ -12,13 +12,25 @@ export default function Footer() {
         <h3 className="font-Silkscreen text-xl my-6 lg:my-0">FOLLOW US!</h3>
         <div className="flex items-center justify-center space-x-3.5">
           <a href="https://youtube.com/">
-            <img className="w-7" src={YTB} alt="Youtube logo" />
+            <img
+              className="w-7 hover:cursor-pointer"
+              src={YTB}
+              alt="Youtube logo"
+            />
           </a>
           <a href="https://www.instagram.com/">
-            <img className="w-7" src={INST} alt="Instagram logo" />
+            <img
+              className="w-7 hover:cursor-pointer"
+              src={INST}
+              alt="Instagram logo"
+            />
           </a>
           <a href="https://www.twitter.com/">
-            <img className="w-7" src={TWT} alt="Twitter logo" />
+            <img
+              className="w-7 hover:cursor-pointer"
+              src={TWT}
+              alt="Twitter logo"
+            />
           </a>
         </div>
       </div>
