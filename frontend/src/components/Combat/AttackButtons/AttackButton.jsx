@@ -62,7 +62,7 @@ function AttackButton({
       0.5;
     const chanceToAttack = Math.floor(Math.random() * 100) + 1;
     const chanceToCritical = Math.floor(Math.random() * 8) + 1;
-    const chanceToOneShot = Math.floor(Math.random() * 8) + 1;
+    const chanceToOneShot = Math.floor(Math.random() * 50) + 1;
 
     const getMessageModuloType = (t) => {
       if (getModuloType(t) === 2) {
