@@ -118,7 +118,7 @@ export const allAttacks = {
       isAttackSpe: true,
       power: 120,
       accurracy: 100,
-      link: "https://pokeapi.co/api/v2/move/53/",
+      link: "https://pokeapi.co/api/v2/move/76/",
     },
   ],
 

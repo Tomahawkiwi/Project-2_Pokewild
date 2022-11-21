@@ -16,7 +16,7 @@ function CombatSelection() {
   const [clickedArena, setClickedArena] = useState({});
   const [dialbox, setDialbox] = useState("CHOOSE YOUR POKEMON");
   const [isFightBegin, setIsFightBegin] = useState(false);
-  // don't forget to put back initial isFightBegin on "false" when combat part ok !
+  const [isMyTurn, setIsMyTurn] = useState(false);
 
   const getPokemon = async (index, controller) => {
     await axios
@@ -66,6 +66,7 @@ function CombatSelection() {
         isChoiceValidated={isChoiceValidated}
         setIsFightBegin={setIsFightBegin}
         isFightBegin={isFightBegin}
+        setIsMyTurn={setIsMyTurn}
       />
       {!isLoading &&
         (!isFightBegin ? (
@@ -93,6 +94,9 @@ function CombatSelection() {
             clickedOpponent={clickedOpponent}
             clickedArena={clickedArena}
             dialbox={dialbox}
+            isMyTurn={isMyTurn}
+            setIsMyTurn={setIsMyTurn}
+            setDialbox={setDialbox}
           />
         ))}
     </div>
