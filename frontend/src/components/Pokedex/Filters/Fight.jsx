@@ -12,7 +12,7 @@ function Fight({ handleCheckboxFight, fighterAvailable }) {
         />
         <img
           className="h-7 w-7"
-          src="src/assets/fight_mode/picto_fight.png"
+          src="/fight_mode/picto_fight.png"
           alt="fightmode"
         />
       </label>

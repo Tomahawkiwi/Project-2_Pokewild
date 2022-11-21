@@ -35,10 +35,7 @@ function Pokedex({ pokemon }) {
         <div className="flex justify-between pl-2">
           <div className="w-4">
             {setAvailableToFight(pokemon) && (
-              <img
-                src="src/assets/fight_mode/picto_fight.png"
-                alt="fightmode"
-              />
+              <img src="/fight_mode/picto_fight.png" alt="fightmode" />
             )}
           </div>
           <div className="font-Rajdhani text-sm mr-2 mb-1">

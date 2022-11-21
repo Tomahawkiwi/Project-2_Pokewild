@@ -11,7 +11,7 @@ function PictoCard({ attackChosen }) {
     >
       <img
         className="w-14 h-fit"
-        src={`src/assets/pokemon_types/${type}.png`}
+        src={`/pokemon_types/${type}.png`}
         alt={`type ${type}`}
       />
     </div>
