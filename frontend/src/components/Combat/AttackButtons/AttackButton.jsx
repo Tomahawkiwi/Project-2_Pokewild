@@ -67,7 +67,7 @@ function AttackButton({
       0.5;
     const chanceToAttack = Math.floor(Math.random() * 100) + 1;
     const chanceToCritical = Math.floor(Math.random() * 8) + 1;
-    const chanceToOneShot = Math.floor(Math.random() * 8) + 1;
+    const chanceToOneShot = Math.floor(Math.random() * 50) + 1;
 
     const getMessageModuloType = (t) => {
       if (getModuloType(t) === 2) {
@@ -155,7 +155,9 @@ function AttackButton({
           typeEffect.name === "electric" ||
           typeEffect.name === "ice" ||
           (typeEffect.name === "rock" && "text-white")
-        } text-center align-middle font-Silkscreen px-3 hover:cursor-pointer`}
+        } text-center align-middle font-Silkscreen px-3 ${
+          isMyTurn ? "hover:cursor-pointer" : "hover:cursor-not-allowed"
+        }`}
       >
         {attack.name}
       </p>
