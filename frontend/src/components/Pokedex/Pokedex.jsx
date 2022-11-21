@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import setBackgroundType from "../../tools/setBackgroundType";
 import setFirstLogo from "../../tools/setFirstLogo";
-import setSecondLogo from "../../tools/setSecondLogo";
+
 import setNumber from "../../tools/setNumber";
 import setAvailableToFight from "../../tools/setAvailableToFight";
 import { bgGradLightGrey } from "../../tools/constants";
@@ -21,8 +21,8 @@ function Pokedex({ pokemon }) {
             <div className="font-Silkscreen text-sm pl-2">{pokemon.name}</div>
           </div>
           <div className={`flex rounded-tr-lg ${setBackgroundType(pokemon)}`}>
-            <div className="">{setFirstLogo(pokemon)}</div>
-            <div className="">{setSecondLogo(pokemon)}</div>
+            <div className="">{setFirstLogo(pokemon, "0")}</div>
+            <div className="">{setFirstLogo(pokemon, "1")}</div>
           </div>
         </div>
         <div className="flex justify-center">
