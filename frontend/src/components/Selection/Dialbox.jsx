@@ -9,6 +9,7 @@ function Dialbox({
   isChoiceValidated,
   setIsFightBegin,
   isFightBegin,
+  setIsMyTurn,
 }) {
   const [isBiggerText, setIsBiggerText] = useState(false);
 
@@ -32,7 +33,10 @@ function Dialbox({
 
   const handleBegin = () => {
     if (isChoiceValidated) {
-      count(() => setDialbox("Let the fight begin !"));
+      count(() => {
+        setDialbox("Let the fight begin !");
+        setIsMyTurn(true);
+      });
     }
   };
 
@@ -74,6 +78,7 @@ Dialbox.propTypes = {
   isChoiceValidated: PropTypes.bool.isRequired,
   setIsFightBegin: PropTypes.func.isRequired,
   isFightBegin: PropTypes.bool.isRequired,
+  setIsMyTurn: PropTypes.func.isRequired,
 };
 
 export default Dialbox;

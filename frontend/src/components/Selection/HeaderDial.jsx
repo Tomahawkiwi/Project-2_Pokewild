@@ -8,6 +8,7 @@ function HeaderDial({
   isChoiceValidated,
   setIsFightBegin,
   isFightBegin,
+  setIsMyTurn,
 }) {
   return (
     <div className="h-fit mt-14">
@@ -27,6 +28,7 @@ function HeaderDial({
         isChoiceValidated={isChoiceValidated}
         setIsFightBegin={setIsFightBegin}
         isFightBegin={isFightBegin}
+        setIsMyTurn={setIsMyTurn}
       />
     </div>
   );
@@ -38,6 +40,7 @@ HeaderDial.propTypes = {
   isChoiceValidated: PropTypes.bool.isRequired,
   setIsFightBegin: PropTypes.func.isRequired,
   isFightBegin: PropTypes.bool.isRequired,
+  setIsMyTurn: PropTypes.func.isRequired,
 };
 
 export default HeaderDial;
