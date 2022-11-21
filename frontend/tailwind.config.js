@@ -2,11 +2,13 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    cursor: {
+      default: "url(src/assets/Cursors/pokemon-cursor.png), default",
+      pointer: "url(src/assets/Cursors/pokemon-pointer.png), pointer",
+      "not-allowed":
+        "url(src/assets/Cursors/pokemon-not-allowed.png), not-allowed",
+    },
     extend: {
-      cursor: {
-        default: "url(src/assets/Cursors/pokemon-cursor.png), default",
-        pointer: "url(src/assets/Cursors/pokemon-pointer.png), pointer",
-      },
       colors: {
         customLightRed: {
           DEFAULT: "#E70100",

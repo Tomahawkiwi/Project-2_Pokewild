@@ -58,7 +58,7 @@ function Dialbox({
           className={`${
             isChoiceValidated
               ? "bg-customLightRed hover:scale-110 transition-colors duration-300 ease-in-out"
-              : "bg-customDarkGrey-lighter cursor-no-drop "
+              : "bg-customDarkGrey-lighter cursor-not-allowed"
           } text-white w-36 ml-5 p-3 h-fit rounded-2xl shadow-custom font-Silkscreen text-lg`}
         >
           FIGHT NOW

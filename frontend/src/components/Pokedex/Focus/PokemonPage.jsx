@@ -55,7 +55,7 @@ function PokemonPage() {
         </div>
         <div>
           <img
-            className="h-64 lg:h-80"
+            className="h-64 lg:h-80 mx-auto"
             src={pokemon.sprites.other["official-artwork"].front_default}
             alt="Pokemon front"
           />
@@ -63,18 +63,20 @@ function PokemonPage() {
           <div className="text-center text-lg mr-2 mb-1">
             {setNumber(pokemon)}
           </div>
-          <div className="flex flex-col items-center pt-5 lg:flex-row">
-            <div className="flex text-sm items-center w-full justify-evenly lg:mx-auto">
-              <div>{setFirstLogoFocus(pokemon)}</div>
-              <div className="bg-black w-24 h-6 flex justify-center items-center rounded-3xl text-white">
+          <div className="flex flex-col items-center pt-5 mx-14 md:flex-row md:justify-center">
+            <div className="relative flex text-sm items-center w-40 justify-center mb-3 md:mb-0">
+              <div className="absolute left-1/2 transform -translate-x-6 bg-black w-fit h-6 pl-5 pr-3 flex justify-center items-center rounded-full text-white z-1">
                 {pokemon.types["0"].type.name}
               </div>
+              <div className="mr-[60px] z-0">{setFirstLogoFocus(pokemon)}</div>
             </div>
             {pokemon.types.length === 2 && (
-              <div className="flex text-sm items-center pt-2 w-full justify-evenly lg:mx-auto">
-                <div>{setSecondLogoFocus(pokemon)}</div>
-                <div className="bg-black w-24 h-6 flex justify-center items-center rounded-3xl text-white">
+              <div className="relative flex text-sm items-center w-40 justify-center">
+                <div className="absolute left-1/2 transform -translate-x-6 bg-black w-fit h-6 pl-5 pr-3 flex justify-center items-center rounded-full text-white z-1">
                   {pokemon.types["1"].type.name}
+                </div>
+                <div className="mr-[60px] z-0">
+                  {setSecondLogoFocus(pokemon)}
                 </div>
               </div>
             )}
@@ -90,10 +92,10 @@ function PokemonPage() {
             </div>
           </div>
           <div
-            className={`${bgGradLightGrey} font-Rajdhani rounded-xl px-2 mt-10 w-full lg:mx-40`}
+            className={`${bgGradLightGrey} font-Rajdhani rounded-xl px-2 mt-10 w-11/12 mx-auto mb-5`}
           >
-            <h1 className="flex justify-center text-xl py-2">Base Stat</h1>
-            <div className="flex items-center justify-between mx-1 lg:mx-8">
+            <h1 className="flex justify-center text-xl py-2 mb-3">BASE STAT</h1>
+            <div className="flex items-start justify-center mx-3 lg:mx-8">
               <FocusStats
                 statValue={pokemon.stats[0].base_stat}
                 typeStatMax={statMax.pv}

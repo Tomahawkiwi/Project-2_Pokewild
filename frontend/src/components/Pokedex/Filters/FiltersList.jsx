@@ -38,13 +38,19 @@ function FiltersList({
       <div className="flex flex-col w-full">
         <div className="flex items-center">
           <button
-            className="m-2 flex items-center border-solid w-full"
+            className="m-2 flex border-solid w-5/6"
             type="button"
             onClick={handleOpenTypes}
           >
             Type
           </button>
-          <div>{typeIsOpen ? "-" : "+"}</div>
+          <button
+            className="m-2 flex w-1/6 text-3xl"
+            type="button"
+            onClick={handleOpenTypes}
+          >
+            {typeIsOpen ? "-" : "+"}
+          </button>
         </div>
         <div className="flex flex-row flex-wrap justify-evenly m-5 md:max-w-fit">
           {typeIsOpen &&
@@ -59,13 +65,19 @@ function FiltersList({
         </div>
         <div className="flex items-center">
           <button
-            className="m-2 flex items-center w-full"
+            className="m-2 flex w-5/6"
             type="button"
             onClick={handleOpenFight}
           >
             Available to fight
           </button>
-          <div>{fightIsOpen ? "-" : "+"}</div>
+          <button
+            className="m-2 flex w-1/6 text-3xl"
+            type="button"
+            onClick={handleOpenFight}
+          >
+            {fightIsOpen ? "-" : "+"}
+          </button>
         </div>
         {fightIsOpen && (
           <Fight
