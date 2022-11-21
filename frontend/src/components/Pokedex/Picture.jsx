@@ -9,14 +9,16 @@ function Picture() {
       </h1>
       <div className="w-72 sm:w-80 md:w-full flex justify-center shadow-custom rounded-xl relative">
         <label className="absolute block" htmlFor="searchInput">
-          <span className="absolute inset-y-0 right-3 h-8 top-0 z-30 flex items-center pl-3">
+          <span className="absolute inset-y-0 right-3 h-8 top-0 z-[2] flex items-center pl-3">
             <img
               className="w-5"
-              src="../src/assets/img-home/loupe-home.png"
+              src="..//img-home/loupe-home.png"
               alt="search loupe"
             />
           </span>
-          <SearchbarSelect />
+          <div className="relative z-0">
+            <SearchbarSelect />
+          </div>
         </label>
       </div>
     </div>

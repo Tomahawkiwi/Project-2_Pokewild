@@ -13,7 +13,7 @@ function TitleImg() {
             <span className="absolute inset-y-0 right-3 h-8 top-0 z-30 flex items-center pl-3">
               <img
                 className="w-5"
-                src="src/assets/img-home/loupe-home.png"
+                src="/img-home/loupe-home.png"
                 alt="search loupe"
               />
             </span>

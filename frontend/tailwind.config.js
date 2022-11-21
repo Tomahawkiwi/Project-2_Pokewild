@@ -1,12 +1,12 @@
 //  @type {import('tailwindcss').Config}
+
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     cursor: {
-      default: "url(src/assets/Cursors/pokemon-cursor.png), default",
-      pointer: "url(src/assets/Cursors/pokemon-pointer.png), pointer",
-      "not-allowed":
-        "url(src/assets/Cursors/pokemon-not-allowed.png), not-allowed",
+      default: "url(/Cursors/pokemon-cursor.png), default",
+      pointer: "url(/Cursors/pokemon-pointer.png), pointer",
+      "not-allowed": "url(.//Cursors/pokemon-not-allowed.png), not-allowed",
     },
     extend: {
       colors: {
@@ -30,13 +30,12 @@ module.exports = {
         },
       },
       backgroundImage: {
-        solaroc: "url('src/assets/navbar/solaroc.png')",
-        fantominus: "url('./src/assets/navbar/fantominus.png')",
-        home: "url('./src/assets/img-home/bg-img-home.jpg')",
-        pokedexheader: "url('./src/assets/pokedex/pokedex-header.png')",
-        pokedexheaderlg:
-          "url('./src/assets/pokedex/pokedex-header-desktop.png')",
-        deskflames: "url('./src/assets/img-home/flames-bg.png')",
+        solaroc: "url('/navbar/solaroc.png')",
+        fantominus: "url('/navbar/fantominus.png')",
+        home: "url('/img-home/bg-img-home.jpg')",
+        pokedexheader: "url('/pokedex/pokedex-header.png')",
+        pokedexheaderlg: "url('/pokedex/pokedex-header-desktop.png')",
+        deskflames: "url('/img-home/flames-bg.png')",
       },
 
       fontFamily: {

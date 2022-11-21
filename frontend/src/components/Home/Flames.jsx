@@ -35,7 +35,7 @@ function Flames() {
       <div>
         <img
           className="w-full"
-          src="/src/assets/img-home/fire.png"
+          src="/img-home/fire.png"
           alt="background flames"
         />
       </div>
