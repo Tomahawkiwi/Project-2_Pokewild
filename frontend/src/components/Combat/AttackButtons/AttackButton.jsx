@@ -7,8 +7,13 @@ function AttackButton({
   opponent,
   setLifeOpponent,
   lifeOpponent,
-  dialbox,
-  setAttack,
+  setDialbox,
+  attack,
+  typeEffect,
+  isMyTurn,
+  setIsMyTurn,
+  setLaunchCard,
+  setCardType,
 }) {
   const getModuloType = (typeAttack) => {
     if (
@@ -62,78 +67,7 @@ function AttackButton({
       0.5;
     const chanceToAttack = Math.floor(Math.random() * 100) + 1;
     const chanceToCritical = Math.floor(Math.random() * 8) + 1;
-    const chanceToOneShot = Math.floor(Math.random() * 50) + 1;
-
-    const getMessageModuloType = (t) => {
-      if (getModuloType(t) === 2) {
-        return "It was very effective ! ";
-      }
-      if (getModuloType(t) === 1) {
-        return "It hit normally. ";
-      }
-      if (getModuloType(t) === 0.5) {
-        return "It was not very effective... ";
-      }
-      return 1;
-    };
-
-    if (getModuloType(typeAttack) === 0) {
-      setDialbox("There is no effect...");
-      return setLifeOpponent(lifeOpponent - 0);
-    }
-  const getModuloType = (typeAttack) => {
-    if (
-      opponent.types
-        .map((t) => t.type.name)
-        .filter((each) =>
-          typeAttack.damage_relations.double_damage_to
-            .map((e) => e.name)
-            .includes(each)
-        ).length > 0
-    ) {
-      return 2;
-    }
-    if (
-      opponent.types
-        .map((t) => t.type.name)
-        .filter((each) =>
-          typeAttack.damage_relations.half_damage_to
-            .map((e) => e.name)
-            .includes(each)
-        ).length > 0
-    ) {
-      return 0.5;
-    }
-    if (
-      opponent.types
-        .map((t) => t.type.name)
-        .filter((each) =>
-          typeAttack.damage_relations.no_damage_to
-            .map((e) => e.name)
-            .includes(each)
-        ).length > 0
-    ) {
-      return 0;
-    }
-    return 1;
-  };
-
-  const hit = (
-    powerOfAttack,
-    attackOfAssailant,
-    defenseOfReceiver,
-    typeAttack,
-    accuracy
-  ) => {
-    const damages =
-      (0.5 *
-        (powerOfAttack * (attackOfAssailant / defenseOfReceiver)) *
-        getModuloType(typeAttack) +
-        1) *
-      0.5;
-    const chanceToAttack = Math.floor(Math.random() * 100) + 1;
-    const chanceToCritical = Math.floor(Math.random() * 8) + 1;
-    const chanceToOneShot = Math.floor(Math.random() * 50) + 1;
+    const chanceToOneShot = Math.floor(Math.random() * 8) + 1;
 
     const getMessageModuloType = (t) => {
       if (getModuloType(t) === 2) {
