@@ -20,15 +20,16 @@ function LiveScreen({
         alt={clickedArena.alt}
         className="object-cover w-full z-2"
       />
-      <div className="h-0">
+      <div className="h-0 w-full">
         <AnimatePresence>
           {lifePokemon !== 0 && (
-            <motion.img
+            <motion.div
               key={clickedPokemon.name}
-              initial={{ opacity: 1, x: -250 }}
+              initial={{ opacity: 1, x: -250, y: 0 }}
               animate={{
                 opacity: 1,
                 x: 0,
+                y: 0,
                 transition: {
                   duration: 2,
                   delay: 1.5,
@@ -44,11 +45,6 @@ function LiveScreen({
                   ease: "linear",
                 },
               }}
-              src={
-                clickedPokemon.sprites.versions["generation-v"]["black-white"]
-                  .animated.back_default
-              }
-              alt={clickedPokemon.name}
               className={`absolute ${
                 clickedPokemon.name === "moltres" && "scale-125"
               } ${
@@ -58,12 +54,29 @@ function LiveScreen({
                   ? "w-[33%]"
                   : "w-3/6"
               } z-3 bottom-[-10%] right-[55%]`}
-            />
+            >
+              <motion.img
+                key={lifePokemon}
+                animate={{
+                  opacity: [
+                    1, 0.25, 1, 0.25, 1, 0.25, 1, 0.25, 1, 0.25, 1, 0.25, 1,
+                    0.25, 1, 0.25, 1, 0.25, 1, 0.25, 1,
+                  ],
+                  duration: 2,
+                }}
+                src={
+                  clickedPokemon.sprites.versions["generation-v"]["black-white"]
+                    .animated.back_default
+                }
+                alt={clickedPokemon.name}
+                className="w-full"
+              />
+            </motion.div>
           )}
         </AnimatePresence>
         <AnimatePresence>
           {lifeOpponent !== 0 && (
-            <motion.img
+            <motion.div
               key={clickedOpponent.name}
               initial={{ opacity: 1, x: +250 }}
               animate={{
@@ -84,11 +97,6 @@ function LiveScreen({
                   ease: "linear",
                 },
               }}
-              src={
-                clickedOpponent.sprites.versions["generation-v"]["black-white"]
-                  .animated.front_default
-              }
-              alt={clickedOpponent.name}
               className={`absolute ${
                 clickedOpponent.name === "moltres" && "scale-125"
               } ${
@@ -98,7 +106,25 @@ function LiveScreen({
                   ? "w-[23%]"
                   : "w-2/6"
               } z-3 bottom-[40%] left-[60%]`}
-            />
+            >
+              <motion.img
+                key={lifeOpponent}
+                animate={{
+                  opacity: [
+                    1, 0.25, 1, 0.25, 1, 0.25, 1, 0.25, 1, 0.25, 1, 0.25, 1,
+                    0.25, 1, 0.25, 1, 0.25, 1, 0.25, 1,
+                  ],
+                  duration: 2,
+                }}
+                src={
+                  clickedOpponent.sprites.versions["generation-v"][
+                    "black-white"
+                  ].animated.front_default
+                }
+                alt={clickedOpponent.name}
+                className="w-full"
+              />
+            </motion.div>
           )}
         </AnimatePresence>
       </div>

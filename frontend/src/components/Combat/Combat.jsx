@@ -23,19 +23,27 @@ function Combat({
   const [damages, setDamages] = useState("");
   const [attack1, setAttack1] = useState({});
   const [attack2, setAttack2] = useState({});
+  const [attack1Opponent, setAttack1Opponent] = useState({});
+  const [attack2Opponent, setAttack2Opponent] = useState({});
 
-  const getUrlTypeAttacks = async (pokemon) => {
+  const getUrlTypeAttacks = async (pokemon, opponent) => {
     await axios
       .get(allAttacks[pokemon][0].link)
       .then((res) => setAttack1(res.data));
     await axios
       .get(allAttacks[pokemon][1].link)
       .then((res) => setAttack2(res.data));
+    await axios
+      .get(allAttacks[opponent][0].link)
+      .then((res) => setAttack1Opponent(res.data));
+    await axios
+      .get(allAttacks[opponent][1].link)
+      .then((res) => setAttack2Opponent(res.data));
   };
 
   useEffect(() => {
-    getUrlTypeAttacks(clickedPokemon.name);
-  }, [clickedPokemon.name]);
+    getUrlTypeAttacks(clickedPokemon.name, clickedOpponent.name);
+  }, []);
 
   return (
     <div className="h-full bg-customLightGrey">
@@ -53,6 +61,8 @@ function Combat({
         <AttackButtons
           lifeOpponent={lifeOpponent}
           setLifeOpponent={setLifeOpponent}
+          lifePokemon={lifePokemon}
+          setLifePokemon={setLifePokemon}
           dialbox={dialbox}
           clickedPokemon={clickedPokemon}
           clickedOpponent={clickedOpponent}
@@ -60,6 +70,8 @@ function Combat({
           damages={damages}
           attack1={attack1}
           attack2={attack2}
+          attack1Opponent={attack1Opponent}
+          attack2Opponent={attack2Opponent}
           isMyTurn={isMyTurn}
           setIsMyTurn={setIsMyTurn}
           setDialbox={setDialbox}

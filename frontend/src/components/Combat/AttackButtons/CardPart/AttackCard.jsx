@@ -3,12 +3,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import PictoCard from "./PictoCard";
 
-function AttackCard({ typeAttack, launchCard }) {
+function AttackCard({ typeAttack, isCard, initialX, initialY }) {
   return (
     <motion.div
-      key={launchCard === true}
-      initial={{ opacity: 0, x: -150, y: 400 }}
-      animate={{ opacity: 1, x: 0.2, y: 0 }}
+      key={isCard}
+      initial={{ opacity: 0, x: initialX, y: initialY }}
+      animate={{ opacity: 1, x: 0, y: 0 }}
       transition={{ duration: 1.5, delay: 0, ease: [0, 0.71, 0.2, 1.01] }}
       className="mb-6 w-24 h-32 bg-white shadow-bolder rounded-2xl mx-auto flex justify-center items-center relative z-10"
     >
@@ -19,7 +19,9 @@ function AttackCard({ typeAttack, launchCard }) {
 
 AttackCard.propTypes = {
   typeAttack: PropTypes.string.isRequired,
-  launchCard: PropTypes.bool.isRequired,
+  isCard: PropTypes.bool.isRequired,
+  initialX: PropTypes.number.isRequired,
+  initialY: PropTypes.number.isRequired,
 };
 
 export default AttackCard;
