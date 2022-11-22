@@ -11,6 +11,7 @@ import { bgGradLightGrey } from "../../../tools/constants";
 import setFirstLogoFocus from "./setFirstLogoFocus";
 import setSecondLogoFocus from "./setSecondLogoFocus";
 import Pokeball from "../../../assets/navbar/poke-close-x2.png";
+import setAvailableToFight from "../../../tools/setAvailableToFight";
 
 function PokemonPage() {
   const { id } = useParams();
@@ -52,6 +53,13 @@ function PokemonPage() {
               Next
             </Link>
           )}
+        </div>
+        <div className="flex justify-center ml-72 pt-3">
+          <div className="w-10">
+            {setAvailableToFight(pokemon) && (
+              <img src="/fight_mode/picto_fight.png" alt="fightmode" />
+            )}
+          </div>
         </div>
         <div>
           <img
