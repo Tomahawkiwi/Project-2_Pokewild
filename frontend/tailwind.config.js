@@ -6,7 +6,7 @@ module.exports = {
     cursor: {
       default: "url(/Cursors/pokemon-cursor.png), default",
       pointer: "url(/Cursors/pokemon-pointer.png), pointer",
-      "not-allowed": "url(.//Cursors/pokemon-not-allowed.png), not-allowed",
+      "not-allowed": "url(/Cursors/pokemon-not-allowed.png), not-allowed",
     },
     extend: {
       colors: {
@@ -33,8 +33,11 @@ module.exports = {
         solaroc: "url('/navbar/solaroc.png')",
         fantominus: "url('/navbar/fantominus.png')",
         home: "url('/img-home/bg-img-home.jpg')",
+        darkhome: "url('/img-home/bg-img-home-dark.jpg')",
         pokedexheader: "url('/pokedex/pokedex-header.png')",
+        darkpokedexheader: "url('/pokedex/pokedex-header-dark.png')",
         pokedexheaderlg: "url('/pokedex/pokedex-header-desktop.png')",
+        darkpokedexheaderlg: "url('/pokedex/pokedex-header-desktop-dark.png')",
         deskflames: "url('/img-home/flames-bg.png')",
       },
 
@@ -52,4 +55,5 @@ module.exports = {
     },
   },
   plugins: [],
+  darkMode: "class",
 };

@@ -9,7 +9,7 @@ function SelectionArena({ clickedArena, setClickedArena }) {
       <div
         className={`w-24 mr-5 ${bgGradLightGrey} rounded-xl shadow-custom flex shrink-0 items-center`}
       >
-        <p className="font-Silkscreen text-base text-center">
+        <p className="font-Silkscreen text-base text-center dark:text-black">
           Select the arena
         </p>
       </div>

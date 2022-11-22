@@ -114,11 +114,11 @@ function PokedexList() {
   if (!pokemon) return <div>Loading pokemon ...</div>;
 
   return (
-    <div className="w-full bg-[#F0F0F0] md:bg-customLightRed-endGrad">
+    <div className="w-full bg-[#F0F0F0] dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad md:bg-customLightRed-endGrad">
       <Picture />
       <div className="md:flex">
         <div
-          className={`${bgGradLightRed} flex justify-between md:flex-col md:w-1/5 md:items-center md:justify-start`}
+          className={`${bgGradLightRed} dark:bg-gradient-to-br dark:from-customDarkRed dark:to-customDarkRed-endGrad flex justify-between md:flex-col md:w-1/5 md:items-center md:justify-start`}
         >
           <Filters
             handleCheckbox={handleCheckbox}

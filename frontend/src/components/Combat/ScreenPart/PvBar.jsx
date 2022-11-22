@@ -23,12 +23,12 @@ function PvBar({ pokemon, life }) {
 
   return (
     <div
-      className={`h-fit w-fit ${bgGradLightGrey} rounded-lg px-3 py-1 flex flex-col justify-center`}
+      className={`h-fit w-fit ${bgGradLightGrey} dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad rounded-lg px-3 py-1 flex flex-col justify-center`}
     >
       <p className="w-full text-center">{name}</p>
       <div
         style={{ width: `${widthStatFull}px` }}
-        className="h-2 rounded-full bg-customLightGrey-lighter border-[1px] border-white relative z-5 overflow-hidden"
+        className="h-2 rounded-full bg-customLightGrey-lighter border-[1px] border-white relative dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad z-5 overflow-hidden"
       >
         <div
           style={{

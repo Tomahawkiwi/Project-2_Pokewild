@@ -1,35 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import useOnClickOutside from "@jidayyy/useonclickoutside";
 import Fight from "../../../assets/navbar/logoFight.png";
 import Pokedex from "../../../assets/navbar/logoPokedex.png";
-
-function Switch() {
-  const [checked, setChecked] = useState(false);
-
-  return (
-    <div className="h-full relative flex flex-col items-center justify-center z-50">
-      <div className="flex">
-        <label className="inline-flex relative items-center mr-5 cursor-pointer">
-          <input
-            onChange={() => setChecked((state) => !state)}
-            checked={checked}
-            type="checkbox"
-            className="sr-only peer"
-            readOnly
-          />
-          <div
-            className={`w-20 test   h-6 bg-customLightRed-endGrad after:bg-fantominus rounded-full peer ${
-              checked ? "after:bg-solaroc" : "after:bg-fantominus"
-            } after:bg-cover peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:-top-2 after:left-[2px]
-             after:bg-gray-300 after:border-full after:rounded-full after:h-10 after:w-10 after:transition-all peer-checked:bg-customLightRed-endGrad after:border-spacing-1`}
-          />
-        </label>
-      </div>
-    </div>
-  );
-}
+import Switch from "../Switch/Switch";
 
 const navLinks = [
   {

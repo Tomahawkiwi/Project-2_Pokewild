@@ -31,11 +31,11 @@ function PokemonPage() {
   return (
     <div>
       <Picture />
-      <div className="bg-white flex flex-col font-Silkscreen w-3/4 rounded-3xl my-10 mx-auto p-2">
+      <div className="bg-white dark:bg-[#AFAFAF] flex flex-col font-Silkscreen w-3/4 rounded-3xl my-10 mx-auto p-2">
         <div className="grid grid-cols-3 text-base font-Rajdhani">
           {id !== "1" ? (
             <Link
-              className={`flex items-center justify-center h-1/2 ${bgGradLightGrey} border rounded-3xl`}
+              className={`flex items-center justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl`}
               to={`/pokedex/${+id - 1}`}
             >
               Previous
@@ -46,7 +46,7 @@ function PokemonPage() {
           <img className="mx-auto h-1/2" src={Pokeball} alt="pokeball" />
           {id !== "151" && (
             <Link
-              className={`flex items-center justify-center h-1/2 ${bgGradLightGrey} border rounded-3xl`}
+              className={`flex items-center justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl`}
               to={`/pokedex/${+id + 1}`}
             >
               Next
@@ -92,9 +92,11 @@ function PokemonPage() {
             </div>
           </div>
           <div
-            className={`${bgGradLightGrey} font-Rajdhani rounded-xl px-2 mt-10 w-11/12 mx-auto mb-5`}
+            className={`${bgGradLightGrey} dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad font-Rajdhani rounded-xl px-2 mt-10 w-11/12 mx-auto mb-5`}
           >
-            <h1 className="flex justify-center text-xl py-2 mb-3">BASE STAT</h1>
+            <h1 className="flex justify-center text-xl py-2 mb-3 dark:text-white">
+              BASE STAT
+            </h1>
             <div className="flex items-start justify-center mx-3 lg:mx-8">
               <FocusStats
                 statValue={pokemon.stats[0].base_stat}
