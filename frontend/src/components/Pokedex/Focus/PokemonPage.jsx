@@ -11,6 +11,7 @@ import { bgGradLightGrey } from "../../../tools/constants";
 import setFirstLogoFocus from "./setFirstLogoFocus";
 import setSecondLogoFocus from "./setSecondLogoFocus";
 import Pokeball from "../../../assets/navbar/poke-close-x2.png";
+import setAvailableToFight from "../../../tools/setAvailableToFight";
 
 function PokemonPage() {
   const { id } = useParams();
@@ -53,6 +54,13 @@ function PokemonPage() {
             </Link>
           )}
         </div>
+        <div className="flex justify-center ml-72 pt-3">
+          <div className="w-10">
+            {setAvailableToFight(pokemon) && (
+              <img src="/fight_mode/picto_fight.png" alt="fightmode" />
+            )}
+          </div>
+        </div>
         <div>
           <img
             className="h-64 lg:h-80 mx-auto"
@@ -91,54 +99,54 @@ function PokemonPage() {
               {pokemon.weight / 10} kg
             </div>
           </div>
-          <div
-            className={`${bgGradLightGrey} font-Rajdhani rounded-xl px-2 mt-10 w-11/12 mx-auto mb-5`}
-          >
-            <h1 className="flex justify-center text-xl py-2 mb-3">BASE STAT</h1>
-            <div className="flex items-start justify-center mx-3 lg:mx-8">
-              <FocusStats
-                statValue={pokemon.stats[0].base_stat}
-                typeStatMax={statMax.pv}
-                textStat={statMax.namePv}
-                colorBg="bg-[#D53A44]"
-                clickedPokemon={pokemon}
-              />
-              <FocusStats
-                statValue={pokemon.stats[1].base_stat}
-                typeStatMax={statMax.attack}
-                textStat={statMax.nameAttack}
-                colorBg="bg-[#FDA728]"
-                clickedPokemon={pokemon}
-              />
-              <FocusStats
-                statValue={pokemon.stats[2].base_stat}
-                typeStatMax={statMax.defense}
-                textStat={statMax.nameDefense}
-                colorBg="bg-[#0194EA]"
-                clickedPokemon={pokemon}
-              />
-              <FocusStats
-                statValue={pokemon.stats[3].base_stat}
-                typeStatMax={statMax.attackSp}
-                textStat={statMax.nameAttackSp}
-                colorBg="bg-[#F5682B]"
-                clickedPokemon={pokemon}
-              />
-              <FocusStats
-                statValue={pokemon.stats[4].base_stat}
-                typeStatMax={statMax.defenseSp}
-                textStat={statMax.nameDefenseSp}
-                colorBg="bg-[#8FB0C4]"
-                clickedPokemon={pokemon}
-              />
-              <FocusStats
-                statValue={pokemon.stats[5].base_stat}
-                typeStatMax={statMax.speed}
-                textStat={statMax.nameSpeed}
-                colorBg="bg-[#6319AD]"
-                clickedPokemon={pokemon}
-              />
-            </div>
+        </div>
+        <div
+          className={`${bgGradLightGrey} font-Rajdhani rounded-xl px-2 mt-10 w-11/12 mx-auto mb-5`}
+        >
+          <h1 className="flex justify-center text-xl py-2 mb-3">BASE STAT</h1>
+          <div className="flex items-start justify-center mx-3 lg:mx-8">
+            <FocusStats
+              statValue={pokemon.stats[0].base_stat}
+              typeStatMax={statMax.pv}
+              textStat={statMax.namePv}
+              colorBg="bg-[#D53A44]"
+              clickedPokemon={pokemon}
+            />
+            <FocusStats
+              statValue={pokemon.stats[1].base_stat}
+              typeStatMax={statMax.attack}
+              textStat={statMax.nameAttack}
+              colorBg="bg-[#FDA728]"
+              clickedPokemon={pokemon}
+            />
+            <FocusStats
+              statValue={pokemon.stats[2].base_stat}
+              typeStatMax={statMax.defense}
+              textStat={statMax.nameDefense}
+              colorBg="bg-[#0194EA]"
+              clickedPokemon={pokemon}
+            />
+            <FocusStats
+              statValue={pokemon.stats[3].base_stat}
+              typeStatMax={statMax.attackSp}
+              textStat={statMax.nameAttackSp}
+              colorBg="bg-[#F5682B]"
+              clickedPokemon={pokemon}
+            />
+            <FocusStats
+              statValue={pokemon.stats[4].base_stat}
+              typeStatMax={statMax.defenseSp}
+              textStat={statMax.nameDefenseSp}
+              colorBg="bg-[#8FB0C4]"
+              clickedPokemon={pokemon}
+            />
+            <FocusStats
+              statValue={pokemon.stats[5].base_stat}
+              typeStatMax={statMax.speed}
+              textStat={statMax.nameSpeed}
+              colorBg="bg-[#6319AD]"
+              clickedPokemon={pokemon}
+            />
           </div>
         </div>
       </div>
