@@ -1,12 +1,10 @@
-import { useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import useOnClickOutside from "@jidayyy/useonclickoutside";
 import Fight from "../../../assets/navbar/logoFight.png";
 import Pokedex from "../../../assets/navbar/logoPokedex.png";
 import Switch from "../Switch/Switch";
 
-const navLinks = [
+export const navLinks = [
   {
     linkName: "Pokedex",
     path: "/pokedex",
@@ -32,13 +30,9 @@ const navLinks = [
 export default function NavLinks(props) {
   const { setIsOpen } = props;
 
-  const ref = useRef();
-
-  useOnClickOutside(ref, () => setIsOpen(false));
-
   return (
-    <ul className="w-full top-16 absolute bg-opacity-70 bg-black h-screen flex-col flex items-end">
-      <div ref={ref} className="w-full flex justify-end flex-col items-end">
+    <ul className="w-full bottom-0 z-20 transform translate-y-[100%] absolute flex-col flex items-end">
+      <div className="w-full flex justify-end flex-col items-end">
         {navLinks.map((item) => (
           <Link
             key={item.linkName}
