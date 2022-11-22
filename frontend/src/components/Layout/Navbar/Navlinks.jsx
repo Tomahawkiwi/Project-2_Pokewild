@@ -1,11 +1,10 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import useOnClickOutside from "@jidayyy/useonclickoutside";
 import Fight from "../../../assets/navbar/logoFight.png";
 import Pokedex from "../../../assets/navbar/logoPokedex.png";
 
-function Switch() {
+export function Switch() {
   const [checked, setChecked] = useState(false);
 
   return (
@@ -21,7 +20,7 @@ function Switch() {
           />
           <div
             className={`w-20 test   h-6 bg-customLightRed-endGrad after:bg-fantominus rounded-full peer ${
-              checked ? "after:bg-solaroc" : "after:bg-fantominus"
+              checked ? "after:bg-fantominus" : "after:bg-solaroc"
             } after:bg-cover peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:-top-2 after:left-[2px]
              after:bg-gray-300 after:border-full after:rounded-full after:h-10 after:w-10 after:transition-all peer-checked:bg-customLightRed-endGrad after:border-spacing-1`}
           />
@@ -31,7 +30,7 @@ function Switch() {
   );
 }
 
-const navLinks = [
+export const navLinks = [
   {
     linkName: "Pokedex",
     path: "/pokedex",
@@ -57,13 +56,9 @@ const navLinks = [
 export default function NavLinks(props) {
   const { setIsOpen } = props;
 
-  const ref = useRef();
-
-  useOnClickOutside(ref, () => setIsOpen(false));
-
   return (
-    <ul className="w-full top-16 absolute bg-opacity-70 bg-black h-screen flex-col flex items-end">
-      <div ref={ref} className="w-full flex justify-end flex-col items-end">
+    <ul className="w-full bottom-0 z-20 transform translate-y-[100%] absolute flex-col flex items-end">
+      <div className="w-full flex justify-end flex-col items-end">
         {navLinks.map((item) => (
           <Link
             key={item.linkName}
