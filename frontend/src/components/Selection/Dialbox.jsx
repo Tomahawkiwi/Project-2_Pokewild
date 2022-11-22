@@ -38,7 +38,7 @@ function Dialbox({
 
   return (
     <div
-      className={`h-32 ${bgGradLightGrey} flex justify-center items-center align-middle px-8 mb-8`}
+      className={`h-32 ${bgGradLightGrey} dark:bg-[#AFAFAF] dark:text-black flex justify-center items-center align-middle px-8 mb-8`}
     >
       <motion.div
         key={dialbox}
@@ -57,7 +57,7 @@ function Dialbox({
           onClick={() => handleBegin()}
           className={`${
             isChoiceValidated
-              ? "bg-customLightRed hover:scale-110 transition-colors duration-300 ease-in-out"
+              ? "bg-customLightRed dark:bg-gradient-to-br dark:from-customDarkRed dark:to-customDarkRed-endGrad hover:scale-110 transition-colors duration-300 ease-in-out"
               : "bg-customDarkGrey-lighter cursor-not-allowed"
           } text-white w-36 ml-5 p-3 h-fit rounded-2xl shadow-custom font-Silkscreen text-lg`}
         >
