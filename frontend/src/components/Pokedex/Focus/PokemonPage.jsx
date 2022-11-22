@@ -7,6 +7,8 @@ import FocusStats from "./FocusStats";
 import statMax from "../../../tools/stats";
 import LH from "../../../assets/img-pokedex/logo-height.png";
 import LW from "../../../assets/img-pokedex/logo-weight.png";
+import arrowL from "../../../../public/pokedex/arrow-left.png";
+import arrowR from "../../../../public/pokedex/arrow-right.png";
 import { bgGradLightGrey } from "../../../tools/constants";
 import setFirstLogoFocus from "./setFirstLogoFocus";
 import setSecondLogoFocus from "./setSecondLogoFocus";
@@ -36,10 +38,13 @@ function PokemonPage() {
         <div className="grid grid-cols-3 text-base font-Rajdhani">
           {id !== "1" ? (
             <Link
-              className={`flex items-center justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl`}
+              className={`flex items-center md:text-xl justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl px-4`}
               to={`/pokedex/${+id - 1}`}
             >
-              Previous
+              <div className="w-[10%] flex justify-center">
+                <img className="h-4" src={arrowL} alt="arrow left" />
+              </div>
+              <p className="w-[90%] text-center">Previous</p>
             </Link>
           ) : (
             <div className="invisible">Previous</div>
@@ -47,10 +52,13 @@ function PokemonPage() {
           <img className="mx-auto h-1/2" src={Pokeball} alt="pokeball" />
           {id !== "151" && (
             <Link
-              className={`flex items-center justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl`}
+              className={`flex items-center md:text-xl justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl px-4`}
               to={`/pokedex/${+id + 1}`}
             >
-              Next
+              <p className="w-[90%] text-center">Next</p>
+              <div className="w-[10%] flex justify-center">
+                <img className="h-4" src={arrowR} alt="arrow right" />
+              </div>
             </Link>
           )}
         </div>
