@@ -17,10 +17,10 @@ function FocusStats({
   const heightPvChosen = getHeight(typeStatMax, statValue);
 
   return (
-    <div className="flex flex-col items-center py-2 mx-[5%]">
+    <div className="flex flex-col items-center py-2 mx-[5%] dark:text-white">
       <div
         style={{ height: `${heightStatFull}px` }}
-        className="w-6 rounded-full bg-customLightGrey-lighter relative z-0 overflow-hidden"
+        className="w-6 rounded-full bg-customLightGrey-lighter dark:bg-[#AFAFAF] relative z-0 overflow-hidden"
       >
         <motion.div
           key={clickedPokemon.name}
@@ -30,7 +30,9 @@ function FocusStats({
           style={{ height: `${heightPvChosen}px` }}
           className={`w-6 rounded-b-full rounded-t-0 ${colorBg} absolute bottom-0`}
         >
-          <div className="text-center text-white">{statValue}</div>
+          <div className="text-center text-white dark:text-black">
+            {statValue}
+          </div>
         </motion.div>
       </div>
       <p className="w-4 mt-5 text-center text-[12px] leading-3 md:w-10">

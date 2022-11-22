@@ -8,7 +8,9 @@ import Wilder from "../components/Home/Wilder";
 
 export default function Home() {
   return (
-    <div className={`${bgGradLightGrey} w-full h-full z-0`}>
+    <div
+      className={`${bgGradLightGrey} dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad w-full h-full z-0`}
+    >
       <div>
         <TitleImg />
         <HomeButtons />

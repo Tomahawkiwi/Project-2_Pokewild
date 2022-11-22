@@ -8,12 +8,16 @@ function HomeButtons() {
   const pokeRandom = Math.floor(Math.random() * 151);
   return (
     <div className="flex m-8 space-x-7 justify-center text-white font-Silkscreen text-sm h-auto">
-      <div className={`${bgGradLightRed} flex rounded-xl shadow-custom p-2`}>
+      <div
+        className={`${bgGradLightRed} dark:bg-gradient-to-br dark:from-customDarkRed dark:to-customDarkRed-endGrad flex rounded-xl shadow-custom p-2`}
+      >
         <Link to={`/pokedex/${pokeRandom}`} element={<PokedexDetails />}>
           <button type="button"> Get a random pokemon </button>
         </Link>
       </div>
-      <div className={`${bgGradLightRed} flex rounded-xl shadow-custom p-2`}>
+      <div
+        className={`${bgGradLightRed} dark:bg-gradient-to-br dark:from-customDarkRed dark:to-customDarkRed-endGrad flex rounded-xl shadow-custom p-2`}
+      >
         <Link to="/pokedex" element={<PokedexList />}>
           <button type="button"> View all 151 pokemon </button>
         </Link>
