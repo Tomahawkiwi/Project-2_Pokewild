@@ -10,7 +10,7 @@ function TitleImg() {
           <Switch />
         </div>
         <div className="flex flex-col items-center font-Silkscreen text-white">
-          <h1 className="w-80 text-3xl text-center">
+          <h1 className="w-80 text-3xl text-center md:w-full">
             It's time to start your adventure !
           </h1>
           <br />
