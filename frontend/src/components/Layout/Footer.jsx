@@ -6,7 +6,7 @@ import TWT from "../../assets/footer/twitter_logo.png";
 export default function Footer() {
   return (
     <div
-      className={`${bgGradLightRed} w-full flex flex-col justify-between items-center align-middle font-Rajdhani text-white md:flex-row-reverse lg:flex-col lg:items-end`}
+      className={`${bgGradLightRed} dark:bg-gradient-to-br dark:from-customDarkRed dark:to-customDarkRed-endGrad w-full flex flex-col justify-between items-center align-middle font-Rajdhani text-white md:flex-row-reverse lg:flex-col lg:items-end`}
     >
       <div className="md:flex md:space-x-7 md:mr-10 lg:mb-0.5 lg:mt-7">
         <h3 className="font-Silkscreen text-xl my-6 lg:my-0">FOLLOW US!</h3>
