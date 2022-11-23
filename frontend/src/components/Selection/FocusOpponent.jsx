@@ -11,7 +11,7 @@ function FocusOpponent({ clickedOpponent }) {
     <div className="my-7 mx-0 flex justify-between items-center md:flex-col-reverse md:h-[80%] md:ml-10">
       <div className="w-fit flex flex-col justify-between">
         <div
-          className={`w-fit py-1 px-2 ${bgGradLightGrey} flex shadow-custom rounded-xl xs:py-2`}
+          className={`w-fit py-1 px-2 ${bgGradLightGrey} flex shadow-custom rounded-xl xs:py-2 dark:text-black`}
         >
           <Stats
             statValue={statPokemon[0].base_stat}

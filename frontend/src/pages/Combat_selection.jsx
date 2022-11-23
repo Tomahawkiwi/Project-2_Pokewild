@@ -60,7 +60,7 @@ function CombatSelection() {
     );
 
   return (
-    <div className="bg-customLightGrey w-full min-h-screen pb-10">
+    <div className="bg-customLightGrey dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad w-full min-h-screen pb-10">
       <HeaderDial
         dialbox={dialbox}
         setDialbox={setDialbox}

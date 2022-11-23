@@ -14,7 +14,7 @@ function SelectionArena({ clickedArena, setClickedArena }) {
           screenWidth < 768 && bgGradLightGrey
         } rounded-xl shadow-custom flex shrink-0 items-center md:bg-transparent md:shadow-none md:w-fit md:px-5 md:py-2 md:mb-2`}
       >
-        <p className="font-Silkscreen text-base text-center">
+        <p className="font-Silkscreen text-base text-center dark:text-black">
           Select the arena
         </p>
       </div>

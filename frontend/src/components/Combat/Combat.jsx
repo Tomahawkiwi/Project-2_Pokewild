@@ -51,7 +51,7 @@ function Combat({
   }, []);
 
   return (
-    <div className="h-full bg-customLightGrey">
+    <div className="h-full bg-customLightGrey dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad">
       <LiveScreen
         clickedPokemon={clickedPokemon}
         lifePokemon={lifePokemon}

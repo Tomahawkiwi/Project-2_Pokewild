@@ -7,10 +7,13 @@ import FocusStats from "./FocusStats";
 import statMax from "../../../tools/stats";
 import LH from "../../../assets/img-pokedex/logo-height.png";
 import LW from "../../../assets/img-pokedex/logo-weight.png";
+import arrowL from "../../../../public/pokedex/arrow-left.png";
+import arrowR from "../../../../public/pokedex/arrow-right.png";
 import { bgGradLightGrey } from "../../../tools/constants";
 import setFirstLogoFocus from "./setFirstLogoFocus";
 import setSecondLogoFocus from "./setSecondLogoFocus";
 import Pokeball from "../../../assets/navbar/poke-close-x2.png";
+import setAvailableToFight from "../../../tools/setAvailableToFight";
 
 function PokemonPage() {
   const { id } = useParams();
@@ -31,14 +34,17 @@ function PokemonPage() {
   return (
     <div>
       <Picture />
-      <div className="bg-white flex flex-col font-Silkscreen w-3/4 rounded-3xl my-10 mx-auto p-2">
+      <div className="bg-white dark:bg-[#AFAFAF] flex flex-col font-Silkscreen w-3/4 rounded-3xl my-10 mx-auto p-2">
         <div className="grid grid-cols-3 text-base font-Rajdhani">
           {id !== "1" ? (
             <Link
-              className={`flex items-center justify-center h-1/2 ${bgGradLightGrey} border rounded-3xl`}
+              className={`flex items-center md:text-xl justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl px-4`}
               to={`/pokedex/${+id - 1}`}
             >
-              Previous
+              <div className="w-[10%] flex justify-center">
+                <img className="h-4" src={arrowL} alt="arrow left" />
+              </div>
+              <p className="w-[90%] text-center">Previous</p>
             </Link>
           ) : (
             <div className="invisible">Previous</div>
@@ -46,12 +52,22 @@ function PokemonPage() {
           <img className="mx-auto h-1/2" src={Pokeball} alt="pokeball" />
           {id !== "151" && (
             <Link
-              className={`flex items-center justify-center h-1/2 ${bgGradLightGrey} border rounded-3xl`}
+              className={`flex items-center md:text-xl justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl px-4`}
               to={`/pokedex/${+id + 1}`}
             >
-              Next
+              <p className="w-[90%] text-center">Next</p>
+              <div className="w-[10%] flex justify-center">
+                <img className="h-4" src={arrowR} alt="arrow right" />
+              </div>
             </Link>
           )}
+        </div>
+        <div className="flex justify-center ml-72 pt-3">
+          <div className="w-10">
+            {setAvailableToFight(pokemon) && (
+              <img src="/fight_mode/picto_fight.png" alt="fightmode" />
+            )}
+          </div>
         </div>
         <div>
           <img
@@ -92,9 +108,11 @@ function PokemonPage() {
             </div>
           </div>
           <div
-            className={`${bgGradLightGrey} font-Rajdhani rounded-xl px-2 mt-10 w-11/12 mx-auto mb-5`}
+            className={`${bgGradLightGrey} dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad font-Rajdhani rounded-xl px-2 mt-10 w-11/12 mx-auto mb-5`}
           >
-            <h1 className="flex justify-center text-xl py-2 mb-3">BASE STAT</h1>
+            <h1 className="flex justify-center text-xl py-2 mb-3 dark:text-white">
+              BASE STAT
+            </h1>
             <div className="flex items-start justify-center mx-3 lg:mx-8">
               <FocusStats
                 statValue={pokemon.stats[0].base_stat}

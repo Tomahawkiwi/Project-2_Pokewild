@@ -44,7 +44,7 @@ function Dialbox({
 
   return (
     <div
-      className={`h-36 ${bgGradLightGrey} flex justify-center items-center align-middle
+      className={`h-36 ${bgGradLightGrey} dark:bg-[#AFAFAF] dark:text-black flex justify-center items-center align-middle
       border-b-[3px] border-customDarkGrey ${isFightBegin ? "mb-0" : "mb-6"} ${
         isCardOpponent || isCardPokemon ? "px-[3.5%]" : "px-[10%]"
       } sm:h-48`}
@@ -87,7 +87,7 @@ function Dialbox({
           onClick={() => handleBegin()}
           className={`${
             isChoiceValidated
-              ? "bg-customLightRed hover:scale-110 transition-colors duration-300 ease-in-out"
+              ? "bg-customLightRed dark:bg-gradient-to-br dark:from-customDarkRed dark:to-customDarkRed-endGrad hover:scale-110 transition-colors duration-300 ease-in-out"
               : "bg-customDarkGrey-lighter cursor-not-allowed"
           } text-white w-36 ml-5 p-3 h-fit rounded-2xl shadow-custom font-Silkscreen text-lg sm:py-2`}
         >

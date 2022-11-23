@@ -71,7 +71,7 @@ function FocusGamer({
       </div>
       <div className="w-fit flex flex-col justify-between md:flex-col-reverse">
         <div
-          className={`w-fit py-1 px-2 ${bgGradLightGrey} flex shadow-custom rounded-xl xs:py-2`}
+          className={`w-fit py-1 px-2 ${bgGradLightGrey} flex shadow-custom rounded-xl xs:py-2 dark:text-black`}
         >
           <Stats
             statValue={statPokemon[0].base_stat}
@@ -130,7 +130,7 @@ function FocusGamer({
             className={`${
               clickedPokemon.name !== choiceByDefault.name &&
               Object.keys(clickedArena).length === 2
-                ? "bg-customLightRed hover:scale-110 cursor-pointer transition-colors duration-300 ease-in-out"
+                ? "bg-customLightRed dark:bg-gradient-to-br dark:from-customDarkRed dark:to-customDarkRed-endGrad hover:scale-110 cursor-pointer transition-colors duration-300 ease-in-out"
                 : "bg-customDarkGrey-lighter cursor-not-allowed"
             } text-white w-full max-w-[136px] h-10 mt-2 mx-auto rounded-2xl shadow-custom font-Silkscreen text-base md:mt-0 md:mb-6 lg:mb-3`}
           >
