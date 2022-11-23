@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SelectPokemons from "../components/Selection/SelectPokemons";
 import { choiceByDefault, opponentByDefault } from "../tools/constants";
-import SelectionArena from "../components/Selection/SelectionArena";
-import FocusOpponent from "../components/Selection/FocusOpponent";
 import HeaderDial from "../components/Selection/HeaderDial";
 import Combat from "../components/Combat/Combat";
 
@@ -16,7 +14,10 @@ function CombatSelection() {
   const [clickedArena, setClickedArena] = useState({});
   const [dialbox, setDialbox] = useState("CHOOSE YOUR POKEMON");
   const [isFightBegin, setIsFightBegin] = useState(false);
-  // don't forget to put back initial isFightBegin on "false" when combat part ok !
+  const [isMyTurn, setIsMyTurn] = useState(false);
+  const [isCardPokemon, setIsCardPokemon] = useState(false);
+  const [isCardOpponent, setIsCardOpponent] = useState(false);
+  const [cardType, setCardType] = useState({});
 
   const getPokemon = async (index, controller) => {
     await axios
@@ -66,10 +67,13 @@ function CombatSelection() {
         isChoiceValidated={isChoiceValidated}
         setIsFightBegin={setIsFightBegin}
         isFightBegin={isFightBegin}
+        isCardPokemon={isCardPokemon}
+        isCardOpponent={isCardOpponent}
+        cardType={cardType}
       />
       {!isLoading &&
         (!isFightBegin ? (
-          <div className="w-10/12 mx-auto">
+          <div className="w-10/12 mx-auto md:flex">
             <SelectPokemons
               allData={allData}
               clickedPokemon={clickedPokemon}
@@ -79,20 +83,23 @@ function CombatSelection() {
               clickedOpponent={clickedOpponent}
               setClickedOpponent={setClickedOpponent}
               clickedArena={clickedArena}
+              setClickedArena={setClickedArena}
               setDialbox={setDialbox}
             />
-            <SelectionArena
-              clickedArena={clickedArena}
-              setClickedArena={setClickedArena}
-            />
-            <FocusOpponent clickedOpponent={clickedOpponent} />
           </div>
         ) : (
           <Combat
             clickedPokemon={clickedPokemon}
             clickedOpponent={clickedOpponent}
             clickedArena={clickedArena}
-            dialbox={dialbox}
+            isMyTurn={isMyTurn}
+            setIsMyTurn={setIsMyTurn}
+            setDialbox={setDialbox}
+            isCardPokemon={isCardPokemon}
+            setIsCardPokemon={setIsCardPokemon}
+            isCardOpponent={isCardOpponent}
+            setIsCardOpponent={setIsCardOpponent}
+            setCardType={setCardType}
           />
         ))}
     </div>

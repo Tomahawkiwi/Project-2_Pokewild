@@ -9,6 +9,11 @@ module.exports = {
       "not-allowed": "url(/Cursors/pokemon-not-allowed.png), not-allowed",
     },
     extend: {
+      screens: {
+        "3xs": "420px",
+        "2xs": "470px",
+        xs: "520px",
+      },
       colors: {
         customLightRed: {
           DEFAULT: "#E70100",

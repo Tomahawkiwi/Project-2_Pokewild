@@ -4,6 +4,8 @@ import { bgGradLightGrey } from "../../tools/constants";
 import FocusGamer from "./FocusGamer";
 import Select1Pokemon from "./Select1Pokemon";
 import SelectRandomPokemon from "./SelectRandomPokemon";
+import SelectionArena from "./SelectionArena";
+import FocusOpponent from "./FocusOpponent";
 
 function SelectPokemons({
   allData,
@@ -14,6 +16,7 @@ function SelectPokemons({
   clickedOpponent,
   setClickedOpponent,
   clickedArena,
+  setClickedArena,
   setDialbox,
 }) {
   const [buttonReady, setButtonReady] = useState(false);
@@ -31,7 +34,7 @@ function SelectPokemons({
   };
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center md:flex-row md:items-center md:justify-between">
       <FocusGamer
         clickedPokemon={clickedPokemon}
         setIsChoiceValidated={setIsChoiceValidated}
@@ -42,32 +45,39 @@ function SelectPokemons({
         buttonReady={buttonReady}
         setButtonReady={setButtonReady}
       />
-      <div
-        className={`w-full ${bgGradLightGrey} rounded-xl shadow-custom mx-auto`}
-      >
-        <div className="w-fit grid gap-3 grid-cols-4 px-4 py-4 mx-auto">
-          {allData.map((pokemon) => (
-            <Select1Pokemon
-              key={pokemon.name}
-              allData1Pokemon={pokemon}
-              imagePokemon={pokemon.sprites.front_default}
-              namePokemon={pokemon.name}
+      <div className="md:w-fit">
+        <div
+          className={`w-full ${bgGradLightGrey} rounded-xl shadow-custom mx-auto lg:px-10`}
+        >
+          <div className="w-fit grid gap-3 grid-cols-4 px-4 py-4 mx-auto xs:grid-cols-6 md:flex md:flex-wrap md:justify-center">
+            {allData.map((pokemon) => (
+              <Select1Pokemon
+                key={pokemon.name}
+                allData1Pokemon={pokemon}
+                imagePokemon={pokemon.sprites.front_default}
+                namePokemon={pokemon.name}
+                setClickedPokemon={setClickedPokemon}
+                clickedPokemon={clickedPokemon}
+                clickedOpponent={clickedOpponent}
+                setIsChoiceValidated={setIsChoiceValidated}
+                setButtonReady={setButtonReady}
+              />
+            ))}
+            <SelectRandomPokemon
+              width="w-5"
               setClickedPokemon={setClickedPokemon}
-              clickedPokemon={clickedPokemon}
-              clickedOpponent={clickedOpponent}
+              allData={allData}
               setIsChoiceValidated={setIsChoiceValidated}
               setButtonReady={setButtonReady}
             />
-          ))}
-          <SelectRandomPokemon
-            width="w-5"
-            setClickedPokemon={setClickedPokemon}
-            allData={allData}
-            setIsChoiceValidated={setIsChoiceValidated}
-            setButtonReady={setButtonReady}
-          />
+          </div>
         </div>
+        <SelectionArena
+          clickedArena={clickedArena}
+          setClickedArena={setClickedArena}
+        />
       </div>
+      <FocusOpponent clickedOpponent={clickedOpponent} />
     </div>
   );
 }
@@ -81,6 +91,7 @@ SelectPokemons.propTypes = {
   clickedOpponent: PropTypes.objectOf(PropTypes.any).isRequired,
   setClickedOpponent: PropTypes.func.isRequired,
   clickedArena: PropTypes.objectOf(PropTypes.any).isRequired,
+  setClickedArena: PropTypes.func.isRequired,
   setDialbox: PropTypes.func.isRequired,
 };
 

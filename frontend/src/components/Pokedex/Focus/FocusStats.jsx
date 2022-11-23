@@ -17,7 +17,7 @@ function FocusStats({
   const heightPvChosen = getHeight(typeStatMax, statValue);
 
   return (
-    <div className="flex flex-col items-center py-2 mx-[5%] dark:text-white">
+    <div className="flex flex-col items-center py-2 mx-2 sm:mx-4 md:mx-[3%] dark:text-white">
       <div
         style={{ height: `${heightStatFull}px` }}
         className="w-6 rounded-full bg-customLightGrey-lighter dark:bg-[#AFAFAF] relative z-0 overflow-hidden"
@@ -35,7 +35,7 @@ function FocusStats({
           </div>
         </motion.div>
       </div>
-      <p className="w-4 mt-5 text-center text-[12px] leading-3 md:w-10">
+      <p className="w-4 mt-5 text-center text-[12px] leading-3 sm:w-10">
         {textStat}
       </p>
     </div>
