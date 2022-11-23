@@ -8,10 +8,10 @@ function FocusOpponent({ clickedOpponent }) {
   const statPokemon = clickedOpponent.stats;
 
   return (
-    <div className="my-7 mx-0 flex justify-between items-center">
+    <div className="my-7 mx-0 flex justify-between items-center md:flex-col-reverse md:h-[80%] md:ml-10">
       <div className="w-fit flex flex-col justify-between">
         <div
-          className={`w-fit py-1 px-2 ${bgGradLightGrey} flex shadow-custom rounded-xl`}
+          className={`w-fit py-1 px-2 ${bgGradLightGrey} flex shadow-custom rounded-xl xs:py-2`}
         >
           <Stats
             statValue={statPokemon[0].base_stat}
@@ -58,7 +58,7 @@ function FocusOpponent({ clickedOpponent }) {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center mx-3">
+      <div className="flex flex-col justify-center items-center mx-[7%] xs:mx-[15%]">
         <div className="flex justify-center items-center w-32 h-32">
           <img
             src={
@@ -71,10 +71,10 @@ function FocusOpponent({ clickedOpponent }) {
               clickedOpponent.name === "articuno"
                 ? "w-24"
                 : "w-32"
-            }  h-fit`}
+            }  h-fit xs:scale-[120%]`}
           />
         </div>
-        <p className="w-full font-Silkscreen mt-2 text-xl text-center">
+        <p className="w-full font-Silkscreen mt-2 text-xl text-center xs:mt-4 md:w-[140%]">
           {clickedOpponent.name}
         </p>
       </div>

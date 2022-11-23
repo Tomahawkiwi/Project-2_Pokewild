@@ -48,8 +48,8 @@ function FocusGamer({
   };
 
   return (
-    <div className="my-7 mx-0 flex justify-between">
-      <div className="flex flex-col justify-center items-center mx-3">
+    <div className="my-7 mx-0 flex justify-between md:flex-col md:h-[80%] md:mr-10">
+      <div className="flex flex-col justify-center items-center mx-[7%] xs:mx-[15%]">
         <div className="flex justify-center items-center w-32 h-32">
           <img
             src={
@@ -62,16 +62,16 @@ function FocusGamer({
               clickedPokemon.name === "articuno"
                 ? "w-24"
                 : "w-32"
-            }  h-fit`}
+            }  h-fit xs:scale-[120%]`}
           />
         </div>
-        <p className="w-full font-Silkscreen mt-2 text-xl text-center">
+        <p className="w-full font-Silkscreen mt-2 text-xl text-center xs:mt-4 md:w-[140%]">
           {clickedPokemon.name}
         </p>
       </div>
-      <div className="w-fit flex flex-col justify-between">
+      <div className="w-fit flex flex-col justify-between md:flex-col-reverse">
         <div
-          className={`w-fit py-1 px-2 ${bgGradLightGrey} flex shadow-custom rounded-xl`}
+          className={`w-fit py-1 px-2 ${bgGradLightGrey} flex shadow-custom rounded-xl xs:py-2`}
         >
           <Stats
             statValue={statPokemon[0].base_stat}
@@ -118,7 +118,8 @@ function FocusGamer({
         </div>
         {buttonReady ? (
           <div
-            className={`${bgGradLightGrey} h-10 w-10 rounded-full shadow-custom mx-auto flex justify-center items-center text-center text-green-600 text-2xl`}
+            className={`${bgGradLightGrey} h-10 w-10 rounded-full shadow-custom mx-auto flex justify-center items-center
+            text-center text-green-600 text-2xl md:mt-0 md:mb-6`}
           >
             ✓
           </div>
@@ -131,7 +132,7 @@ function FocusGamer({
               Object.keys(clickedArena).length === 2
                 ? "bg-customLightRed hover:scale-110 cursor-pointer transition-colors duration-300 ease-in-out"
                 : "bg-customDarkGrey-lighter cursor-not-allowed"
-            } text-white w-full h-10 mt-2 rounded-2xl shadow-custom font-Silkscreen text-base`}
+            } text-white w-full max-w-[136px] h-10 mt-2 mx-auto rounded-2xl shadow-custom font-Silkscreen text-base md:mt-0 md:mb-6 lg:mb-3`}
           >
             Ready
           </button>

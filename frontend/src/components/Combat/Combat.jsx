@@ -9,10 +9,14 @@ function Combat({
   clickedPokemon,
   clickedOpponent,
   clickedArena,
-  dialbox,
   isMyTurn,
   setIsMyTurn,
   setDialbox,
+  isCardPokemon,
+  setIsCardPokemon,
+  isCardOpponent,
+  setIsCardOpponent,
+  setCardType,
 }) {
   const [lifePokemon, setLifePokemon] = useState(
     clickedPokemon.stats[0].base_stat
@@ -25,6 +29,7 @@ function Combat({
   const [attack2, setAttack2] = useState({});
   const [attack1Opponent, setAttack1Opponent] = useState({});
   const [attack2Opponent, setAttack2Opponent] = useState({});
+  const [isFightEnd, setIsFightEnd] = useState(false);
 
   const getUrlTypeAttacks = async (pokemon, opponent) => {
     await axios
@@ -55,6 +60,7 @@ function Combat({
         lifeOpponent={lifeOpponent}
         setLifeOpponent={setLifeOpponent}
         clickedArena={clickedArena}
+        isFightEnd={isFightEnd}
       />
 
       {Object.keys(attack1).length > 0 && Object.keys(attack2).length > 0 && (
@@ -63,7 +69,6 @@ function Combat({
           setLifeOpponent={setLifeOpponent}
           lifePokemon={lifePokemon}
           setLifePokemon={setLifePokemon}
-          dialbox={dialbox}
           clickedPokemon={clickedPokemon}
           clickedOpponent={clickedOpponent}
           setDamages={setDamages}
@@ -75,6 +80,13 @@ function Combat({
           isMyTurn={isMyTurn}
           setIsMyTurn={setIsMyTurn}
           setDialbox={setDialbox}
+          isCardPokemon={isCardPokemon}
+          setIsCardPokemon={setIsCardPokemon}
+          isCardOpponent={isCardOpponent}
+          setIsCardOpponent={setIsCardOpponent}
+          setCardType={setCardType}
+          setIsFightEnd={setIsFightEnd}
+          isFightEnd={isFightEnd}
         />
       )}
     </div>
@@ -82,13 +94,17 @@ function Combat({
 }
 
 Combat.propTypes = {
-  dialbox: PropTypes.string.isRequired,
   clickedPokemon: PropTypes.objectOf(PropTypes.any).isRequired,
   clickedOpponent: PropTypes.objectOf(PropTypes.any).isRequired,
   clickedArena: PropTypes.objectOf(PropTypes.any).isRequired,
   setDialbox: PropTypes.func.isRequired,
   isMyTurn: PropTypes.bool.isRequired,
   setIsMyTurn: PropTypes.func.isRequired,
+  isCardPokemon: PropTypes.bool.isRequired,
+  setIsCardPokemon: PropTypes.func.isRequired,
+  isCardOpponent: PropTypes.bool.isRequired,
+  setIsCardOpponent: PropTypes.func.isRequired,
+  setCardType: PropTypes.func.isRequired,
 };
 
 export default Combat;

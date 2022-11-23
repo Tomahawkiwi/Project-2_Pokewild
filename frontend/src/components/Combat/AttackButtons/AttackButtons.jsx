@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AttackCard from "./CardPart/AttackCard";
 import AttackButton from "./AttackButton";
 
 function AttackButtons({
@@ -18,6 +17,11 @@ function AttackButtons({
   isMyTurn,
   setIsMyTurn,
   setDialbox,
+  setIsCardPokemon,
+  setIsCardOpponent,
+  setCardType,
+  setIsFightEnd,
+  isFightEnd,
 }) {
   const [isAttackLoading, setIsAttackLoading] = useState(true);
   const [typeEffectAttack1, setTypeEffectAttack1] = useState({});
@@ -28,9 +32,6 @@ function AttackButtons({
   const [typeEffectAttackOpponent2, setTypeEffectAttackOpponent2] = useState(
     {}
   );
-  const [isCardPokemon, setIsCardPokemon] = useState(false);
-  const [isCardOpponent, setIsCardOpponent] = useState(false);
-  const [cardType, setCardType] = useState("");
 
   const getEffectsTypeAttacks = async () => {
     setIsAttackLoading(true);
@@ -64,26 +65,6 @@ function AttackButtons({
     <div>
       {!isAttackLoading && (
         <div className="relative w-full">
-          {isCardPokemon && (
-            <div className="absolute bottom-[550%] left-1/2 transform -translate-x-1/2">
-              <AttackCard
-                typeAttack={cardType.type.name}
-                isCard={isCardPokemon}
-                initialX={-150}
-                initialY={400}
-              />
-            </div>
-          )}
-          {isCardOpponent && (
-            <div className="absolute bottom-[550%] right-1/2 transform translate-x-1/2">
-              <AttackCard
-                typeAttack={cardType.type.name}
-                isCard={isCardOpponent}
-                initialX={100}
-                initialY={200}
-              />
-            </div>
-          )}
           <div className="flex justify-center mt-6 mb-8">
             <AttackButton
               pokemon={clickedPokemon}
@@ -104,6 +85,8 @@ function AttackButtons({
               setIsCardPokemon={setIsCardPokemon}
               setIsCardOpponent={setIsCardOpponent}
               setCardType={setCardType}
+              setIsFightEnd={setIsFightEnd}
+              isFightEnd={isFightEnd}
             />
             <AttackButton
               pokemon={clickedPokemon}
@@ -124,6 +107,8 @@ function AttackButtons({
               setIsCardPokemon={setIsCardPokemon}
               setIsCardOpponent={setIsCardOpponent}
               setCardType={setCardType}
+              setIsFightEnd={setIsFightEnd}
+              isFightEnd={isFightEnd}
             />
           </div>
         </div>
@@ -146,6 +131,11 @@ AttackButtons.propTypes = {
   isMyTurn: PropTypes.bool.isRequired,
   setDialbox: PropTypes.func.isRequired,
   setIsMyTurn: PropTypes.func.isRequired,
+  setIsCardPokemon: PropTypes.func.isRequired,
+  setIsCardOpponent: PropTypes.func.isRequired,
+  setCardType: PropTypes.func.isRequired,
+  isFightEnd: PropTypes.bool.isRequired,
+  setIsFightEnd: PropTypes.func.isRequired,
 };
 
 export default AttackButtons;

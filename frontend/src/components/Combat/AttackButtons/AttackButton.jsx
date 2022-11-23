@@ -21,6 +21,8 @@ function AttackButton({
   setIsCardPokemon,
   setIsCardOpponent,
   setCardType,
+  setIsFightEnd,
+  isFightEnd,
 }) {
   const [turnOpponent, setTurnOpponent] = useState(0);
 
@@ -90,13 +92,13 @@ function AttackButton({
 
     const getMessageModuloType = (t) => {
       if (getModuloType(t, target) === 2) {
-        return "It was very effective ! ";
+        return "It was very effective !";
       }
       if (getModuloType(t, target) === 1) {
-        return "It was quite effective. ";
+        return "It was quite effective.";
       }
       if (getModuloType(t, target) === 0.5) {
-        return "It wasn't very effective... ";
+        return "It wasn't very effective...";
       }
       return 1;
     };
@@ -106,10 +108,11 @@ function AttackButton({
       return setTimeout(
         () =>
           setDialbox(
-            `${getMessageModuloType(
-              typeAttack,
-              target
-            )}... but pikachu is a legend !`
+            <p>
+              {getMessageModuloType(typeAttack, target)}
+              <br />
+              ...but pikachu is a legend !
+            </p>
           ),
         3500
       );
@@ -121,14 +124,15 @@ function AttackButton({
 
     if (chanceToAttack <= accuracy) {
       if (chanceToOneShot === 1) {
-        setLifeTarget(lifeTarget - lifeTarget);
+        setLifeTarget(0);
         return setTimeout(
           () =>
             setDialbox(
-              `${getMessageModuloType(
-                typeAttack,
-                target
-              )}But incredible... this attack just doomed ${target.name} !`
+              <p className="w-full">
+                {getMessageModuloType(typeAttack, target)}
+                <br />
+                But incredible... this attack just doomed {target.name} !
+              </p>
             ),
           3500
         );
@@ -140,10 +144,11 @@ function AttackButton({
         return setTimeout(
           () =>
             setDialbox(
-              `${getMessageModuloType(
-                typeAttack,
-                target
-              )}Lucky, it hit critical !`
+              <p className="w-full">
+                {getMessageModuloType(typeAttack, target)}
+                <br />
+                Luckily, it hit critical !
+              </p>
             ),
           3500
         );
@@ -235,13 +240,13 @@ function AttackButton({
     const randomize = (chances) => Math.floor(Math.random() * chances + 1);
 
     if (attack1IA.length > attack2IA.length) {
-      if (randomize(4) >= 3) {
+      if (randomize(4) <= 3) {
         return [AttacksOpponent[0], typeEffectOpponent1];
       }
       return [AttacksOpponent[1], typeEffectOpponent2];
     }
     if (attack1IA.length < attack2IA.length) {
-      if (randomize(4) >= 3) {
+      if (randomize(4) <= 3) {
         return [AttacksOpponent[1], typeEffectOpponent2];
       }
       return [AttacksOpponent[0], typeEffectOpponent1];
@@ -296,21 +301,30 @@ function AttackButton({
     }
     setTimeout(() => {
       if (lifePokemon === 0) {
+        setIsCardOpponent(false);
         setIsMyTurn(false);
       } else {
+        setIsCardOpponent(false);
         setIsMyTurn(true);
       }
-    }, 7000);
+    }, 8000);
   };
 
   // I use useEffect to get in react opponent turn at the end of gamer turn (see setTurnOpponent)
 
   useEffect(() => {
-    if (opponent.stats[5].base_stat > pokemon.stats[5].base_stat) {
+    if (lifeOpponent === 0) {
+      setTimeout(() => setIsFightEnd(true), 3000);
+    }
+    if (
+      opponent.stats[5].base_stat > pokemon.stats[5].base_stat &&
+      !isFightEnd
+    ) {
       if (turnOpponent === 0 && lifeOpponent !== 0) {
+        setIsMyTurn(false);
         setTimeout(() => {
           OpponentAttackAndHandleTurn();
-        }, 7000);
+        }, 6500);
       }
       if (turnOpponent !== 0 && lifeOpponent !== 0) {
         setTimeout(() => {
@@ -318,7 +332,15 @@ function AttackButton({
         }, 7000);
       }
     }
-    if (opponent.stats[5].base_stat <= pokemon.stats[5].base_stat) {
+    if (
+      opponent.stats[5].base_stat <= pokemon.stats[5].base_stat &&
+      !isFightEnd
+    ) {
+      if (turnOpponent === 0 && lifeOpponent !== 0) {
+        setTimeout(() => {
+          setIsMyTurn(true);
+        }, 6000);
+      }
       if (turnOpponent !== 0 && lifeOpponent !== 0) {
         setTimeout(() => {
           OpponentAttackAndHandleTurn();
@@ -326,6 +348,16 @@ function AttackButton({
       }
     }
   }, [turnOpponent]);
+
+  // I use a second useEffect to stop the fight when my pokemon is KO to start the component "EndScreen"
+
+  useEffect(() => {
+    if (lifePokemon === 0) {
+      setTimeout(() => {
+        setIsFightEnd(true);
+      }, 5000);
+    }
+  }, [lifePokemon]);
 
   // THE JSX
 
@@ -377,6 +409,8 @@ AttackButton.propTypes = {
   setIsCardPokemon: PropTypes.func.isRequired,
   setIsCardOpponent: PropTypes.func.isRequired,
   setCardType: PropTypes.func.isRequired,
+  isFightEnd: PropTypes.bool.isRequired,
+  setIsFightEnd: PropTypes.func.isRequired,
 };
 
 export default AttackButton;
