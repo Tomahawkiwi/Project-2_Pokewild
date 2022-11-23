@@ -18,7 +18,7 @@ function HeaderDial({
 
   return (
     <div>
-      <div className="hidden md:flex justify-end mr-5 py-10">
+      <div className="absolute right-3 top-12 hidden md:flex justify-end mr-5 py-10">
         <Switch />
       </div>
       <div className="h-fit mt-14">
