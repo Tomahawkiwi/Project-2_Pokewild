@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import SelectPokémon from "../components/Selection/SelectPokémons";
+import SelectPokemons from "../components/Selection/SelectPokemons";
+import { choiceByDefault, opponentByDefault } from "../tools/constants";
+import HeaderDial from "../components/Selection/HeaderDial";
+import Combat from "../components/Combat/Combat";
 
 function CombatSelection() {
   const [allData, setAllData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [clickedPokemon, setClickedPokemon] = useState(choiceByDefault);
+  const [isChoiceValidated, setIsChoiceValidated] = useState(false);
+  const [clickedOpponent, setClickedOpponent] = useState(opponentByDefault);
+  const [clickedArena, setClickedArena] = useState({});
+  const [dialbox, setDialbox] = useState("CHOOSE YOUR POKEMON");
+  const [isFightBegin, setIsFightBegin] = useState(false);
+  const [isMyTurn, setIsMyTurn] = useState(false);
+  const [isCardPokemon, setIsCardPokemon] = useState(false);
+  const [isCardOpponent, setIsCardOpponent] = useState(false);
+  const [cardType, setCardType] = useState({});
 
   const getPokemon = async (index, controller) => {
     await axios
@@ -47,8 +60,48 @@ function CombatSelection() {
     );
 
   return (
-    <div className="bg-customLightGrey w-full min-h-screen">
-      {!isLoading && <SelectPokémon allData={allData} />}
+    <div className="bg-customLightGrey dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad w-full min-h-screen pb-8 md:pb-20">
+      <HeaderDial
+        dialbox={dialbox}
+        setDialbox={setDialbox}
+        isChoiceValidated={isChoiceValidated}
+        setIsFightBegin={setIsFightBegin}
+        isFightBegin={isFightBegin}
+        isCardPokemon={isCardPokemon}
+        isCardOpponent={isCardOpponent}
+        cardType={cardType}
+      />
+      {!isLoading &&
+        (!isFightBegin ? (
+          <div className="w-10/12 mx-auto md:flex md:pt-10">
+            <SelectPokemons
+              allData={allData}
+              clickedPokemon={clickedPokemon}
+              setClickedPokemon={setClickedPokemon}
+              setIsChoiceValidated={setIsChoiceValidated}
+              isChoiceValidated={isChoiceValidated}
+              clickedOpponent={clickedOpponent}
+              setClickedOpponent={setClickedOpponent}
+              clickedArena={clickedArena}
+              setClickedArena={setClickedArena}
+              setDialbox={setDialbox}
+            />
+          </div>
+        ) : (
+          <Combat
+            clickedPokemon={clickedPokemon}
+            clickedOpponent={clickedOpponent}
+            clickedArena={clickedArena}
+            isMyTurn={isMyTurn}
+            setIsMyTurn={setIsMyTurn}
+            setDialbox={setDialbox}
+            isCardPokemon={isCardPokemon}
+            setIsCardPokemon={setIsCardPokemon}
+            isCardOpponent={isCardOpponent}
+            setIsCardOpponent={setIsCardOpponent}
+            setCardType={setCardType}
+          />
+        ))}
     </div>
   );
 }

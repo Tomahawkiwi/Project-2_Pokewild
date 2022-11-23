@@ -15,3 +15,9 @@ body {
 *:after {
   @apply cursor-default;
 }
+
+a,
+button,
+input {
+  @apply cursor-pointer;
+}

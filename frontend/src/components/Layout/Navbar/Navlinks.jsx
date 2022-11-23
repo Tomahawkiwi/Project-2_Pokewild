@@ -1,40 +1,14 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-import { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import useOnClickOutside from "@jidayyy/useonclickoutside";
+import Fight from "../../../assets/navbar/logoFight.png";
+import Pokedex from "../../../assets/navbar/logoPokedex.png";
+import Switch from "../Switch/Switch";
 
-function Switch() {
-  const [checked, setChecked] = useState(false);
-
-  return (
-    <div className="h-full relative flex flex-col items-center justify-center z-50">
-      <div className="flex">
-        <label className="inline-flex  relative items-center mr-5 cursor-pointer">
-          <input
-            onChange={() => setChecked((state) => !state)}
-            checked={checked}
-            type="checkbox"
-            className="sr-only peer"
-            readOnly
-          />
-          <div
-            className={`w-20 test  h-6 bg-customLightRed-endGrad rounded-full peer ${
-              checked ? "after:bg-fantominus" : "after:bg-dark"
-            } after:bg-cover peer-focus:ring-green-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:-top-2 after:left-[2px]
-             after:bg-gray-300 after:border-full after:rounded-full after:h-10 after:w-10 after:transition-all peer-checked:bg-customLightRed-endGrad after:border-spacing-1`}
-          />
-        </label>
-      </div>
-    </div>
-  );
-}
-
-const navLinks = [
+export const navLinks = [
   {
-    linkName: "Pokédex",
+    linkName: "Pokedex",
     path: "/pokedex",
-    image: "src/assets/navbar/logoPokedex.png",
+    image: Pokedex,
     color: "#878787",
     width: "90%",
     fontFamily: "Silkscreen",
@@ -44,7 +18,7 @@ const navLinks = [
   {
     linkName: "Combat",
     path: "/combat",
-    image: "src/assets/navbar/logoFight.png",
+    image: Fight,
     color: "#AFAFAF",
     width: "80%",
     fontFamily: "Silkscreen",
@@ -56,17 +30,13 @@ const navLinks = [
 export default function NavLinks(props) {
   const { setIsOpen } = props;
 
-  const ref = useRef();
-
-  useOnClickOutside(ref, () => setIsOpen(false));
-
   return (
-    <ul className="w-full top-16 absolute bg-opacity-70 bg-black h-screen flex-col flex items-end">
-      <div ref={ref} className="w-full flex justify-end flex-col items-end">
+    <ul className="w-full bottom-0 z-20 transform translate-y-[100%] absolute flex-col flex items-end">
+      <div className="w-full flex justify-end flex-col items-end">
         {navLinks.map((item) => (
           <Link
             key={item.linkName}
-            className="rounded-bl-2xl p-2 h-24 flex"
+            className="rounded-bl-2xl p-2 h-24 flex cursor-pointer"
             style={{
               backgroundColor: item.color,
               width: item.width,
@@ -79,11 +49,15 @@ export default function NavLinks(props) {
             to={item.path}
           >
             {item.image && (
-              <img src={item.image} className="w-16 ml-3" alt="logo" />
+              <img
+                src={item.image}
+                className="w-16 ml-3 cursor-pointer"
+                alt="logo"
+              />
             )}
             <p
               style={{ marginTop: item.marginTop }}
-              className="mx-4 align-middle pt-"
+              className="mx-4 align-middle cursor-pointer"
             >
               {item.linkName}
             </p>
