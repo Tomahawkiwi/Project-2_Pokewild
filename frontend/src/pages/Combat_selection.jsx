@@ -60,7 +60,7 @@ function CombatSelection() {
     );
 
   return (
-    <div className="bg-customLightGrey dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad w-full min-h-screen pb-10">
+    <div className="bg-customLightGrey dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad w-full min-h-screen pb-8 md:pb-20">
       <HeaderDial
         dialbox={dialbox}
         setDialbox={setDialbox}
@@ -73,7 +73,7 @@ function CombatSelection() {
       />
       {!isLoading &&
         (!isFightBegin ? (
-          <div className="w-10/12 mx-auto md:flex">
+          <div className="w-10/12 mx-auto md:flex md:pt-10">
             <SelectPokemons
               allData={allData}
               clickedPokemon={clickedPokemon}

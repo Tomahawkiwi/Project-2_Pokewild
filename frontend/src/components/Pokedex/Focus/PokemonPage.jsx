@@ -41,10 +41,19 @@ function PokemonPage() {
               className={`flex items-center md:text-xl justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl px-4`}
               to={`/pokedex/${+id - 1}`}
             >
-              <div className="w-[10%] flex justify-center">
-                <img className="h-4" src={arrowL} alt="arrow left" />
-              </div>
-              <p className="w-[90%] text-center">Previous</p>
+              <button
+                type="button"
+                className="w-full flex justify-center items-center cursor-pointer"
+              >
+                <div className="w-[10%] flex justify-center cursor-pointer">
+                  <img
+                    className="h-4 cursor-pointer"
+                    src={arrowL}
+                    alt="arrow left"
+                  />
+                </div>
+                <p className="w-[90%] text-center cursor-pointer">Previous</p>
+              </button>
             </Link>
           ) : (
             <div className="invisible">Previous</div>
@@ -55,10 +64,19 @@ function PokemonPage() {
               className={`flex items-center md:text-xl justify-center h-1/2 ${bgGradLightGrey} dark:text-white dark:bg-gradient-to-br dark:from-customDarkGrey dark:to-customDarkGrey-endGrad border dark:border-black rounded-3xl px-4`}
               to={`/pokedex/${+id + 1}`}
             >
-              <p className="w-[90%] text-center">Next</p>
-              <div className="w-[10%] flex justify-center">
-                <img className="h-4" src={arrowR} alt="arrow right" />
-              </div>
+              <button
+                type="button"
+                className="w-full flex justify-center items-center cursor-pointer"
+              >
+                <p className="w-[90%] text-center cursor-pointer">Next</p>
+                <div className="w-[10%] flex justify-center cursor-pointer">
+                  <img
+                    className="h-4 cursor-pointer"
+                    src={arrowR}
+                    alt="arrow right"
+                  />
+                </div>
+              </button>
             </Link>
           )}
         </div>
