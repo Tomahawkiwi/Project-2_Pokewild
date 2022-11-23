@@ -34,7 +34,7 @@ function SelectPokemons({
   };
 
   return (
-    <div className="flex flex-col justify-center md:flex-row md:items-center md:justify-between">
+    <div className="flex flex-col justify-center md:flex-row md:items-center md:justify-between mx-auto">
       <FocusGamer
         clickedPokemon={clickedPokemon}
         setIsChoiceValidated={setIsChoiceValidated}
@@ -49,7 +49,7 @@ function SelectPokemons({
         <div
           className={`w-full ${bgGradLightGrey} rounded-xl shadow-custom mx-auto lg:px-10`}
         >
-          <div className="w-fit grid gap-3 grid-cols-4 px-4 py-4 mx-auto xs:grid-cols-6 md:flex md:flex-wrap md:justify-center">
+          <div className="w-fit grid gap-3 grid-cols-4 px-4 py-4 mx-auto xs:grid-cols-6 md:flex md:flex-wrap md:justify-center max-w-[460px]">
             {allData.map((pokemon) => (
               <Select1Pokemon
                 key={pokemon.name}

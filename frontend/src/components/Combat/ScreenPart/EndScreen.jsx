@@ -58,7 +58,7 @@ function EndScreen({ lifeOpponent, lifePokemon }) {
               <p className="text-xl text-center font-Silkscreen text-white md:text-4xl">
                 Congratulations,
                 <br />
-                you win !
+                you won !
               </p>
               <button
                 type="button"
