@@ -1,16 +1,20 @@
 ## Concept
+React project about creating a system of pokemon combats as in-game and displaying infos about pokemons
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+## App overview
 
-## Setup & Use
+![screencapture-localhost-3000-2022-12-09-11_47_13](https://user-images.githubusercontent.com/104623376/206688005-4f635370-0359-4f4f-93f9-30c6db28b4e1.png)
 
-### Project Initialization
+![screencapture-localhost-3000-pokedex-6-2022-12-09-11_46_43](https://user-images.githubusercontent.com/104623376/206688017-b0c83307-1299-47e5-add1-3c807bfe180e.png)
 
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- Run command `npm run setup`
-- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
+<img width="320" alt="Capture d’écran 2022-12-09 à 11 46 12" src="https://user-images.githubusercontent.com/104623376/206688067-ae90c2b3-d590-4bdf-9da6-39b06b80bedf.png">
+
+<img width="320" alt="Capture d’écran 2022-12-09 à 11 45 55" src="https://user-images.githubusercontent.com/104623376/206688101-08c96ad7-fc15-44a9-8036-36cc3a2ed90e.png">
+
+<img width="320" alt="Capture d’écran 2022-12-09 à 11 44 54" src="https://user-images.githubusercontent.com/104623376/206688120-d6744db6-4922-4bfb-a6f5-f1b0e420c479.png">
+
+<img width="320" alt="Capture d’écran 2022-12-09 à 11 43 52" src="https://user-images.githubusercontent.com/104623376/206688151-7862fcf7-0930-4daf-8899-3826dd832529.png">
+
 
 ### Available Commands
 
